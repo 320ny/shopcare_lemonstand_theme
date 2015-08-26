@@ -1,0 +1,8 @@
+---
+name: ShopCare
+author: 320NY
+website: 'https://320ny.com/lemonstand'
+engine: twig
+404: home
+customFields: {  }
+---
