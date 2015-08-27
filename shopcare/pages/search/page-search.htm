@@ -1,0 +1,21 @@
+---
+action: 'shop:search'
+template: main
+protocol: all
+published: true
+name: Search
+url: '/search/:page?'
+---
+<div>
+  <div>
+    <div>
+      <div>
+        <p>Products found: {{ products.get().count() }}</p>
+      </div>
+    </div>
+    
+    <div>
+      {{ partial('shop-product-list', {'products': products}) }}
+    </div>
+  </div>
+</div>

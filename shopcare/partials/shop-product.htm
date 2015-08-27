@@ -1,0 +1,65 @@
+{% set on_sale = product.onSale %}
+
+<div>
+  <div class="item-images">
+    <div class="big-image">
+      <img src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.name }}"/>
+    </div>
+    
+    {% if product.images.count > 1 %}
+    <ul>
+      {% for image in product.images %}
+        <li><a href="{{ image.thumbnail(746, 'auto') }}"><img src="{{ image.thumbnail(367, 367) }}"/></a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+<div>
+  <div class="short-description {{ on_sale ? 'sale' : null }}">
+    <h2>{{ product.name }}</h2>
+    <span>
+      <i>
+        {% if on_sale %}
+         <span class="oldprice">{{ product.fullPrice|currency }}</span>
+        {% endif %}
+        {{ product.price|currency }}
+      </i>
+    </span>
+  </div>
+
+  {{ partial('shop-product-attributes') }}
+  {{ partial('shop-product-options') }}
+  {{ partial('shop-product-extras') }}
+
+  {% if product.enabled %}
+    {% if not product.isOutOfStock() %}
+      {{ flash() }}
+      <label class="title" for="customDropdown">Quantity</label>
+      
+      <div>
+        <div>
+          <input type="text" value="{{ quantity|default("1") }}" name="quantity"/>
+        </div>
+        <div>
+          <input type="hidden" name="productId" value="{{ product.id }}"/>
+          <a href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
+        </div>
+      </div>
+    {% else %}
+      <div class="not-available">
+        <p>
+          This product is temporarily unavailable.
+        </p>
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="not-available"><p>This product is not available.</p></div>
+  {% endif %}
+  
+  {% if product.description %}
+    <h3>Description</h3>
+    {{ product.description|unescape }}
+  {% endif %}
+
+</div>

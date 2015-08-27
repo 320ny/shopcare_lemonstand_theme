@@ -1,0 +1,76 @@
+---
+template: main
+protocol: all
+published: true
+name: Contact
+url: /contact
+---
+<div>
+  <div>
+    <div>
+      <div>
+        <h3>Mailing Address</h3>
+        <p>
+            Customer Service / ECommerce<br />
+            0000 Madeup Street<br />
+            Boulder, CO<br />
+            000 000<br />
+            United States
+        </p>
+        <p>
+            <strong>E-mail:</strong> comments@email.com<br />
+            <strong>Toll FREE:</strong> 1-800-000-0000
+        </p>
+      </div>
+      <div>
+        <h3>Opening hours</h3>
+        <p>
+            Monday: 9 AM - 11 PM<br />
+            Tuesday: 9 AM - 11 PM<br />
+            Wednesday: 9 AM - 11 PM<br />
+            Thursday: 9 AM - 12 AM<br />
+            Friday: 9 AM - 12 AM<br />
+            Saturday: 9 AM - 7 PM<br />
+            Sunday: 9 AM - 7 PM
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+    <div>
+        {{ flash() }}
+    
+        {{ open_form({'data-ajax-handler': 'system:onSendMessage'}) }}
+            <h3>Send us a message</h3>
+        
+            <div>
+                <div>
+                    <label for="contact_email">E-mail Address *</label>
+                    <input type="text" id="contact_email" name="fields[email]" value=""/>
+                    <span class="error"/>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="contact_name">Your Name *</label>
+                    <input type="text" id="contact_name" name="fields[name]" value=""/>
+                    <span class="error"/>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="contact_message">Message *</label>
+                    <textarea id="contact_message" name="fields[message]" value="" rows="10"></textarea>
+                    <span class="error"/>
+                </div>
+            </div>
+
+            <input type="submit" class="button" value="Submit"/>
+            <input type="text" name="hp" value="" style="display: none"/>
+        {{ close_form() }}
+    </div>
+</div>

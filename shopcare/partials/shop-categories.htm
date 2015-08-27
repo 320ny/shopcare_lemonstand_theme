@@ -1,0 +1,10 @@
+{% tree categories %}
+    <ul>
+        {% for category in tree.items %}
+            <li>
+                <a href="/category/{{ category.url_name }}">{{ category.name }}</a>
+                {% branch category.children %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endtree %}

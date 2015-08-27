@@ -1,0 +1,46 @@
+{{ flash() }}
+
+{% if itemCount %}
+  <div class="row">
+    {{ partial('shop-cart-items', {'edit_cart': true}) }}
+  </div>
+  
+  <div>
+    
+    <div>
+      {% if totals.discountTotal > 0 %}
+        <p><strong>Coupon discount:</strong> <i>{{ totals.discountTotal|currency }}</i></p>
+      {% endif %}
+      <p><strong>Cart total:</strong> <i>{{ totals.subtotal|currency }}</i></p>
+      {% if totals.totalShippingQuote > 0 %}
+        <p><strong>Shipping:</strong> <i>{{ totals.totalShippingQuote|currency }}</i></p>
+      {% endif %}
+      <p><strong>Estimated total:</strong>  <i>{{ totals.total|currency }}</i></p>
+    </div>
+  </div>  
+  <div>
+    <div>
+      <div>
+        <a href="{{ site_url('shop') }}">Continue shopping</a>
+      </div>
+      <div>
+        <div>
+          <input type="text" id="coupon" name="coupon" value="{{ coupon_code }}" placeholder="Coupon code" />
+        
+          <a href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Update cart</a>
+          {% if customer %}
+            <a class="button" href="{{ site_url('/checkout') }}">Checkout</a>
+          {% else %}
+            <a class="button" href="{{ site_url('/checkout-start') }}">Checkout</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div>
+    <div>
+      <a href="{{ site_url('shop') }}">Your cart is empty! Continue shopping.</a>
+    </div>
+  </div>
+{% endif %}

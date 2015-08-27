@@ -1,0 +1,63 @@
+<header>
+  <div>
+    <div>
+      {% if customer %}
+        Welcome, {{ customer.first_name }}!
+        <a href="{{ site_url('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ site_url('login') }}">Login or Register</a>
+      {% endif %}
+    </div>
+    <div>
+      <div>
+        <div>
+          {{ open_form({'class': 'search', 'method': 'get', 'action': site_url('search')}) }}
+            <input type="text" name="query" value="{{query|unescape}}" placeholder="Search store&hellip;"/>
+          {{ close_form() }}
+        </div>
+        <div id="mini-cart">{{ partial('shop-minicart') }}</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+        <a href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto', 'auto') }}" alt="" class="logo"></a>
+    </div>
+    <div>
+      <ul class="nav-bar">
+        {% set active_page = globals.active_page|default('home') %}
+        <li class="{{ active_page == 'home' ? 'active' : null }}"><a href="{{ site_url('/') }}">Home</a></li>
+        <li class="{{ active_page == 'shop' ? 'active' : null }}">
+          <a href="{{ site_url('shop') }}">Shop</a>
+          {% if categories.count %}
+              <a href="{{ site_url('shop') }}"><span> </span></a>
+              <ul>
+                {% tree categories %}
+                    {% for category in tree.items %}
+                        <li><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></li>
+                    {% endfor %}
+                {% endtree %}
+              </ul>
+          {% endif %}
+        </li>
+        {% if customer %}
+          <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li>
+          <li class="{{ active_page == 'profile' ? 'active' : null }}"><a href="{{ site_url('profile') }}">My Profile</a></li>
+        {% endif %}
+        <li class="{{ active_page == 'about' ? 'active' : null }}"><a href="{{ site_url('about') }}">About</a></li>
+        <li class="{{ active_page == 'contact' ? 'active' : null }}"><a href="{{ site_url('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  
+
+    <div>
+      <div>
+        <div><h2>{{ page.title }}</h2></div>
+        <div>
+          {{ code_block('breadcrumbs') }}
+        </div>
+      </div>
+    </div>
+
+</header>

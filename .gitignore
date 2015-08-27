@@ -1,3 +1,4 @@
 .DS_Store
 lemonsync.cfg
 *.zip
+.sass-cache

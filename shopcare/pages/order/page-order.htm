@@ -1,0 +1,42 @@
+---
+action: 'shop:order'
+template: main
+protocol: all
+published: true
+name: Order
+url: '/order/:orderId'
+---
+<div>
+  <div>
+    {% if order %}
+      <div>
+        <div>
+          <p><strong>Order number: </strong> #{{ order.number }} </p>
+          {% if order.invoices[0].payments().last().guessPaymentMethod() %}
+          <p><strong>Payment method: </strong> {{ order.invoices[0].payments().last().guessPaymentMethod().name }}</p>
+          {% endif %}
+          <p><strong>Order Date: </strong> {{ order.created_at.format('M jS, Y') }}</p>
+        </div>
+      </div>
+      
+      <div>
+        {{ partial('shop-orderitems') }}
+      </div>
+
+      <div>
+        <div>
+          {% if order.payment_method.has_payment_form() and not order.payment_processed() %}
+            <a class="button" href="{{ root_url('/review/'~order.order_hash) }}">Pay the order</a>
+          {% endif %}
+        </div>
+    
+        <div>
+          {{ partial('shop-ordertotals') }}
+        </div>
+      </div>
+      
+    {% else %}
+      <p class="flash error">Order not found</p>
+    {% endif %}
+  </div>
+</div>

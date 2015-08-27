@@ -3,6 +3,8 @@ name: ShopCare
 author: 320NY
 website: 'https://320ny.com/lemonstand'
 engine: twig
-404: home
-customFields: {  }
+404: '404'
+customFields:
+    logoImage: { type: image, title: 'Logo Image', default: '@images/logo.png' }
+    faviconImage: { type: image, title: 'Favicon Image', default: '@images/favicon.png' }
 ---

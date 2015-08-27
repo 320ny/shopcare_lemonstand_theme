@@ -24,11 +24,10 @@
         data: {query: text}
       }, function(response) {
         ShopCare.SearchBar.showResults(response.data);
-      )
+      })
     },
-    showResults: fucntion(data) {
+    showResults: function(data) {
       var products = data;
-      // inject results into the DOM
     }
   };
 

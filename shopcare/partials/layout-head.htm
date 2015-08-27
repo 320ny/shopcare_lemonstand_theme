@@ -1,3 +1,5 @@
+{{ code_block('setup') }}
+
 <meta charset="UTF-8">
 <meta name="Description" content="{{ page.description }}"/>
 <meta name="Keywords" content="{{ page.keywords }}"/>
@@ -6,6 +8,9 @@
 
 <title>{{ page.title }} | {{ theme.companyNameText }}</title>
 
-<link rel="stylesheet" type="text/css" href="{{ 'css/shopcare.css'|theme_resource }}">
+<link rel="stylesheet" type="text/css" href="/cms/core.css">
+<link rel="stylesheet" type="text/css" href="{{ 'css/shopcare.css' |theme_resource }}">
 
-<script type="text/javascript" src="{{ 'javascript/shopcare.js'|theme_resource }}"></script>
+<script type="text/javascript" src="{{ 'javascript/jquery-1.11.3.min.js' |theme_resource }}"></script>
+<script type="text/javascript" src="/cms/core.js"></script>
+<script type="text/javascript" src="{{ 'javascript/ShopCare.js' |theme_resource }}"></script>
