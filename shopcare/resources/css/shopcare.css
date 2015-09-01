@@ -1,7 +1,100 @@
+@import url(normalize.min.css);
 html {
   box-sizing: border-box; }
 
 *, *::after, *::before {
   box-sizing: inherit; }
+
+/* 
+--------------------
+
+GLOBAL
+
+--------------------
+*/
+body {
+  font-family: courier, arial, sans-serif;
+  font-weight: 300; }
+
+img {
+  width: 100%; }
+
+a {
+  text-decoration: none; }
+
+/* 
+--------------------
+
+HEADER
+
+--------------------
+*/
+header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%; }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header .logo {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    header .logo:last-child {
+      margin-right: 0; }
+  header nav {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 8.5298%;
+    text-align: right; }
+    header nav:last-child {
+      margin-right: 0; }
+    header nav li {
+      display: inline-block;
+      margin: 0 2.5%;
+      list-style-type: none; }
+  header #mini-cart sup {
+    font-size: .7em; }
+
+/* 
+--------------------
+
+FOOTER
+
+--------------------
+*/
+footer {
+  margin-top: 5%;
+  padding-top: 5%;
+  background: #F5F5F3; }
+  footer .footer-wrapper {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    footer .footer-wrapper::after {
+      clear: both;
+      content: "";
+      display: table; }
+    footer .footer-wrapper .footer-links-1,
+    footer .footer-wrapper .footer-links-2,
+    footer .footer-wrapper .footer-philosophy,
+    footer .footer-wrapper .footer-newsletter {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      footer .footer-wrapper .footer-links-1:last-child,
+      footer .footer-wrapper .footer-links-2:last-child,
+      footer .footer-wrapper .footer-philosophy:last-child,
+      footer .footer-wrapper .footer-newsletter:last-child {
+        margin-right: 0; }
+    footer .footer-wrapper .footer-newsletter span {
+      display: block;
+      font-size: 2em; }
 
 /*# sourceMappingURL=shopcare.css.map */
