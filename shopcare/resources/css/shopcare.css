@@ -1,7 +1,168 @@
+@import url(normalize.min.css);
 html {
   box-sizing: border-box; }
 
 *, *::after, *::before {
   box-sizing: inherit; }
+
+/* 
+--------------------
+
+GLOBAL
+
+--------------------
+*/
+body {
+  font-family: courier, arial, sans-serif;
+  font-weight: 300; }
+
+img {
+  width: 100%; }
+
+a {
+  text-decoration: none; }
+
+/* 
+--------------------
+
+HEADER
+
+--------------------
+*/
+header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%; }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header .logo {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    header .logo:last-child {
+      margin-right: 0; }
+  header nav {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 8.5298%;
+    text-align: right; }
+    header nav:last-child {
+      margin-right: 0; }
+    header nav li {
+      display: inline-block;
+      margin: 0 2.5%;
+      list-style-type: none; }
+  header #mini-cart sup {
+    font-size: .7em; }
+
+/* 
+--------------------
+
+FOOTER
+
+--------------------
+*/
+footer {
+  margin-top: 5%; }
+  footer .footer-wrapper {
+    padding: 2% 0;
+    background: #F5F5F3; }
+    footer .footer-wrapper .footer-content {
+      max-width: 68em;
+      margin-left: auto;
+      margin-right: auto; }
+      footer .footer-wrapper .footer-content::after {
+        clear: both;
+        content: "";
+        display: table; }
+      footer .footer-wrapper .footer-content .footer-links-1,
+      footer .footer-wrapper .footer-content .footer-links-2,
+      footer .footer-wrapper .footer-content .footer-philosophy,
+      footer .footer-wrapper .footer-content .footer-newsletter {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        padding: 5%; }
+        footer .footer-wrapper .footer-content .footer-links-1:last-child,
+        footer .footer-wrapper .footer-content .footer-links-2:last-child,
+        footer .footer-wrapper .footer-content .footer-philosophy:last-child,
+        footer .footer-wrapper .footer-content .footer-newsletter:last-child {
+          margin-right: 0; }
+        @media only screen and (min-width: 768px) {
+          footer .footer-wrapper .footer-content .footer-links-1,
+          footer .footer-wrapper .footer-content .footer-links-2,
+          footer .footer-wrapper .footer-content .footer-philosophy,
+          footer .footer-wrapper .footer-content .footer-newsletter {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 23.23176%;
+            padding: 1% 0 0 2%;
+            min-height: 250px;
+            border-left: 1px solid #E0E0E0; }
+            footer .footer-wrapper .footer-content .footer-links-1:last-child,
+            footer .footer-wrapper .footer-content .footer-links-2:last-child,
+            footer .footer-wrapper .footer-content .footer-philosophy:last-child,
+            footer .footer-wrapper .footer-content .footer-newsletter:last-child {
+              margin-right: 0; } }
+        footer .footer-wrapper .footer-content .footer-links-1 ul,
+        footer .footer-wrapper .footer-content .footer-links-2 ul,
+        footer .footer-wrapper .footer-content .footer-philosophy ul,
+        footer .footer-wrapper .footer-content .footer-newsletter ul {
+          padding: 0;
+          margin-top: 4%; }
+          footer .footer-wrapper .footer-content .footer-links-1 ul li,
+          footer .footer-wrapper .footer-content .footer-links-2 ul li,
+          footer .footer-wrapper .footer-content .footer-philosophy ul li,
+          footer .footer-wrapper .footer-content .footer-newsletter ul li {
+            margin-bottom: 3%;
+            list-style-type: none; }
+            footer .footer-wrapper .footer-content .footer-links-1 ul li a,
+            footer .footer-wrapper .footer-content .footer-links-2 ul li a,
+            footer .footer-wrapper .footer-content .footer-philosophy ul li a,
+            footer .footer-wrapper .footer-content .footer-newsletter ul li a {
+              color: #999;
+              text-decoration: none;
+              font-size: .9em; }
+        footer .footer-wrapper .footer-content .footer-links-1 p,
+        footer .footer-wrapper .footer-content .footer-links-2 p,
+        footer .footer-wrapper .footer-content .footer-philosophy p,
+        footer .footer-wrapper .footer-content .footer-newsletter p {
+          margin-top: 4%;
+          font-size: .9em;
+          line-height: 1.5;
+          color: #999; }
+      footer .footer-wrapper .footer-content .footer-newsletter {
+        padding-right: 2%;
+        text-align: center;
+        border-right: 1px solid #E0E0E0; }
+        footer .footer-wrapper .footer-content .footer-newsletter span {
+          display: block;
+          font-size: 2em; }
+  footer .copyright {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    footer .copyright::after {
+      clear: both;
+      content: "";
+      display: table; }
+    footer .copyright p {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin-bottom: 4%;
+      text-align: center;
+      font-size: .9em; }
+      footer .copyright p:last-child {
+        margin-right: 0; }
 
 /*# sourceMappingURL=shopcare.css.map */
