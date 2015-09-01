@@ -1,0 +1,17 @@
+---
+content_type: 'text/html; charset=utf-8'
+description: 'The main layout'
+---
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>        
+        {{ partial("layout-head") }}
+    </head>
+    <body>
+        {{ partial("layout-header") }}
+        <section>
+            {{ page() }}
+        </section>
+        {{ partial("layout-footer") }}
+    </body>
+</html>
