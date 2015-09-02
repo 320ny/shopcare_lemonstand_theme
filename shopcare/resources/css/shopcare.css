@@ -16,9 +16,6 @@ body {
   font-family: courier, arial, sans-serif;
   font-weight: 300; }
 
-img {
-  width: 100%; }
-
 a {
   text-decoration: none; }
 
@@ -45,6 +42,8 @@ header {
     width: 23.23176%; }
     header .logo:last-child {
       margin-right: 0; }
+    header .logo img {
+      width: 100%; }
   header nav {
     float: left;
     display: block;
@@ -69,7 +68,64 @@ FOOTER
 --------------------
 */
 footer {
+  position: relative;
   margin-top: 5%; }
+  footer .prefooter-wrapper {
+    padding: 4% 0;
+    background: url("../images/footer-background.jpg"); }
+    footer .prefooter-wrapper .prefooter-content {
+      max-width: 68em;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center; }
+      footer .prefooter-wrapper .prefooter-content::after {
+        clear: both;
+        content: "";
+        display: table; }
+      footer .prefooter-wrapper .prefooter-content .prefooter-links1 {
+        margin-left: 12.79471%; }
+      footer .prefooter-wrapper .prefooter-content .prefooter-links1,
+      footer .prefooter-wrapper .prefooter-content .prefooter-links2,
+      footer .prefooter-wrapper .prefooter-content .prefooter-links3 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        margin-top: 4%; }
+        footer .prefooter-wrapper .prefooter-content .prefooter-links1:last-child,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links2:last-child,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links3:last-child {
+          margin-right: 0; }
+        footer .prefooter-wrapper .prefooter-content .prefooter-links1 img,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links2 img,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links3 img {
+          width: 80px; }
+        footer .prefooter-wrapper .prefooter-content .prefooter-links1 h4,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links2 h4,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links3 h4 {
+          margin: 3% 0 2%; }
+        footer .prefooter-wrapper .prefooter-content .prefooter-links1 p,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links2 p,
+        footer .prefooter-wrapper .prefooter-content .prefooter-links3 p {
+          margin: 0; }
+      footer .prefooter-wrapper .prefooter-content h5 {
+        margin: 0;
+        font-size: 1.5em; }
+      footer .prefooter-wrapper .prefooter-content h4 {
+        margin: 0;
+        font-size: 2em; }
+      footer .prefooter-wrapper .prefooter-content p {
+        padding: 0 10%;
+        margin-bottom: 0; }
+      footer .prefooter-wrapper .prefooter-content .tbp-logo {
+        display: none; }
+        @media only screen and (min-width: 768px) {
+          footer .prefooter-wrapper .prefooter-content .tbp-logo {
+            display: block;
+            position: absolute;
+            right: 100px;
+            top: 60px;
+            width: 50px; } }
   footer .footer-wrapper {
     padding: 2% 0;
     background: #F5F5F3; }
@@ -140,12 +196,27 @@ footer {
           line-height: 1.5;
           color: #999; }
       footer .footer-wrapper .footer-content .footer-newsletter {
+        margin-right: 0;
         padding-right: 2%;
         text-align: center;
         border-right: 1px solid #E0E0E0; }
         footer .footer-wrapper .footer-content .footer-newsletter span {
           display: block;
           font-size: 2em; }
+      footer .footer-wrapper .footer-content .social-icons {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        margin-top: 3%;
+        text-align: center; }
+        footer .footer-wrapper .footer-content .social-icons:last-child {
+          margin-right: 0; }
+        footer .footer-wrapper .footer-content .social-icons a {
+          display: inline-block;
+          width: 40px; }
+          footer .footer-wrapper .footer-content .social-icons a img {
+            width: 100%; }
   footer .copyright {
     max-width: 68em;
     margin-left: auto;
@@ -164,5 +235,14 @@ footer {
       font-size: .9em; }
       footer .copyright p:last-child {
         margin-right: 0; }
+  footer .made-in {
+    display: none; }
+    @media only screen and (min-width: 768px) {
+      footer .made-in {
+        display: block;
+        position: absolute;
+        bottom: 47px;
+        left: 50px;
+        width: 120px; } }
 
 /*# sourceMappingURL=shopcare.css.map */

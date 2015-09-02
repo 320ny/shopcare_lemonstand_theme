@@ -21,9 +21,6 @@ body {
   font-family: courier, arial, sans-serif;
   font-weight: 300;
 }
-img {
-  width: 100%;
-}
 a {
   text-decoration: none;
 }
@@ -39,6 +36,9 @@ header {
   margin-top: 3%;
   .logo {
     @include span-columns(3);
+    img {
+      width: 100%;
+    }
   }
   nav {
     @include span-columns(8);
@@ -64,7 +64,56 @@ FOOTER
 --------------------
 */
 footer {
+  position: relative;
   margin-top: 5%;
+  .prefooter-wrapper {
+    padding: 4% 0;
+    background: url("../images/footer-background.jpg");
+    .prefooter-content {
+      @include outer-container;
+      text-align: center;
+      .prefooter-links1 {
+        @include shift(1.5);
+      }
+      .prefooter-links1,
+      .prefooter-links2,
+      .prefooter-links3 {
+        @include span-columns(3);
+        margin-top: 4%;
+        img {
+          width: 80px;
+        }
+        h4 {
+          margin: 3% 0 2%;
+        }
+        p {
+          margin: 0;
+        }
+      }
+      h5 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+      h4 {
+        margin: 0;
+        font-size: 2em;
+      }
+      p {
+        padding: 0 10%;
+        margin-bottom: 0;
+      }
+      .tbp-logo {
+        display: none;
+        @include respond-to(768) {
+          display: block;
+          position: absolute;
+          right: 100px;
+          top: 60px;
+          width: 50px;
+        }
+      }
+    }
+  }
   .footer-wrapper {
     padding: 2% 0;
     background: #F5F5F3;
@@ -103,12 +152,25 @@ footer {
         }
       }
       .footer-newsletter {
+        @include omega();
         padding-right: 2%;
         text-align: center;
         border-right: 1px solid #E0E0E0;
         span {
           display: block;
           font-size: 2em;
+        }
+      }
+      .social-icons {
+        @include span-columns(12);
+        margin-top: 3%;
+        text-align: center;
+        a {
+          display: inline-block;
+          width: 40px;
+          img {
+            width: 100%;
+          }
         }
       }
     }
@@ -120,6 +182,16 @@ footer {
       margin-bottom: 4%;
       text-align: center;
       font-size: .9em;
+    }
+  }
+  .made-in {
+    display: none;
+    @include respond-to(768) {
+      display: block;
+      position: absolute;
+      bottom: 47px;
+      left: 50px;
+      width: 120px;
     }
   }
 }
