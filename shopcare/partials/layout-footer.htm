@@ -3,24 +3,24 @@
     <section class="prefooter-content">
       <img src="{{ 'images/tbp.png'|theme_resource }}" class="tbp-logo">
 
-      <h5>More from</h5>
-      <h4>The Burren Perfumery</h4>
+      <h4>More from</h4>
+      <h3>The Burren Perfumery</h3>
 
       <section class="prefooter-links1">
         <img src="{{ 'images/prefooter-about.png'|theme_resource }}" />
-        <h4>About Us</h4>
+        <h3>About Us</h3>
         <p>This is some dummy text which needs to be replaced</p>
       </section>
 
       <section class="prefooter-links2">
         <img src="{{ 'images/prefooter-blog.png'|theme_resource }}" />
-        <h4>Blog</h4>
+        <h3>Blog</h3>
         <p>This is some dummy text which needs to be replaced</p>
       </section>
 
       <section class="prefooter-links2">
         <img src="{{ 'images/prefooter-tea.png'|theme_resource }}" />
-        <h4>Tea Room</h4>
+        <h3>Tea Room</h3>
         <p>This is some dummy text which needs to be replaced</p>
       </section>
     </section>
@@ -57,6 +57,23 @@
 
       <section class="footer-newsletter">
         Subscribe to our <span>Newsletter</span>
+
+       <form data-id="embedded_signup:form" class="ctct-custom-form Form" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
+         <input data-id="ca:input" type="hidden" name="ca" value="11818d30-fa5b-48ba-b793-c6d5996d8a93">
+         <input data-id="list:input" type="hidden" name="list" value="15">
+         <input data-id="source:input" type="hidden" name="source" value="EFD">
+         <input data-id="required:input" type="hidden" name="required" value="list,email,first_name">
+         <input data-id="url:input" type="hidden" name="url" value="">
+
+         <label data-id="First Name:label" data-name="first_name" class="ctct-form-required">Your Name</label>
+         <input data-id="First Name:input" type="text" name="first_name" value="" maxlength="50">
+
+         <label data-id="Email Address:label" data-name="email" class="ctct-form-required">Your Email Address</label>
+         <input data-id="Email Address:input" type="text" name="email" value="" maxlength="80">
+
+         <button type="submit" data-enabled="enabled">SIGN UP</button>
+       </form>
+
       </section>
 
       <aside class="social-icons">
@@ -74,5 +91,23 @@
   </aside>
 
 </footer>
+
+<script type='text/javascript'>
+   var localizedErrMap = {};
+   localizedErrMap['required'] =    'This field is required.';
+   localizedErrMap['ca'] =      'An unexpected error occurred while attempting to send email.';
+   localizedErrMap['email'] =       'Please enter your email address in name@email.com format.';
+   localizedErrMap['birthday'] =    'Please enter birthday in MM/DD format.';
+   localizedErrMap['anniversary'] =   'Please enter anniversary in MM/DD/YYYY format.';
+   localizedErrMap['custom_date'] =   'Please enter this date in MM/DD/YYYY format.';
+   localizedErrMap['list'] =      'Please select at least one email list.';
+   localizedErrMap['generic'] =     'This field is invalid.';
+   localizedErrMap['shared'] =    'Sorry, we could not complete your sign-up. Please contact us to resolve this.';
+   localizedErrMap['state_mismatch'] = 'Mismatched State/Province and Country.';
+  localizedErrMap['state_province'] = 'Select a state/province';
+   localizedErrMap['selectcountry'] =   'Select a country';
+   var postURL = 'https://visitor2.constantcontact.com/api/signup';
+</script>
+<script type='text/javascript' src='https://static.ctctcdn.com/h/contacts-embedded-signup-assets/1.0.2/js/signup-form.js'></script>
 
 <!--<p>Theme by <a href="https://320ny.com?source=shopcare_theme">320NY</a></p>-->

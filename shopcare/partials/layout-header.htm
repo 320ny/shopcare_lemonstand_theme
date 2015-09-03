@@ -5,20 +5,48 @@
   <nav>
     <ul class="nav-bar">
       {% set active_page = globals.active_page|default('home') %}
-      <li class="{{ active_page == 'shop' ? 'active' : null }}">
+      <li class="{{ active_page == 'shop' ? 'active' : null }} shop-link">
         <a href="{{ site_url('shop') }}">Shop</a>
-        <!--
         {% if categories.count %}
-          <a href="{{ site_url('shop') }}"><span> </span></a>
-          <ul>
-            {% tree categories %}
-                {% for category in tree.items %}
-                    <li><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></li>
-                {% endfor %}
-            {% endtree %}
+          <!--<a href="{{ site_url('shop') }}"><span> </span></a>-->
+          <ul class="shop-nav">
+            <li>
+              <h3>Per-<br>fumes</h3>
+              <a href="#">Perfumes</a><br>
+              <a href="#">Body Lotions</a><br>
+              <a href="#">Castille Soaps</a>
+            </li>
+            <li>
+              <h3>Face &amp;<br>Lip</h3>
+              <a href="#">Organic Day Cream</a><br>
+              <a href="#">Organic Night Cream</a><br>
+              <a href="#">Facial Serum</a>
+            </li>
+            <li>
+              <h3>Hand &amp;<br>Body</h3>
+              <a href="#">Organic Hand</a><br>
+              <a href="#">Organic Body Lotion</a><br>
+              <a href="#">Organic Castille</a>
+            </li>
+            <li>
+              <h3>Balms &amp;<br>Oils</h3>
+              <a href="#">Organic Herbal</a><br>
+              <a href="#">Organic Essential</a><br><br>
+            </li>
+            <li>
+              <h3>Soaps<br>&nbsp;</h3>
+              <a href="#">Handmade Soaps</a><br>
+              &nbsp;<br>
+              &nbsp;
+            </li>
+            <li>
+              <h3>Gifts<br>&nbsp;</h3>
+              <a href="#">Candles</a><br>
+              <a href="#">Gift Sets</a><br>
+              &nbsp;
+            </li>
           </ul>
         {% endif %}
-        -->
       </li>
       <li class="{{ active_page == 'about' ? 'active' : null }}"><a href="{{ site_url('about') }}">About Us</a></li>
       <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('blog') }}">Blog</a></li>
@@ -35,7 +63,13 @@
   
 </header>
 
+
 <!--
+{% tree categories %}
+    {% for category in tree.items %}
+        <li><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endtree %}
 
 SEARCH FORM
 
