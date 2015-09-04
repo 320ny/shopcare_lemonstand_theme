@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "normalize.min.css";
+@import url("//hello.myfonts.net/count/2f15c2");
 /* 
 --------------------
 
@@ -17,11 +18,53 @@ GLOBAL
   &:nth-child(#{$nth}) { margin-right: flex-gutter($grid-columns, $gutter); }
   &:nth-child(#{$nth}+1) { clear: none }
 }
+@font-face {font-family: 'IngridMono-Bold';src: url('../webfonts/2F15C2_0_0.eot');src: url('../webfonts/2F15C2_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/2F15C2_0_0.woff2') format('woff2'),url('../webfonts/2F15C2_0_0.woff') format('woff'),url('../webfonts/2F15C2_0_0.ttf') format('truetype');}
+@font-face {font-family: 'IngridMono-Book';src: url('../webfonts/2F15C2_1_0.eot');src: url('../webfonts/2F15C2_1_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/2F15C2_1_0.woff2') format('woff2'),url('../webfonts/2F15C2_1_0.woff') format('woff'),url('../webfonts/2F15C2_1_0.ttf') format('truetype');}
+@font-face {font-family: 'IngridMono-SemiBold';src: url('../webfonts/2F15C2_2_0.eot');src: url('../webfonts/2F15C2_2_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/2F15C2_2_0.woff2') format('woff2'),url('../webfonts/2F15C2_2_0.woff') format('woff'),url('../webfonts/2F15C2_2_0.ttf') format('truetype');}
+@font-face {font-family: 'sangbleu_serifhairline';src: url('../webfonts/sangbleuserif-hairline-webfont.eot');src: url('../webfonts/sangbleuserif-hairline-webfont.eot?#iefix') format('embedded-opentype'),url('../webfonts/sangbleuserif-hairline-webfont.woff2') format('woff2'),url('../webfonts/sangbleuserif-hairline-webfont.woff') format('woff'),url('../webfonts/sangbleuserif-hairline-webfont.ttf') format('truetype'),url('../webfonts/sangbleuserif-hairline-webfont.svg#sangbleu_serifhairline') format('svg');}
+@font-face {font-family: 'sangbleu_serifhairline_italic';src: url('../webfonts/sangbleuserif-hairlineitalic-webfont.eot');src: url('../webfonts/sangbleuserif-hairlineitalic-webfont.eot?#iefix') format('embedded-opentype'),url('../webfonts/sangbleuserif-hairlineitalic-webfont.woff2') format('woff2'),url('../webfonts/sangbleuserif-hairlineitalic-webfont.woff') format('woff'),url('../webfonts/sangbleuserif-hairlineitalic-webfont.ttf') format('truetype'),url('../webfonts/sangbleuserif-hairlineitalic-webfont.svg#sangbleu_serifhairline_italic') format('svg');}
+@font-face {font-family: 'sangbleu_seriflight';src: url('../webfonts/sangbleuserif-light-webfont.eot');src: url('../webfonts/sangbleuserif-light-webfont.eot?#iefix') format('embedded-opentype'),url('../webfonts/sangbleuserif-light-webfont.woff2') format('woff2'),url('../webfonts/sangbleuserif-light-webfont.woff') format('woff'),url('../webfonts/sangbleuserif-light-webfont.ttf') format('truetype'),url('../webfonts/sangbleuserif-light-webfont.svg#sangbleu_seriflight') format('svg');}
+@font-face {font-family: 'sangbleu_seriflight_italic';src: url('../webfonts/sangbleuserif-lightitalic-webfont.eot');src: url('../webfonts/sangbleuserif-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),url('../webfonts/sangbleuserif-lightitalic-webfont.woff2') format('woff2'),url('../webfonts/sangbleuserif-lightitalic-webfont.woff') format('woff'),url('../webfonts/sangbleuserif-lightitalic-webfont.ttf') format('truetype'),url('../webfonts/sangbleuserif-lightitalic-webfont.svg#sangbleu_seriflight_italic') format('svg');}
+@mixin font1-book {
+  font-family: 'IngridMono-Book', courier, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin font1-semibold {
+  font-family: 'IngridMono-SemiBold', courier, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin font1-bold {
+  font-family: 'IngridMono-Bold', courier, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin font2-hairline {
+  font-family: 'sangbleu_serifhairline', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin font2-hairline-italic {
+  font-family: 'sangbleu_serifhairline_italic', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin font2 {
+  font-family: 'sangbleu_seriflight', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin font2-italic {
+  font-family: 'sangbleu_seriflight_italic', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
 $green-dark: #425211;
 $green-light: #cdd3c5;
 body {
-  font-family: courier, arial, sans-serif;
-  font-weight: 300;
+  @include font1-book;
   color: #333;
 }
 a {
@@ -32,19 +75,62 @@ a {
     color: #333;
   }
 }
-h4 {
+h1,h2,h3,h4,h5,h6 {
+  @include font2;
   margin: 0;
-  font-size: 1.5em;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 3.5em;
 }
 h3 {
-  margin: 0;
   font-size: 2em;
+  em {
+    @include font2-italic;
+  }
+  .small {
+    display: block;
+    margin-bottom: 2%;
+    font-size: .4em;
+    color: #999;
+  }
+  .medium {
+    display: block;
+    font-size: .6em;
+    color: #555;
+  }
 }
 p {
-  font-size: .9em;
-  color: #999;
+  font-size: .8em;
+  color: #666;
+  line-height: 1.6;
 }
-/* 
+em,
+strong {
+  font-weight: normal;
+  font-style: normal;
+}
+strong {
+  @include font1-semibold;
+}
+input:focus {
+  outline: none;
+}
+.btn,
+input[type=submit] {
+  @include font1-semibold;
+  display: block;
+  margin-top: 5%;
+  border: 1px solid $green-dark;
+  padding: 9px 20px 7px;
+  background: none;
+  font-size: .8em;
+  &:hover {
+    background: $green-dark;
+    color: #fff;
+  }
+}
+/*
 --------------------
 
 HEADER
@@ -196,11 +282,12 @@ HOME
         @include span-columns(4);
         text-align: center;
         h3 {
+          @include font2-hairline;
           color: #fff;
         }
         p {
           padding: 0 7%;
-          color: #fff;
+          color: #ccc;
         }
       }
     }
@@ -223,7 +310,7 @@ HOME
     }
     p {
       padding: 0 5%;
-      margin: 0;
+      margin: 5% 0 0;
       text-align: center;
     }
     .pinterest-layout-1 {
@@ -263,6 +350,109 @@ HOME
 /* 
 --------------------
 
+LOGIN / REGISTER
+
+--------------------
+*/
+.login-register {
+  @include outer-container;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  form {
+    width: 70%;
+    margin: 0 auto;
+  }
+  h1 {
+    margin-bottom: 7%;
+    text-align: center;
+  }
+  .login {
+    @include span-columns(6);
+    padding: 1% 0 1% 0;
+  }
+  .register {
+    @include span-columns(6);
+    padding: 1% 0 1% 3%;
+    border-left: 1px dotted #666;
+  }
+  label {
+    display: block;
+    margin-bottom: 1%;
+    width: 100%;
+    font-size: .8em;
+    color: #666;
+    text-align: left;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 98%;
+    height: 40px;
+    margin-bottom: 5%;
+    border: 2px solid #eee;
+    padding: 10px;
+  }
+  .btn {
+    display: inline-block;
+    margin: 0;
+  }
+  a {
+    font-size: .8em;
+    text-decoration: underline;
+    color: #666;
+  }
+  p {
+    margin-top: 5%;
+    a {
+      font-size: 1em;
+    }
+  }
+}
+.new-password {
+  @include outer-container;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  .passwordRestoreRequestForm {
+    @include span-columns(12);
+  }
+  label {
+    display: block;
+    margin: 3% 0 1%;
+    color: #666;
+  }
+  input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    border: 2px solid #eee;
+    padding: 10px;
+  }
+  input[type=submit] {
+    margin-top: 0;
+    font-size: 1em;
+  }
+}
+/* 
+--------------------
+
+TERMS
+
+--------------------
+*/
+.terms {
+  @include outer-container;
+  margin-top: 5%;
+  .terms-wrapper {
+    @include span-columns(8);
+    @include shift(2);
+    p {
+      font-size: 1em;
+    }
+  }
+}
+/* 
+--------------------
+
 FOOTER
 
 --------------------
@@ -288,7 +478,7 @@ footer {
           width: 80px;
         }
         h3 {
-          margin: 3% 0 2%;
+          margin: 3% 0 4%;
         }
         p {
           margin: 0;
@@ -327,9 +517,12 @@ footer {
           min-height: 250px;
           border-left: 1px solid #E0E0E0;
         }
+        strong {
+          font-size: .9em;
+        }
         ul {
           padding: 0;
-          margin-top: 4%;
+          margin-top: 7%;
           li {
             margin-bottom: 3%;
             list-style-type: none;
@@ -341,8 +534,7 @@ footer {
           }
         }
         p {
-          margin-top: 4%;
-          line-height: 1.5;
+          margin-top: 7%;
         }
       }
       .footer-newsletter {
@@ -360,27 +552,15 @@ footer {
           border-bottom: 2px solid $green-dark;
           background: none;
           text-align: center;
-          &:focus {
-            outline: none;
-          }
         }
         label {
           display: block;
           margin-top: 15%;
-          color: #999;
-          font-size: .9em;
+          color: #666;
+          font-size: .8em;
         }
-        button[type="submit"] {
-          display: block;
+        .btn {
           margin: 15% auto 0;
-          border: 1px solid $green-dark;
-          padding: 8px 20px;
-          background: none;
-          font-size: .9em;
-          &:hover {
-            background: $green-dark;
-            color: #fff;
-          }
         }
       }
       .social-icons {

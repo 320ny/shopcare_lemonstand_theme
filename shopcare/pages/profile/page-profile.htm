@@ -6,9 +6,10 @@ published: true
 name: Profile
 url: /profile
 ---
-<div>
-  <div>
+
     {% if customer %}
+      <a href="{{ site_url('logout') }}">Logout</a>
+  
       <section id="profile-addresses">
       {{ partial('shop-customerprofile') }}
       </section>
@@ -19,5 +20,4 @@ url: /profile
     {% else %}
       Please <a href="{{ root_url('login') }}">login</a> to edit your profile.
     {% endif %}
-  </div>
-</div>
+

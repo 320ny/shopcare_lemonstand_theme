@@ -50,12 +50,14 @@
       </li>
       <li class="{{ active_page == 'about' ? 'active' : null }}"><a href="{{ site_url('about') }}">About Us</a></li>
       <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('blog') }}">Blog</a></li>
-      <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('login') }}">Login or Register</a></li>
+      {% if not customer %}
+        <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('login') }}">Login or Register</a></li>
+      {% endif %}
       {% if customer %}
         <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li>
         <li class="{{ active_page == 'profile' ? 'active' : null }}"><a href="{{ site_url('profile') }}">My Profile</a></li>
-        <li>Welcome, {{ customer.first_name }}!
-        <a href="{{ site_url('logout') }}">Logout</a></li>   
+        <!--<li>Welcome, {{ customer.first_name }}!
+        <a href="{{ site_url('logout') }}">Logout</a></li> -->  
       {% endif %}
       <li><div id="mini-cart">{{ partial('shop-minicart') }}</div></li>
     </ul>
