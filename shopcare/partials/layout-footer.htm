@@ -1,31 +1,29 @@
-<footer>
-  <section class="prefooter-wrapper">
-    <section class="prefooter-content">
-      <img src="{{ 'images/tbp.png'|theme_resource }}" class="tbp-logo">
+<footer>{% if (page_code() != 'about') %}
+    <section class="prefooter-wrapper">
+      <section class="prefooter-content">
+        <img src="{{ 'images/tbp.png'|theme_resource }}" class="tbp-logo">
 
-      <h3><em class="medium">More from</em>The Burren Perfumery</h3>
+        <h3><em class="medium">More from</em>The Burren Perfumery</h3>
 
-      <section class="prefooter-links1">
-        <img src="{{ 'images/prefooter-about.png'|theme_resource }}" />
-        <h3>About Us</h3>
-        <p>This is some dummy text which needs to be replaced</p>
-      </section>
+        <section class="prefooter-links1">
+          <img src="{{ 'images/prefooter-about.png'|theme_resource }}" />
+          <h3>About Us</h3>
+          <p>This is some dummy text which needs to be replaced</p>
+        </section>
 
-      <section class="prefooter-links2">
-        <img src="{{ 'images/prefooter-blog.png'|theme_resource }}" />
-        <h3>Blog</h3>
-        <p>This is some dummy text which needs to be replaced</p>
-      </section>
+        <section class="prefooter-links2">
+          <img src="{{ 'images/prefooter-blog.png'|theme_resource }}" />
+          <h3>Blog</h3>
+          <p>This is some dummy text which needs to be replaced</p>
+        </section>
 
-      <section class="prefooter-links2">
-        <img src="{{ 'images/prefooter-tea.png'|theme_resource }}" />
-        <h3>Tea Room</h3>
-        <p>This is some dummy text which needs to be replaced</p>
-      </section>
-    </section>
-  </section>
-
-  <section class="footer-wrapper">
+        <section class="prefooter-links2">
+          <img src="{{ 'images/prefooter-tea.png'|theme_resource }}" />
+          <h3>Tea Room</h3>
+          <p>This is some dummy text which needs to be replaced</p>
+        </section>
+      </section><!-- end prefooter-content -->
+    </section><!-- end prefooter-wrapper -->{% endif %}<section class="footer-wrapper">
     <section class="footer-content">
 
       <section class="footer-links-1">

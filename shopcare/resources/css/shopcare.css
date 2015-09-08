@@ -58,7 +58,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-style: normal;
   margin: 0;
-  line-height: 1.2; }
+  line-height: 1.2;
+  letter-spacing: 1px; }
 
 h1 {
   font-size: 3.5em; }
@@ -83,6 +84,11 @@ p {
   font-size: .8em;
   color: #666;
   line-height: 1.6; }
+
+em {
+  font-family: 'sangbleu_seriflight_italic', serif;
+  font-weight: normal;
+  font-style: normal; }
 
 em,
 strong {
@@ -121,6 +127,17 @@ input[type=submit] {
     margin-bottom: 5%;
     text-align: center;
     font-size: 1.3em; }
+
+.home,
+.cart,
+.about,
+.footer {
+  margin-top: 3%; }
+
+.login-register,
+.new-password,
+.terms {
+  margin-top: 5%; }
 
 /*
 --------------------
@@ -167,6 +184,9 @@ header {
           border-color: #425211; }
         header nav ul li a {
           color: #333; }
+      header nav ul li.active {
+        border-radius: 50%;
+        border-color: #425211; }
       header nav ul .shop-link {
         /*&:hover .shop-nav {
           display: block;
@@ -208,177 +228,175 @@ HOME
 
 --------------------
 */
-.home {
-  margin-top: 3%; }
-  .home .callout-left {
-    position: relative;
+.home .callout-left {
+  position: relative;
+  display: inline-block;
+  width: 65%;
+  padding: 23%;
+  background: url("../images/green-background.jpg"); }
+  .home .callout-left .about-callout {
     display: inline-block;
-    width: 65%;
-    padding: 23%;
-    background: url("../images/green-background.jpg"); }
-    .home .callout-left .about-callout {
-      display: inline-block;
-      position: absolute;
-      right: 20%;
-      bottom: 40%;
-      width: 150px;
-      padding: 4% 0;
-      border: 2px solid #425211;
-      text-align: center; }
-      .home .callout-left .about-callout:hover {
-        border-color: #cdd3c5; }
-    .home .callout-left .made-in {
-      position: absolute;
-      left: 10%;
-      bottom: 20%;
-      width: 120px; }
-  .home .callout-right {
-    position: relative;
+    position: absolute;
+    right: 20%;
+    bottom: 40%;
+    width: 150px;
+    padding: 4% 0;
+    border: 2px solid #425211;
+    text-align: center; }
+    .home .callout-left .about-callout:hover {
+      border-color: #cdd3c5; }
+  .home .callout-left .made-in {
+    position: absolute;
+    left: 10%;
+    bottom: 20%;
+    width: 120px; }
+.home .callout-right {
+  position: relative;
+  display: inline-block;
+  width: 35%;
+  padding: 22% 0;
+  background: url("../images/white-background.jpg") no-repeat right center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  .home .callout-right .product-otw {
     display: inline-block;
-    width: 35%;
-    padding: 22% 0;
-    background: url("../images/white-background.jpg") no-repeat right center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-    .home .callout-right .product-otw {
-      display: inline-block;
-      position: absolute;
-      right: 25%;
-      bottom: 35%;
-      width: 250px;
-      padding: 4%;
-      border: 2px solid #425211; }
-      .home .callout-right .product-otw:hover {
-        border-color: #cdd3c5; }
-  .home .who-we-are {
-    margin-top: -5px;
-    padding: 3.5% 0;
-    background: url("../images/green-map.jpg"); }
-    .home .who-we-are .who-we-are-wrapper {
-      max-width: 68em;
-      margin-left: auto;
-      margin-right: auto; }
-      .home .who-we-are .who-we-are-wrapper::after {
-        clear: both;
-        content: "";
-        display: table; }
-      .home .who-we-are .who-we-are-wrapper .who,
-      .home .who-we-are .who-we-are-wrapper .what,
-      .home .who-we-are .who-we-are-wrapper .where {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%;
-        text-align: center; }
-        .home .who-we-are .who-we-are-wrapper .who:last-child,
-        .home .who-we-are .who-we-are-wrapper .what:last-child,
-        .home .who-we-are .who-we-are-wrapper .where:last-child {
-          margin-right: 0; }
-        .home .who-we-are .who-we-are-wrapper .who h3,
-        .home .who-we-are .who-we-are-wrapper .what h3,
-        .home .who-we-are .who-we-are-wrapper .where h3 {
-          font-family: 'sangbleu_serifhairline', serif;
-          font-weight: normal;
-          font-style: normal;
-          color: #fff; }
-        .home .who-we-are .who-we-are-wrapper .who p,
-        .home .who-we-are .who-we-are-wrapper .what p,
-        .home .who-we-are .who-we-are-wrapper .where p {
-          padding: 0 7%;
-          color: #ccc; }
-  .home .pinterest-layout {
+    position: absolute;
+    right: 25%;
+    bottom: 35%;
+    width: 250px;
+    padding: 4%;
+    border: 2px solid #425211; }
+    .home .callout-right .product-otw:hover {
+      border-color: #cdd3c5; }
+.home .who-we-are {
+  margin-top: -5px;
+  padding: 3.5% 0;
+  background: url("../images/green-map.jpg"); }
+  .home .who-we-are .who-we-are-wrapper {
     max-width: 68em;
     margin-left: auto;
-    margin-right: auto;
-    padding-top: 2%; }
-    .home .pinterest-layout::after {
+    margin-right: auto; }
+    .home .who-we-are .who-we-are-wrapper::after {
       clear: both;
       content: "";
       display: table; }
-    .home .pinterest-layout img {
+    .home .who-we-are .who-we-are-wrapper .who,
+    .home .who-we-are .who-we-are-wrapper .what,
+    .home .who-we-are .who-we-are-wrapper .where {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      text-align: center; }
+      .home .who-we-are .who-we-are-wrapper .who:last-child,
+      .home .who-we-are .who-we-are-wrapper .what:last-child,
+      .home .who-we-are .who-we-are-wrapper .where:last-child {
+        margin-right: 0; }
+      .home .who-we-are .who-we-are-wrapper .who h3,
+      .home .who-we-are .who-we-are-wrapper .what h3,
+      .home .who-we-are .who-we-are-wrapper .where h3 {
+        font-family: 'sangbleu_serifhairline', serif;
+        font-weight: normal;
+        font-style: normal;
+        color: #fff; }
+      .home .who-we-are .who-we-are-wrapper .who p,
+      .home .who-we-are .who-we-are-wrapper .what p,
+      .home .who-we-are .who-we-are-wrapper .where p {
+        padding: 0 7%;
+        color: #ccc; }
+.home .pinterest-layout {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%; }
+  .home .pinterest-layout::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .home .pinterest-layout img {
+    width: 100%; }
+  .home .pinterest-layout h3 {
+    text-align: center; }
+    .home .pinterest-layout h3 span {
+      display: block;
+      margin-bottom: 1%;
+      font-style: italic;
+      font-size: .4em;
+      color: #999; }
+  .home .pinterest-layout p {
+    padding: 0 5%;
+    margin: 5% 0 0;
+    text-align: center; }
+  .home .pinterest-layout .pinterest-layout-1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .home .pinterest-layout .pinterest-layout-1:last-child {
+      margin-right: 0; }
+    .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1 {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1:last-child {
+        margin-right: 0; }
+    .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2 {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-right: 0;
+      margin-bottom: 1.5%; }
+      .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2:last-child {
+        margin-right: 0; }
+    .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3 {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
       width: 100%; }
-    .home .pinterest-layout h3 {
-      text-align: center; }
-      .home .pinterest-layout h3 span {
-        display: block;
-        margin-bottom: 1%;
-        font-style: italic;
-        font-size: .4em;
-        color: #999; }
-    .home .pinterest-layout p {
-      padding: 0 5%;
-      margin: 5% 0 0;
-      text-align: center; }
-    .home .pinterest-layout .pinterest-layout-1 {
+      .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3:last-child {
+        margin-right: 0; }
+  .home .pinterest-layout .pinterest-layout-2 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .home .pinterest-layout .pinterest-layout-2:last-child {
+      margin-right: 0; }
+    .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1 {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin-bottom: 1.5%; }
+      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1:last-child {
+        margin-right: 0; }
+    .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2 {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 48.82117%; }
-      .home .pinterest-layout .pinterest-layout-1:last-child {
+      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2:last-child {
         margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 48.82117%; }
-        .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1:last-child {
-          margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 48.82117%;
-        margin-right: 0;
-        margin-bottom: 1.5%; }
-        .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2:last-child {
-          margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%; }
-        .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3:last-child {
-          margin-right: 0; }
-    .home .pinterest-layout .pinterest-layout-2 {
+    .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 48.82117%; }
-      .home .pinterest-layout .pinterest-layout-2:last-child {
+      width: 48.82117%;
+      margin-right: 0;
+      margin-bottom: 1.5%; }
+      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3:last-child {
         margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        margin-bottom: 1.5%; }
-        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1:last-child {
-          margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 48.82117%; }
-        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2:last-child {
-          margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 48.82117%;
-        margin-right: 0;
-        margin-bottom: 1.5%; }
-        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3:last-child {
-          margin-right: 0; }
-      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%; }
-        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4:last-child {
-          margin-right: 0; }
+    .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4 {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4:last-child {
+        margin-right: 0; }
 
 /* 
 --------------------
@@ -391,7 +409,6 @@ LOGIN / REGISTER
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5%;
   margin-bottom: 5%; }
   .login-register::after {
     clear: both;
@@ -451,7 +468,6 @@ LOGIN / REGISTER
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5%;
   margin-bottom: 5%; }
   .new-password::after {
     clear: both;
@@ -487,6 +503,145 @@ LOGIN / REGISTER
 /* 
 --------------------
 
+ABOUT
+
+--------------------
+*/
+.about .about-header {
+  position: relative;
+  background: #e5e5e5;
+  text-align: center; }
+  .about .about-header .family {
+    display: block;
+    margin: 0 auto; }
+  .about .about-header .what-we-are-about {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 325px;
+    padding: 2%;
+    background: #425211;
+    opacity: .8; }
+    .about .about-header .what-we-are-about h1 {
+      color: #fff; }
+      .about .about-header .what-we-are-about h1 span {
+        display: block;
+        font-size: .5em; }
+    .about .about-header .what-we-are-about p {
+      margin-top: 10%;
+      font-size: .9em;
+      line-height: 2;
+      color: #ccc; }
+  .about .about-header .handmade {
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    width: 225px; }
+    .about .about-header .handmade img {
+      width: 100%;
+      height: 150px; }
+    .about .about-header .handmade p {
+      font-family: 'sangbleu_seriflight_italic', serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 1.2em; }
+.about .magic {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5% 0 3%;
+  text-align: center; }
+  .about .magic::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .about .magic h2 {
+    margin: 0 0 7%;
+    font-size: 2.5em; }
+    .about .magic h2 em {
+      display: block;
+      margin-top: 1.5%;
+      font-size: .6em;
+      color: #999; }
+  .about .magic img {
+    width: 100%;
+    max-width: 600px;
+    height: 400px; }
+  .about .magic p {
+    padding: 0 10%;
+    font-size: .9em;
+    line-height: 2; }
+  .about .magic h3 {
+    margin-top: 3%; }
+  .about .magic .magic-1,
+  .about .magic .magic-3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-bottom: 5%; }
+    .about .magic .magic-1:last-child,
+    .about .magic .magic-3:last-child {
+      margin-right: 0; }
+  .about .magic .magic-2,
+  .about .magic .magic-4 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-right: 0;
+    margin-bottom: 5%; }
+    .about .magic .magic-2:last-child,
+    .about .magic .magic-4:last-child {
+      margin-right: 0; }
+  .about .magic .magic-4 em {
+    font-size: .6em; }
+  .about .magic .btn {
+    margin: 0 auto;
+    padding-right: 0;
+    padding-left: 0;
+    background: #425211;
+    color: #fff;
+    max-width: 135px; }
+.about .whats-going-on {
+  padding: 5% 0;
+  text-align: center;
+  background: #6b6b6b; }
+  .about .whats-going-on .whats-going-on-content {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    .about .whats-going-on .whats-going-on-content::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .about .whats-going-on .whats-going-on-content h3 {
+      color: #fff; }
+      .about .whats-going-on .whats-going-on-content h3 em {
+        display: block;
+        font-size: .6em;
+        line-height: 1.5; }
+    .about .whats-going-on .whats-going-on-content p {
+      padding: 0 20%;
+      color: #fff; }
+    .about .whats-going-on .whats-going-on-content .whats-going-on-callout {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-top: 3%; }
+      .about .whats-going-on .whats-going-on-content .whats-going-on-callout:last-child {
+        margin-right: 0; }
+      .about .whats-going-on .whats-going-on-content .whats-going-on-callout h3 {
+        margin-top: 5%; }
+      .about .whats-going-on .whats-going-on-content .whats-going-on-callout img {
+        width: 100%;
+        max-width: 150px;
+        border-radius: 50%; }
+
+/* 
+--------------------
+
 TERMS
 
 --------------------
@@ -494,8 +649,7 @@ TERMS
 .terms {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%; }
+  margin-right: auto; }
   .terms::after {
     clear: both;
     content: "";
@@ -519,8 +673,7 @@ FOOTER
 --------------------
 */
 footer {
-  position: relative;
-  margin-top: 3%; }
+  position: relative; }
   footer .prefooter-wrapper {
     padding: 4% 0;
     background: url("../images/footer-background.jpg"); }

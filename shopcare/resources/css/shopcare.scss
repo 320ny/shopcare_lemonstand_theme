@@ -79,6 +79,7 @@ h1,h2,h3,h4,h5,h6 {
   @include font2;
   margin: 0;
   line-height: 1.2;
+  letter-spacing: 1px;
 }
 h1 {
   font-size: 3.5em;
@@ -104,6 +105,9 @@ p {
   font-size: .8em;
   color: #666;
   line-height: 1.6;
+}
+em {
+  @include font2-italic;
 }
 em,
 strong {
@@ -137,7 +141,19 @@ input[type=submit] {
     text-align: center;
     font-size: 1.3em;
   }
-} 
+}
+.home,
+.cart,
+.about,
+.footer {
+  margin-top: 3%;
+}
+.login-register,
+.new-password,
+.terms {
+  margin-top: 5%;
+}
+
 /*
 --------------------
 
@@ -171,6 +187,10 @@ header {
         a {
           color: #333;
         }
+      }
+      li.active {
+        border-radius: 50%;
+        border-color: $green-dark;
       }
       .shop-link {
         &:hover {
@@ -228,7 +248,6 @@ HOME
 --------------------
 */
 .home {
-  margin-top: 3%;
   .callout-left {
     position: relative;
     display: inline-block;
@@ -364,7 +383,6 @@ LOGIN / REGISTER
 */
 .login-register {
   @include outer-container;
-  margin-top: 5%;
   margin-bottom: 5%;
   form {
     width: 70%;
@@ -418,7 +436,6 @@ LOGIN / REGISTER
 }
 .new-password {
   @include outer-container;
-  margin-top: 5%;
   margin-bottom: 5%;
   .passwordRestoreRequestForm {
     @include span-columns(12);
@@ -450,13 +467,151 @@ LOGIN / REGISTER
 /* 
 --------------------
 
+ABOUT
+
+--------------------
+*/
+.about {
+  .about-header {
+    position: relative;
+    background: #e5e5e5;
+    text-align: center;
+    .family {
+      display: block;
+      margin: 0 auto;
+    }
+    .what-we-are-about {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      width: 325px;
+      padding: 2%;
+      background: $green-dark;
+      opacity: .8;
+      h1 {
+        color: #fff;
+        span {
+          display: block;
+          font-size: .5em;
+        }
+      }
+      p {
+        margin-top: 10%;
+        font-size: .9em;
+        line-height: 2;
+        color: #ccc;
+      }
+    }
+    .handmade {
+      position: absolute;
+      left: 5%;
+      top: 15%;
+      width: 225px;
+      img {
+        width: 100%;
+        height: 150px; //REMOVE THIS!
+      }
+      p {
+        @include font2-italic;
+        font-size: 1.2em;
+      }
+    }
+  }
+  .magic {
+    @include outer-container;
+    padding: 5% 0 3%;
+    text-align: center;
+    h2 {
+      margin: 0 0 7%;
+      font-size: 2.5em;
+      em {
+        display: block;
+        margin-top: 1.5%;
+        font-size: .6em;
+        color: #999;
+      }
+    }
+    img {
+      width: 100%;
+      max-width: 600px; //REMOVE THIS!
+      height: 400px; //REMOVE THIS!
+    }
+    p {
+      padding: 0 10%;
+      font-size: .9em;
+      line-height: 2;
+    }
+    h3 {
+      margin-top: 3%;
+    }
+    .magic-1,
+    .magic-3 {
+      @include span-columns(6);
+      margin-bottom: 5%;
+    }
+    .magic-2,
+    .magic-4 {
+      @include span-columns(6);
+      @include omega();
+      margin-bottom: 5%;
+    }
+    .magic-4 {
+      em {
+        font-size: .6em;
+      }
+    }
+    .btn {
+      margin: 0 auto;
+      padding-right: 0;
+      padding-left: 0;
+      background: $green-dark;
+      color: #fff;
+      max-width: 135px;
+    }
+  }
+  .whats-going-on {
+    padding: 5% 0;
+    //margin-bottom: -1.5%;
+    text-align: center;
+    background: #6b6b6b;
+    .whats-going-on-content {
+      @include outer-container;
+      h3 {
+        color: #fff;
+        em {
+          display: block;
+          font-size: .6em;
+          line-height: 1.5;
+        }
+      }
+      p {
+        padding: 0 20%;
+        color: #fff;
+      }
+      .whats-going-on-callout {
+        @include span-columns(4);
+        margin-top: 3%;
+        h3 {
+          margin-top: 5%;
+        }
+        img {
+          width: 100%;
+          max-width: 150px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+/* 
+--------------------
+
 TERMS
 
 --------------------
 */
 .terms {
   @include outer-container;
-  margin-top: 5%;
   .terms-wrapper {
     @include span-columns(8);
     @include shift(2);
@@ -474,7 +629,6 @@ FOOTER
 */
 footer {
   position: relative;
-  margin-top: 3%;
   .prefooter-wrapper {
     padding: 4% 0;
     background: url("../images/footer-background.jpg");
