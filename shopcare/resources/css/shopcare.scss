@@ -60,7 +60,6 @@ GLOBAL
   font-weight: normal;
   font-style: normal;
 }
-
 $green-dark: #425211;
 $green-light: #cdd3c5;
 body {
@@ -110,7 +109,8 @@ em {
   @include font2-italic;
 }
 em,
-strong {
+strong,
+i {
   font-weight: normal;
   font-style: normal;
 }
@@ -145,6 +145,7 @@ input[type=submit] {
 .home,
 .cart,
 .about,
+.soap-room,
 .footer {
   margin-top: 3%;
 }
@@ -487,7 +488,7 @@ ABOUT
       width: 325px;
       padding: 2%;
       background: $green-dark;
-      opacity: .8;
+      opacity: .9;
       h1 {
         color: #fff;
         span {
@@ -599,6 +600,155 @@ ABOUT
           max-width: 150px;
           border-radius: 50%;
         }
+      }
+    }
+  }
+}
+/* 
+--------------------
+
+SOAP ROOM
+
+--------------------
+*/
+.soap-room {
+  .soap-room-header {
+    position: relative;
+    background: #eee;
+    h1 {
+      position: absolute;
+      top: 15%;
+      left: 5%;
+    }
+    .soap-room-gallery {
+      display: block;
+      text-align: center;
+      img {
+        width: 700px; //REMOVE
+        vertical-align: bottom;
+      }
+    }
+    .one-of-a-kind {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      width: 325px;
+      padding: 2%;
+      background: $green-dark;
+      opacity: .9;
+      text-align: left;
+      em {
+        display: block;
+        margin-bottom: 10%;
+        color: #fff;
+        font-size: 1.2em;
+      }
+      p {
+        color: #fff;
+        font-size: .9em;
+        line-height: 2;
+      }
+    }
+  }
+  .soap-room-week {
+    @include outer-container;
+    h1 {
+      margin: 5% 0;
+      text-align: center;
+    }
+    .timeline {
+      @include span-columns(9);
+      @include shift(1.5);
+      margin-bottom: 3%;
+      text-align: center;
+    }
+    .soap-room-week-day1,
+    .soap-room-week-day2,
+    .soap-room-week-day3 {
+      @include span-columns(4);
+      h3 {
+        text-align: center;
+        font-size: 1.8em;
+      }
+      p {
+        padding: 1% 5%;
+        font-size: .9em;
+      }
+    }
+  }
+  .cold-soap-making {
+    @include outer-container;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    .cold-soap-making-content {
+      @include span-columns(8);
+      @include shift (2);
+      h2 {
+        margin-bottom: 3%;
+        text-align: center;
+        font-size: 2.4em;
+      }
+      p {
+        margin: 0;
+        padding: 0 10%;
+        font-size: 1.2em;
+        text-align: center;
+      }
+    }
+  }
+  .soap-room-week-steps {
+    @include outer-container;
+    margin-bottom: 10%;
+    .soap-room-week-steps-content {
+      @include span-columns(8);
+      @include shift(2);
+      border-top: 2px solid $green-dark;
+      border-bottom: 2px solid $green-dark;
+      .step1,
+      .step2,
+      .step3 {
+        padding: 3.5% 2% 2.5%;
+        border-bottom: 1px dotted #666;
+        font-size: .8em;
+        &:hover {
+          cursor: pointer;
+        }
+        p {
+          padding: 5% 13%;
+          font-size: 1em;
+          line-height: 2;
+        }
+        span {
+          display: block;
+          color: #999;
+          strong {
+            margin-left: 5%;
+            color: #333;
+            font-size: 1.1em;
+            &:hover {
+              color: $green-dark;
+            }
+          }
+          .more {
+            @include font1-semibold;
+            float: right;
+            color: #333;
+            &:hover {
+              color: $green-dark;
+            }
+          }
+          i {
+            font-size: .9em;
+            vertical-align: middle;
+          }
+        }
+
+      }
+      .step3 {
+        border-bottom: none;
+      }
+      .step-open {
+        background: #eee;
       }
     }
   }
