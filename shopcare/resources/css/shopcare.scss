@@ -146,6 +146,7 @@ input[type=submit] {
 .cart,
 .about,
 .soap-room,
+.herb-garden,
 .footer {
   margin-top: 3%;
 }
@@ -698,7 +699,7 @@ SOAP ROOM
   }
   .soap-room-week-steps {
     @include outer-container;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
     .soap-room-week-steps-content {
       @include span-columns(8);
       @include shift(2);
@@ -706,14 +707,17 @@ SOAP ROOM
       border-bottom: 2px solid $green-dark;
       .step1,
       .step2,
-      .step3 {
-        padding: 3.5% 2% 2.5%;
+      .step3,
+      .step4,
+      .step5 {
+        padding: 3% 2% 2.5%;
         border-bottom: 1px dotted #666;
         font-size: .8em;
         &:hover {
           cursor: pointer;
         }
         p {
+          display: none;
           padding: 5% 13%;
           font-size: 1em;
           line-height: 2;
@@ -744,12 +748,86 @@ SOAP ROOM
         }
 
       }
-      .step3 {
-        border-bottom: none;
+      .step5 {
+        border-bottom-color: #fff;
       }
       .step-open {
         background: #eee;
+        p {
+          display: block;
+        }
       }
+    }
+  }
+}
+/* 
+--------------------
+
+HERB GARDEN
+
+--------------------
+*/
+.herb-garden {
+  .herb-garden-header {
+    position: relative;
+    background: #eee;
+    h1 {
+      position: absolute;
+      top: 15%;
+      left: 5%;
+    }
+    .herb-garden-gallery {
+      display: block;
+      text-align: center;
+      img {
+        width: 700px; //REMOVE
+        vertical-align: bottom;
+      }
+    }
+    .dedicated {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      width: 325px;
+      padding: 2%;
+      background: $green-dark;
+      opacity: .9;
+      text-align: left;
+      em {
+        display: block;
+        margin-bottom: 10%;
+        color: #fff;
+        font-size: 1.2em;
+      }
+      p {
+        color: #fff;
+        font-size: .9em;
+        line-height: 2;
+      }
+    }
+  }
+  .herb-garden-callouts {
+    @include outer-container;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    .herb-garden-callout1,
+    .herb-garden-callout2,
+    .herb-garden-callout3 {
+      @include span-columns(4);
+      img {
+        width: 100%;
+      }
+      h3 {
+        margin: 5% 0 2%;
+        text-align: center;
+      }
+      p {
+        padding: 0 5%;
+        font-size: .9em;
+      }
+    }
+    .herb-garden-callout3 {
+      @include omega();
     }
   }
 }

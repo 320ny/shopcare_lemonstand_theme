@@ -133,6 +133,7 @@ input[type=submit] {
 .cart,
 .about,
 .soap-room,
+.herb-garden,
 .footer {
   margin-top: 3%; }
 
@@ -752,7 +753,7 @@ SOAP ROOM
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10%; }
+  margin-bottom: 7%; }
   .soap-room .soap-room-week-steps::after {
     clear: both;
     content: "";
@@ -769,38 +770,53 @@ SOAP ROOM
       margin-right: 0; }
     .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1,
     .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2,
-    .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 {
-      padding: 3.5% 2% 2.5%;
+    .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3,
+    .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4,
+    .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 {
+      padding: 3% 2% 2.5%;
       border-bottom: 1px dotted #666;
       font-size: .8em; }
       .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1:hover,
       .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2:hover,
-      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3:hover {
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3:hover,
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4:hover,
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5:hover {
         cursor: pointer; }
       .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 p,
       .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 p,
-      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 p {
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 p,
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 p,
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 p {
+        display: none;
         padding: 5% 13%;
         font-size: 1em;
         line-height: 2; }
       .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 span,
       .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 span,
-      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span {
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span,
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 span,
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 span {
         display: block;
         color: #999; }
         .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 span strong,
         .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 span strong,
-        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span strong {
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span strong,
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 span strong,
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 span strong {
           margin-left: 5%;
           color: #333;
           font-size: 1.1em; }
           .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 span strong:hover,
           .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 span strong:hover,
-          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span strong:hover {
+          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span strong:hover,
+          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 span strong:hover,
+          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 span strong:hover {
             color: #425211; }
         .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 span .more,
         .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 span .more,
-        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span .more {
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span .more,
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 span .more,
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 span .more {
           font-family: 'IngridMono-SemiBold', courier, sans-serif;
           font-weight: normal;
           font-style: normal;
@@ -808,17 +824,99 @@ SOAP ROOM
           color: #333; }
           .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 span .more:hover,
           .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 span .more:hover,
-          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span .more:hover {
+          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span .more:hover,
+          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 span .more:hover,
+          .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 span .more:hover {
             color: #425211; }
         .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1 span i,
         .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2 span i,
-        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span i {
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 span i,
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step4 span i,
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 span i {
           font-size: .9em;
           vertical-align: middle; }
-    .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3 {
-      border-bottom: none; }
+    .soap-room .soap-room-week-steps .soap-room-week-steps-content .step5 {
+      border-bottom-color: #fff; }
     .soap-room .soap-room-week-steps .soap-room-week-steps-content .step-open {
       background: #eee; }
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content .step-open p {
+        display: block; }
+
+/* 
+--------------------
+
+HERB GARDEN
+
+--------------------
+*/
+.herb-garden .herb-garden-header {
+  position: relative;
+  background: #eee; }
+  .herb-garden .herb-garden-header h1 {
+    position: absolute;
+    top: 15%;
+    left: 5%; }
+  .herb-garden .herb-garden-header .herb-garden-gallery {
+    display: block;
+    text-align: center; }
+    .herb-garden .herb-garden-header .herb-garden-gallery img {
+      width: 700px;
+      vertical-align: bottom; }
+  .herb-garden .herb-garden-header .dedicated {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 325px;
+    padding: 2%;
+    background: #425211;
+    opacity: .9;
+    text-align: left; }
+    .herb-garden .herb-garden-header .dedicated em {
+      display: block;
+      margin-bottom: 10%;
+      color: #fff;
+      font-size: 1.2em; }
+    .herb-garden .herb-garden-header .dedicated p {
+      color: #fff;
+      font-size: .9em;
+      line-height: 2; }
+.herb-garden .herb-garden-callouts {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  .herb-garden .herb-garden-callouts::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .herb-garden .herb-garden-callouts .herb-garden-callout1,
+  .herb-garden .herb-garden-callouts .herb-garden-callout2,
+  .herb-garden .herb-garden-callouts .herb-garden-callout3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .herb-garden .herb-garden-callouts .herb-garden-callout1:last-child,
+    .herb-garden .herb-garden-callouts .herb-garden-callout2:last-child,
+    .herb-garden .herb-garden-callouts .herb-garden-callout3:last-child {
+      margin-right: 0; }
+    .herb-garden .herb-garden-callouts .herb-garden-callout1 img,
+    .herb-garden .herb-garden-callouts .herb-garden-callout2 img,
+    .herb-garden .herb-garden-callouts .herb-garden-callout3 img {
+      width: 100%; }
+    .herb-garden .herb-garden-callouts .herb-garden-callout1 h3,
+    .herb-garden .herb-garden-callouts .herb-garden-callout2 h3,
+    .herb-garden .herb-garden-callouts .herb-garden-callout3 h3 {
+      margin: 5% 0 2%;
+      text-align: center; }
+    .herb-garden .herb-garden-callouts .herb-garden-callout1 p,
+    .herb-garden .herb-garden-callouts .herb-garden-callout2 p,
+    .herb-garden .herb-garden-callouts .herb-garden-callout3 p {
+      padding: 0 5%;
+      font-size: .9em; }
+  .herb-garden .herb-garden-callouts .herb-garden-callout3 {
+    margin-right: 0; }
 
 /* 
 --------------------

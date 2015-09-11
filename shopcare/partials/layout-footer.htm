@@ -1,4 +1,4 @@
-<footer>{% if (page_code() != 'about') or (page_code() != 'soap-room') %}
+<footer>{% if (page_code() not in ['about', 'soap-room']) %}
     <section class="prefooter-wrapper">
       <section class="prefooter-content">
         <img src="{{ 'images/tbp.png'|theme_resource }}" class="tbp-logo">
@@ -29,11 +29,11 @@
       <section class="footer-links-1">
         <strong>The Burren Perfumery</strong>
         <ul>
-          <li><a href="#">About Us</a></li>
+          <li><a href="/about">About Us</a></li>
           <li><a href="/soap-room">The Soap Room</a></li>
-          <li><a href="#">The Blending Room</a></li>
-          <li><a href="#">The Herb Garden</a></li>
-          <li><a href="#">The Tea Room</a></li>
+          <li><a href="/blending-room">The Blending Room</a></li>
+          <li><a href="/herb-garden">The Herb Garden</a></li>
+          <li><a href="/tea-room">The Tea Room</a></li>
           <li><a href="#">Blog</a></li>
           <li>&nbsp;</li><!-- make column border height similar -->
           <li>&nbsp;</li>

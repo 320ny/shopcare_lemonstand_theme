@@ -46,16 +46,29 @@ url: /soap-room
 
   <section class="soap-room-week-steps">
     <div class="soap-room-week-steps-content">
-      <div class="step1">
-        <span class="step-title">Step 1 <strong>Get started</strong><span class="more">MORE <i>&#10095;</i></span></span>
+
+      <div class="step1 step-toggle">
+        <span class="step-title">Step 1 <strong>Get started</strong><span class="more more1">MORE <i>&#10095;</i></span></span>
+        <p>This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced.</p>
       </div>
 
-      <div class="step2">
-        <span class="step-title">Step 2 <strong>Balancing oil</strong><span class="more">MORE <i>&#10095;</i></span></span>
+      <div class="step2 step-toggle">
+        <span class="step-title">Step 2 <strong>Balancing oil</strong><span class="more more2">MORE <i>&#10095;</i></span></span>
+        <p>This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced.</p>
       </div>
 
-      <div class="step3 step-open">
-        <span class="step-title">Step 3 <strong>Adding lye</strong><span class="more">MORE <i>&#10095;</i></span></span>
+      <div class="step3 step-toggle">
+        <span class="step-title">Step 3 <strong>Adding lye</strong><span class="more more3">MORE <i>&#10095;</i></span></span>
+        <p>This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced.</p>
+      </div>
+
+      <div class="step4 step-toggle">
+        <span class="step-title">Step 4 <strong>Mixing</strong><span class="more more3">MORE <i>&#10095;</i></span></span>
+        <p>This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced.</p>
+      </div>
+
+      <div class="step5 step-toggle">
+        <span class="step-title">Step 5 <strong>Sapponification</strong><span class="more more3">MORE <i>&#10095;</i></span></span>
         <p>This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced. This is just placeholder text which needs to be replaced.</p>
       </div>
 
@@ -63,3 +76,9 @@ url: /soap-room
   </section>
 
 </div><!-- end soap-room -->
+
+<script>
+  $( ".step-toggle" ).click(function() {
+    $(this).toggleClass("step-open");
+  });
+</script>
