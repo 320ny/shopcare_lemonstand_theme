@@ -147,6 +147,8 @@ input[type=submit] {
 .about,
 .soap-room,
 .herb-garden,
+.tea-room,
+.blending-room,
 .footer {
   margin-top: 3%;
 }
@@ -155,7 +157,58 @@ input[type=submit] {
 .terms {
   margin-top: 5%;
 }
+.error-page {
+  padding: 10% 0;
+  text-align: center;
+  a {
+    text-decoration: underline;
+  }
+}
+/*
+--------------------
 
+SLIPPRY SLIDER
+
+--------------------
+*/ 
+.sy-box {
+  .sy-pager {
+    li {
+      width: 7px;
+      height: 7px;
+      margin-right: 10px;
+      border: 1px solid $green-dark;
+      a {
+        background: #fff;
+      }
+    }
+    .sy-active a {
+      background-color: $green-dark;
+    }
+  }
+  .sy-controls {
+    display: block;
+    height: 40px;
+    width: 180px;
+    bottom: -42px;
+    left: 253px;
+    li {
+      a:link,
+      a:visited {
+        opacity: 1;
+        &:after {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+  .sy-controls li.sy-prev a:after {
+    background-position: -5% -5px;
+  }
+  .sy-controls li.sy-next a:after {
+    background-position: 105% -5px;
+  }
+}
 /*
 --------------------
 
@@ -255,18 +308,26 @@ HOME
     display: inline-block;
     width: 65%;
     padding: 23%;
-    background: url("../images/green-background.jpg");
+    background: url("../images/main-image@2x.jpg") no-repeat center bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     .about-callout {
       display: inline-block;
       position: absolute;
       right: 20%;
       bottom: 40%;
       width: 150px;
-      padding: 4% 0;
-      border: 2px solid $green-dark;
       text-align: center;
-      &:hover {
-        border-color: $green-light;
+      img {
+        width: 100%;
+      }
+      h3 {
+        display: inline-block;
+        margin-top: 7%;
+        padding: 4% 10%;
+        border: 2px solid $green-dark;
       }
     }
     .made-in {
@@ -300,7 +361,7 @@ HOME
     }
   }
   .who-we-are {
-    margin-top: -5px;
+    margin-top: -7px;
     padding: 3.5% 0;
     background: url("../images/green-map.jpg");
     .who-we-are-wrapper {
@@ -371,7 +432,8 @@ HOME
         margin-bottom: 1.5%;
       }
       .pinterest-layout-2-4 {
-        @include span-columns(12);
+        @include span-columns(9);
+        @include shift(3);
       }
     }
   }
@@ -476,11 +538,16 @@ ABOUT
 .about {
   .about-header {
     position: relative;
-    background: #e5e5e5;
+    background: url("../images/Intro-Wexford-352.jpg") no-repeat bottom left; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     text-align: center;
     .family {
       display: block;
       margin: 0 auto;
+      max-width: 600px;
     }
     .what-we-are-about {
       position: absolute;
@@ -511,7 +578,6 @@ ABOUT
       width: 225px;
       img {
         width: 100%;
-        height: 150px; //REMOVE THIS!
       }
       p {
         @include font2-italic;
@@ -535,8 +601,6 @@ ABOUT
     }
     img {
       width: 100%;
-      max-width: 600px; //REMOVE THIS!
-      height: 400px; //REMOVE THIS!
     }
     p {
       padding: 0 10%;
@@ -547,17 +611,23 @@ ABOUT
       margin-top: 3%;
     }
     .magic-1,
-    .magic-3 {
+    .magic-2 {
       @include span-columns(6);
-      margin-bottom: 5%;
     }
-    .magic-2,
-    .magic-4 {
-      @include span-columns(6);
-      @include omega();
-      margin-bottom: 5%;
+    .magic-1-1,
+    .magic-1-2,
+    .magic-2-1,
+    .magic-2-2 {
+      @include span-columns(12);
+      margin-bottom: 10%;
+      //@include omega();
     }
-    .magic-4 {
+    .magic-1-2 {
+      img {
+        max-width: 350px;
+      }
+    }
+    .magic-2-2 {
       em {
         font-size: .6em;
       }
@@ -614,6 +684,7 @@ SOAP ROOM
 */
 .soap-room {
   .soap-room-header {
+    padding-bottom: 5%;
     position: relative;
     background: #eee;
     h1 {
@@ -625,7 +696,7 @@ SOAP ROOM
       display: block;
       text-align: center;
       img {
-        width: 700px; //REMOVE
+        width: 600px;
         vertical-align: bottom;
       }
     }
@@ -653,9 +724,16 @@ SOAP ROOM
   }
   .soap-room-week {
     @include outer-container;
+    position: relative;
     h1 {
       margin: 5% 0;
       text-align: center;
+    }
+    .soap-room-hands {
+      position: absolute;
+      top: 0;
+      right: 4%;
+      width: 165px;
     }
     .timeline {
       @include span-columns(9);
@@ -679,8 +757,15 @@ SOAP ROOM
   }
   .cold-soap-making {
     @include outer-container;
+    position: relative;
     margin-top: 5%;
     margin-bottom: 3%;
+    .soap-bars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+    }
     .cold-soap-making-content {
       @include span-columns(8);
       @include shift (2);
@@ -769,6 +854,7 @@ HERB GARDEN
 */
 .herb-garden {
   .herb-garden-header {
+    padding-bottom: 5%;
     position: relative;
     background: #eee;
     h1 {
@@ -780,7 +866,7 @@ HERB GARDEN
       display: block;
       text-align: center;
       img {
-        width: 700px; //REMOVE
+        width: 700px;
         vertical-align: bottom;
       }
     }
@@ -814,6 +900,7 @@ HERB GARDEN
     .herb-garden-callout2,
     .herb-garden-callout3 {
       @include span-columns(4);
+      text-align: center;
       img {
         width: 100%;
       }
@@ -824,10 +911,147 @@ HERB GARDEN
       p {
         padding: 0 5%;
         font-size: .9em;
+        text-align: left;
+      }
+    }
+    .herb-garden-callout2 {
+      img {
+        max-width: 200px;
       }
     }
     .herb-garden-callout3 {
       @include omega();
+    }
+  }
+}
+/* 
+--------------------
+
+BLENDING ROOM
+
+--------------------
+*/
+.blending-room {
+  .blending-room-header {
+    padding-bottom: 5%;
+    position: relative;
+    background: #eee;
+    h1 {
+      position: absolute;
+      top: 15%;
+      left: 5%;
+    }
+    .blending-room-gallery {
+      display: block;
+      text-align: center;
+      img {
+        width: 700px;
+        vertical-align: bottom;
+      }
+    }
+    .dedicated {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      width: 325px;
+      padding: 2%;
+      background: $green-dark;
+      opacity: .9;
+      text-align: left;
+      em {
+        display: block;
+        margin-bottom: 10%;
+        color: #fff;
+        font-size: 1.2em;
+      }
+      p {
+        color: #fff;
+        font-size: .9em;
+        line-height: 2;
+      }
+    }
+  }
+  .blending-room-callouts {
+    @include outer-container;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    .blending-room-callout1,
+    .blending-room-callout2,
+    .blending-room-callout3 {
+      @include span-columns(4);
+      text-align: center;
+      img {
+        width: 100%;
+      }
+      h3 {
+        margin: 5% 0 2%;
+        text-align: center;
+      }
+      p {
+        padding: 0 5%;
+        font-size: .9em;
+        text-align: left;
+      }
+    }
+    .blending-room-callout3 {
+      img {
+        max-width: 200px;
+      }
+    }
+    .blending-room-callout3 {
+      @include omega();
+    }
+  }
+}
+/* 
+--------------------
+
+TEA ROOM
+
+--------------------
+*/
+.tea-room {
+  .tea-room-header {
+    padding-bottom: 5%;
+    position: relative;
+    background: #eee;
+    h1 {
+      position: absolute;
+      top: 15%;
+      left: 5%;
+      z-index: 100;
+    }
+    .tea-room-gallery {
+      display: block;
+      width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      img {
+        width: 700px;
+        vertical-align: bottom;
+      }
+    }
+    .freshly-baked {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      width: 325px;
+      padding: 2%;
+      background: $green-dark;
+      opacity: .9;
+      text-align: left;
+      z-index: 100;
+      em {
+        display: block;
+        margin-bottom: 10%;
+        color: #fff;
+        font-size: 1.2em;
+      }
+      p {
+        color: #fff;
+        font-size: .9em;
+        line-height: 2;
+      }
     }
   }
 }

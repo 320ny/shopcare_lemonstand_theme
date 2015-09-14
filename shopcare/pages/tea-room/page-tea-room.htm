@@ -1,0 +1,40 @@
+---
+template: main
+protocol: all
+published: true
+name: 'Tea Room'
+url: /tea-room
+---
+
+<div class="tea-room">
+  <section class="tea-room-header">
+    <h1>The Tea<br>Room</h1>
+    <div class="tea-room-gallery">
+      <ul id="slippry-gallery">
+        <li>
+          <a href="#slide1"><img src="{{ 'images/burren_MG_1832@2x.jpg'|theme_resource }}"></a>
+        </li>
+        <li>
+          <a href="#slide2"><img src="{{ 'images/burren_MG_3299@2x.jpg'|theme_resource }}"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="freshly-baked">
+      <em>Freshly baked delights and daily delicacies in a pittoreque setting</em>
+      <p>Relax in the rose covered Tea Rooms, which serve a mouth watering selection of organic cakes, scones and pies. Homemade soups with freshly baked bread, selections of local cheeses and salads all made with organic vegetables from local suppliers accompanied by herbal teas from the garden and coffees from around the world.</p>
+    </div>
+  </section>
+
+  <script>
+    $(function() {
+      var demo1 = $("#slippry-gallery").slippry({
+        // transition: 'fade',
+        // useCSS: true,
+        // speed: 1000,
+        // pause: 3000,
+        auto: false,
+        // preload: 'visible',
+        // autoHover: false
+      });
+    });
+  </script>

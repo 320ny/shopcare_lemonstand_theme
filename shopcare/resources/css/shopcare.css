@@ -134,6 +134,8 @@ input[type=submit] {
 .about,
 .soap-room,
 .herb-garden,
+.tea-room,
+.blending-room,
 .footer {
   margin-top: 3%; }
 
@@ -141,6 +143,45 @@ input[type=submit] {
 .new-password,
 .terms {
   margin-top: 5%; }
+
+.error-page {
+  padding: 10% 0;
+  text-align: center; }
+  .error-page a {
+    text-decoration: underline; }
+
+/*
+--------------------
+
+SLIPPRY SLIDER
+
+--------------------
+*/
+.sy-box .sy-pager li {
+  width: 7px;
+  height: 7px;
+  margin-right: 10px;
+  border: 1px solid #425211; }
+  .sy-box .sy-pager li a {
+    background: #fff; }
+.sy-box .sy-pager .sy-active a {
+  background-color: #425211; }
+.sy-box .sy-controls {
+  display: block;
+  height: 40px;
+  width: 180px;
+  bottom: -42px;
+  left: 253px; }
+  .sy-box .sy-controls li a:link,
+  .sy-box .sy-controls li a:visited {
+    opacity: 1; }
+    .sy-box .sy-controls li a:link:after,
+    .sy-box .sy-controls li a:visited:after {
+      background-color: #eee; }
+.sy-box .sy-controls li.sy-prev a:after {
+  background-position: -5% -5px; }
+.sy-box .sy-controls li.sy-next a:after {
+  background-position: 105% -5px; }
 
 /*
 --------------------
@@ -236,18 +277,25 @@ HOME
   display: inline-block;
   width: 65%;
   padding: 23%;
-  background: url("../images/green-background.jpg"); }
+  background: url("../images/main-image@2x.jpg") no-repeat center bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
   .home .callout-left .about-callout {
     display: inline-block;
     position: absolute;
     right: 20%;
     bottom: 40%;
     width: 150px;
-    padding: 4% 0;
-    border: 2px solid #425211;
     text-align: center; }
-    .home .callout-left .about-callout:hover {
-      border-color: #cdd3c5; }
+    .home .callout-left .about-callout img {
+      width: 100%; }
+    .home .callout-left .about-callout h3 {
+      display: inline-block;
+      margin-top: 7%;
+      padding: 4% 10%;
+      border: 2px solid #425211; }
   .home .callout-left .made-in {
     position: absolute;
     left: 10%;
@@ -274,7 +322,7 @@ HOME
     .home .callout-right .product-otw:hover {
       border-color: #cdd3c5; }
 .home .who-we-are {
-  margin-top: -5px;
+  margin-top: -7px;
   padding: 3.5% 0;
   background: url("../images/green-map.jpg"); }
   .home .who-we-are .who-we-are-wrapper {
@@ -397,7 +445,8 @@ HOME
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%; }
+      width: 74.41059%;
+      margin-left: 25.58941%; }
       .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4:last-child {
         margin-right: 0; }
 
@@ -512,11 +561,16 @@ ABOUT
 */
 .about .about-header {
   position: relative;
-  background: #e5e5e5;
+  background: url("../images/Intro-Wexford-352.jpg") no-repeat bottom left;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   text-align: center; }
   .about .about-header .family {
     display: block;
-    margin: 0 auto; }
+    margin: 0 auto;
+    max-width: 600px; }
   .about .about-header .what-we-are-about {
     position: absolute;
     top: 10%;
@@ -541,8 +595,7 @@ ABOUT
     top: 15%;
     width: 225px; }
     .about .about-header .handmade img {
-      width: 100%;
-      height: 150px; }
+      width: 100%; }
     .about .about-header .handmade p {
       font-family: 'sangbleu_seriflight_italic', serif;
       font-weight: normal;
@@ -567,9 +620,7 @@ ABOUT
       font-size: .6em;
       color: #999; }
   .about .magic img {
-    width: 100%;
-    max-width: 600px;
-    height: 400px; }
+    width: 100%; }
   .about .magic p {
     padding: 0 10%;
     font-size: .9em;
@@ -577,27 +628,31 @@ ABOUT
   .about .magic h3 {
     margin-top: 3%; }
   .about .magic .magic-1,
-  .about .magic .magic-3 {
+  .about .magic .magic-2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
-    margin-bottom: 5%; }
+    width: 48.82117%; }
     .about .magic .magic-1:last-child,
-    .about .magic .magic-3:last-child {
+    .about .magic .magic-2:last-child {
       margin-right: 0; }
-  .about .magic .magic-2,
-  .about .magic .magic-4 {
+  .about .magic .magic-1-1,
+  .about .magic .magic-1-2,
+  .about .magic .magic-2-1,
+  .about .magic .magic-2-2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
-    margin-right: 0;
-    margin-bottom: 5%; }
-    .about .magic .magic-2:last-child,
-    .about .magic .magic-4:last-child {
+    width: 100%;
+    margin-bottom: 10%; }
+    .about .magic .magic-1-1:last-child,
+    .about .magic .magic-1-2:last-child,
+    .about .magic .magic-2-1:last-child,
+    .about .magic .magic-2-2:last-child {
       margin-right: 0; }
-  .about .magic .magic-4 em {
+  .about .magic .magic-1-2 img {
+    max-width: 350px; }
+  .about .magic .magic-2-2 em {
     font-size: .6em; }
   .about .magic .btn {
     margin: 0 auto;
@@ -650,6 +705,7 @@ SOAP ROOM
 --------------------
 */
 .soap-room .soap-room-header {
+  padding-bottom: 5%;
   position: relative;
   background: #eee; }
   .soap-room .soap-room-header h1 {
@@ -660,7 +716,7 @@ SOAP ROOM
     display: block;
     text-align: center; }
     .soap-room .soap-room-header .soap-room-gallery img {
-      width: 700px;
+      width: 600px;
       vertical-align: bottom; }
   .soap-room .soap-room-header .one-of-a-kind {
     position: absolute;
@@ -683,7 +739,8 @@ SOAP ROOM
 .soap-room .soap-room-week {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  position: relative; }
   .soap-room .soap-room-week::after {
     clear: both;
     content: "";
@@ -691,6 +748,11 @@ SOAP ROOM
   .soap-room .soap-room-week h1 {
     margin: 5% 0;
     text-align: center; }
+  .soap-room .soap-room-week .soap-room-hands {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    width: 165px; }
   .soap-room .soap-room-week .timeline {
     float: left;
     display: block;
@@ -726,12 +788,18 @@ SOAP ROOM
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
   margin-top: 5%;
   margin-bottom: 3%; }
   .soap-room .cold-soap-making::after {
     clear: both;
     content: "";
     display: table; }
+  .soap-room .cold-soap-making .soap-bars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px; }
   .soap-room .cold-soap-making .cold-soap-making-content {
     float: left;
     display: block;
@@ -850,6 +918,7 @@ HERB GARDEN
 --------------------
 */
 .herb-garden .herb-garden-header {
+  padding-bottom: 5%;
   position: relative;
   background: #eee; }
   .herb-garden .herb-garden-header h1 {
@@ -896,7 +965,8 @@ HERB GARDEN
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%; }
+    width: 31.76157%;
+    text-align: center; }
     .herb-garden .herb-garden-callouts .herb-garden-callout1:last-child,
     .herb-garden .herb-garden-callouts .herb-garden-callout2:last-child,
     .herb-garden .herb-garden-callouts .herb-garden-callout3:last-child {
@@ -914,9 +984,137 @@ HERB GARDEN
     .herb-garden .herb-garden-callouts .herb-garden-callout2 p,
     .herb-garden .herb-garden-callouts .herb-garden-callout3 p {
       padding: 0 5%;
-      font-size: .9em; }
+      font-size: .9em;
+      text-align: left; }
+  .herb-garden .herb-garden-callouts .herb-garden-callout2 img {
+    max-width: 200px; }
   .herb-garden .herb-garden-callouts .herb-garden-callout3 {
     margin-right: 0; }
+
+/* 
+--------------------
+
+BLENDING ROOM
+
+--------------------
+*/
+.blending-room .blending-room-header {
+  padding-bottom: 5%;
+  position: relative;
+  background: #eee; }
+  .blending-room .blending-room-header h1 {
+    position: absolute;
+    top: 15%;
+    left: 5%; }
+  .blending-room .blending-room-header .blending-room-gallery {
+    display: block;
+    text-align: center; }
+    .blending-room .blending-room-header .blending-room-gallery img {
+      width: 700px;
+      vertical-align: bottom; }
+  .blending-room .blending-room-header .dedicated {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 325px;
+    padding: 2%;
+    background: #425211;
+    opacity: .9;
+    text-align: left; }
+    .blending-room .blending-room-header .dedicated em {
+      display: block;
+      margin-bottom: 10%;
+      color: #fff;
+      font-size: 1.2em; }
+    .blending-room .blending-room-header .dedicated p {
+      color: #fff;
+      font-size: .9em;
+      line-height: 2; }
+.blending-room .blending-room-callouts {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  .blending-room .blending-room-callouts::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .blending-room .blending-room-callouts .blending-room-callout1,
+  .blending-room .blending-room-callouts .blending-room-callout2,
+  .blending-room .blending-room-callouts .blending-room-callout3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    text-align: center; }
+    .blending-room .blending-room-callouts .blending-room-callout1:last-child,
+    .blending-room .blending-room-callouts .blending-room-callout2:last-child,
+    .blending-room .blending-room-callouts .blending-room-callout3:last-child {
+      margin-right: 0; }
+    .blending-room .blending-room-callouts .blending-room-callout1 img,
+    .blending-room .blending-room-callouts .blending-room-callout2 img,
+    .blending-room .blending-room-callouts .blending-room-callout3 img {
+      width: 100%; }
+    .blending-room .blending-room-callouts .blending-room-callout1 h3,
+    .blending-room .blending-room-callouts .blending-room-callout2 h3,
+    .blending-room .blending-room-callouts .blending-room-callout3 h3 {
+      margin: 5% 0 2%;
+      text-align: center; }
+    .blending-room .blending-room-callouts .blending-room-callout1 p,
+    .blending-room .blending-room-callouts .blending-room-callout2 p,
+    .blending-room .blending-room-callouts .blending-room-callout3 p {
+      padding: 0 5%;
+      font-size: .9em;
+      text-align: left; }
+  .blending-room .blending-room-callouts .blending-room-callout3 img {
+    max-width: 200px; }
+  .blending-room .blending-room-callouts .blending-room-callout3 {
+    margin-right: 0; }
+
+/* 
+--------------------
+
+TEA ROOM
+
+--------------------
+*/
+.tea-room .tea-room-header {
+  padding-bottom: 5%;
+  position: relative;
+  background: #eee; }
+  .tea-room .tea-room-header h1 {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    z-index: 100; }
+  .tea-room .tea-room-header .tea-room-gallery {
+    display: block;
+    width: 700px;
+    margin: 0 auto;
+    text-align: center; }
+    .tea-room .tea-room-header .tea-room-gallery img {
+      width: 700px;
+      vertical-align: bottom; }
+  .tea-room .tea-room-header .freshly-baked {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 325px;
+    padding: 2%;
+    background: #425211;
+    opacity: .9;
+    text-align: left;
+    z-index: 100; }
+    .tea-room .tea-room-header .freshly-baked em {
+      display: block;
+      margin-bottom: 10%;
+      color: #fff;
+      font-size: 1.2em; }
+    .tea-room .tea-room-header .freshly-baked p {
+      color: #fff;
+      font-size: .9em;
+      line-height: 2; }
 
 /* 
 --------------------
