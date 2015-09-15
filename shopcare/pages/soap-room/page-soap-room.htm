@@ -9,7 +9,17 @@ url: /soap-room
   <section class="soap-room-header">
     <h1>The Soap<br>Room</h1>
     <div class="soap-room-gallery">
-      <img src="{{ 'images/burren_MG_1566@2x.jpg'|theme_resource }}">
+      <ul id="slippry-gallery">
+        <li>
+          <a href="#slide1"><img src="{{ 'images/burren_MG_1566@2x.jpg'|theme_resource }}"></a>
+        </li>
+        <li>
+          <a href="#slide2"><img src="{{ 'images/burren_MG_1523@2x.jpg'|theme_resource }}"></a>
+        </li>
+        <li>
+          <a href="#slide3"><img src="{{ 'images/burren_MG_1654@2x.jpg'|theme_resource }}"></a>
+        </li>
+      </ul>
     </div>
     <div class="one-of-a-kind">
       <em>One-of-a-kind bricks<br>of fragrant delight.</em>
@@ -80,6 +90,18 @@ url: /soap-room
 </div><!-- end soap-room -->
 
 <script>
+  $(function() {
+    var demo1 = $("#slippry-gallery").slippry({
+      // transition: 'fade',
+      // useCSS: true,
+      // speed: 1000,
+      pause: 5000,
+      // auto: false,
+      // preload: 'visible',
+      // autoHover: false
+    });
+  });
+
   $( ".step-toggle" ).click(function() {
     $(this).toggleClass("step-open");
   });

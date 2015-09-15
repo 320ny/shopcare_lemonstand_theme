@@ -10,7 +10,14 @@ url: /herb-garden
   <section class="herb-garden-header">
     <h1>The Herb<br>Garden</h1>
     <div class="herb-garden-gallery">
-      <img src="{{ 'images/burren_MG_2294@2x.jpg'|theme_resource }}">
+      <ul id="slippry-gallery">
+        <li>
+          <a href="#slide1"><img src="{{ 'images/burren_MG_2294@2x.jpg'|theme_resource }}"></a>
+        </li>
+        <li>
+          <a href="#slide2"><img src="{{ 'images/burren_MG_2641@2x.jpg'|theme_resource }}"></a>
+        </li>
+      </ul>
     </div>
     <div class="dedicated">
       <em>Dedicated to the beautiful floar of the Burren.</em>
@@ -41,3 +48,17 @@ url: /herb-garden
     </div>
   </section>
 </div><!-- end herb-garden -->
+
+<script>
+  $(function() {
+    var demo1 = $("#slippry-gallery").slippry({
+      // transition: 'fade',
+      // useCSS: true,
+      // speed: 3000,
+      pause: 5000,
+      // auto: false,
+      // preload: 'visible',
+      // autoHover: false
+    });
+  });
+</script>

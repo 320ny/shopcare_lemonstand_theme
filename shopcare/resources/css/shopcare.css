@@ -170,7 +170,7 @@ SLIPPRY SLIDER
   display: block;
   height: 40px;
   width: 180px;
-  bottom: -42px;
+  bottom: -44px;
   left: 253px; }
   .sy-box .sy-controls li a:link,
   .sy-box .sy-controls li a:visited {
@@ -232,11 +232,13 @@ header {
         border-radius: 50%;
         border-color: #425211; }
       header nav ul .shop-link {
+        /*
+        &:hover {
+          margin-bottom: 235px;
+        }*/
         /*&:hover .shop-nav {
           display: block;
         }*/ }
-        header nav ul .shop-link:hover {
-          margin-bottom: 235px; }
         header nav ul .shop-link .shop-nav {
           display: none;
           padding: 0;
@@ -315,12 +317,18 @@ HOME
     display: inline-block;
     position: absolute;
     right: 25%;
-    bottom: 35%;
+    bottom: 30%;
     width: 250px;
     padding: 4%;
     border: 2px solid #425211; }
     .home .callout-right .product-otw:hover {
       border-color: #cdd3c5; }
+    .home .callout-right .product-otw strong {
+      display: block;
+      margin-top: 10%;
+      text-align: center; }
+    .home .callout-right .product-otw img {
+      width: 100%; }
 .home .who-we-are {
   margin-top: -7px;
   padding: 3.5% 0;
@@ -361,7 +369,8 @@ HOME
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 2%; }
+  padding-top: 2%;
+  margin-bottom: 5%; }
   .home .pinterest-layout::after {
     clear: both;
     content: "";
@@ -445,8 +454,7 @@ HOME
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 74.41059%;
-      margin-left: 25.58941%; }
+      width: 100%; }
       .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4:last-child {
         margin-right: 0; }
 
@@ -705,18 +713,21 @@ SOAP ROOM
 --------------------
 */
 .soap-room .soap-room-header {
-  padding-bottom: 5%;
+  padding-bottom: 4%;
   position: relative;
   background: #eee; }
   .soap-room .soap-room-header h1 {
     position: absolute;
     top: 15%;
-    left: 5%; }
+    left: 5%;
+    z-index: 100; }
   .soap-room .soap-room-header .soap-room-gallery {
     display: block;
+    width: 700px;
+    margin: 0 auto;
     text-align: center; }
     .soap-room .soap-room-header .soap-room-gallery img {
-      width: 600px;
+      width: 700px;
       vertical-align: bottom; }
   .soap-room .soap-room-header .one-of-a-kind {
     position: absolute;
@@ -726,7 +737,8 @@ SOAP ROOM
     padding: 2%;
     background: #425211;
     opacity: .9;
-    text-align: left; }
+    text-align: left;
+    z-index: 100; }
     .soap-room .soap-room-header .one-of-a-kind em {
       display: block;
       margin-bottom: 10%;
@@ -734,8 +746,7 @@ SOAP ROOM
       font-size: 1.2em; }
     .soap-room .soap-room-header .one-of-a-kind p {
       color: #fff;
-      font-size: .9em;
-      line-height: 2; }
+      font-size: .9em; }
 .soap-room .soap-room-week {
   max-width: 68em;
   margin-left: auto;
@@ -918,28 +929,32 @@ HERB GARDEN
 --------------------
 */
 .herb-garden .herb-garden-header {
-  padding-bottom: 5%;
+  padding-bottom: 4%;
   position: relative;
   background: #eee; }
   .herb-garden .herb-garden-header h1 {
     position: absolute;
     top: 15%;
-    left: 5%; }
+    left: 5%;
+    z-index: 100; }
   .herb-garden .herb-garden-header .herb-garden-gallery {
     display: block;
+    width: 700px;
+    margin: 0 auto;
     text-align: center; }
     .herb-garden .herb-garden-header .herb-garden-gallery img {
       width: 700px;
       vertical-align: bottom; }
   .herb-garden .herb-garden-header .dedicated {
     position: absolute;
-    top: 10%;
+    top: 5%;
     right: 5%;
     width: 325px;
     padding: 2%;
     background: #425211;
     opacity: .9;
-    text-align: left; }
+    text-align: left;
+    z-index: 100; }
     .herb-garden .herb-garden-header .dedicated em {
       display: block;
       margin-bottom: 10%;
@@ -947,8 +962,7 @@ HERB GARDEN
       font-size: 1.2em; }
     .herb-garden .herb-garden-header .dedicated p {
       color: #fff;
-      font-size: .9em;
-      line-height: 2; }
+      font-size: .9em; }
 .herb-garden .herb-garden-callouts {
   max-width: 68em;
   margin-left: auto;
@@ -999,15 +1013,18 @@ BLENDING ROOM
 --------------------
 */
 .blending-room .blending-room-header {
-  padding-bottom: 5%;
+  padding-bottom: 4%;
   position: relative;
   background: #eee; }
   .blending-room .blending-room-header h1 {
     position: absolute;
     top: 15%;
-    left: 5%; }
+    left: 5%;
+    z-index: 100; }
   .blending-room .blending-room-header .blending-room-gallery {
     display: block;
+    width: 700px;
+    margin: 0 auto;
     text-align: center; }
     .blending-room .blending-room-header .blending-room-gallery img {
       width: 700px;
@@ -1020,7 +1037,8 @@ BLENDING ROOM
     padding: 2%;
     background: #425211;
     opacity: .9;
-    text-align: left; }
+    text-align: left;
+    z-index: 100; }
     .blending-room .blending-room-header .dedicated em {
       display: block;
       margin-bottom: 10%;
@@ -1028,8 +1046,7 @@ BLENDING ROOM
       font-size: 1.2em; }
     .blending-room .blending-room-header .dedicated p {
       color: #fff;
-      font-size: .9em;
-      line-height: 2; }
+      font-size: .9em; }
 .blending-room .blending-room-callouts {
   max-width: 68em;
   margin-left: auto;
@@ -1080,7 +1097,7 @@ TEA ROOM
 --------------------
 */
 .tea-room .tea-room-header {
-  padding-bottom: 5%;
+  padding-bottom: 4%;
   position: relative;
   background: #eee; }
   .tea-room .tea-room-header h1 {
@@ -1113,8 +1130,102 @@ TEA ROOM
       font-size: 1.2em; }
     .tea-room .tea-room-header .freshly-baked p {
       color: #fff;
+      font-size: .9em; }
+.tea-room .whats-for-lunch {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 5% 0; }
+  .tea-room .whats-for-lunch::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .tea-room .whats-for-lunch .lunch {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 200px; }
+  .tea-room .whats-for-lunch h1 {
+    text-align: center; }
+  .tea-room .whats-for-lunch span {
+    display: block;
+    width: 35%;
+    padding: 1.5% 0;
+    margin: 1% auto 3%;
+    text-align: center;
+    border-top: 1px dotted #333;
+    border-bottom: 1px dotted #333;
+    font-size: .9em; }
+  .tea-room .whats-for-lunch .whats-for-lunch-1-1,
+  .tea-room .whats-for-lunch .whats-for-lunch-2-1,
+  .tea-room .whats-for-lunch .whats-for-lunch-3-1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .tea-room .whats-for-lunch .whats-for-lunch-1-1:last-child,
+    .tea-room .whats-for-lunch .whats-for-lunch-2-1:last-child,
+    .tea-room .whats-for-lunch .whats-for-lunch-3-1:last-child {
+      margin-right: 0; }
+    .tea-room .whats-for-lunch .whats-for-lunch-1-1 h3,
+    .tea-room .whats-for-lunch .whats-for-lunch-2-1 h3,
+    .tea-room .whats-for-lunch .whats-for-lunch-3-1 h3 {
+      text-align: center; }
+      .tea-room .whats-for-lunch .whats-for-lunch-1-1 h3 em,
+      .tea-room .whats-for-lunch .whats-for-lunch-2-1 h3 em,
+      .tea-room .whats-for-lunch .whats-for-lunch-3-1 h3 em {
+        display: block; }
+    .tea-room .whats-for-lunch .whats-for-lunch-1-1 p,
+    .tea-room .whats-for-lunch .whats-for-lunch-2-1 p,
+    .tea-room .whats-for-lunch .whats-for-lunch-3-1 p {
+      padding: 0 5%;
+      margin-bottom: 10%;
       font-size: .9em;
       line-height: 2; }
+  .tea-room .whats-for-lunch .whats-for-lunch-2-1 {
+    padding: 0 2%; }
+    .tea-room .whats-for-lunch .whats-for-lunch-2-1 img {
+      width: 150px; }
+    .tea-room .whats-for-lunch .whats-for-lunch-2-1 p {
+      padding: 0; }
+  .tea-room .whats-for-lunch .whats-for-lunch-3-1 {
+    padding: 3%;
+    border: 2px solid #333;
+    text-align: center; }
+    .tea-room .whats-for-lunch .whats-for-lunch-3-1 h3 {
+      margin-bottom: 20%; }
+    .tea-room .whats-for-lunch .whats-for-lunch-3-1 p {
+      margin-bottom: 5%; }
+    .tea-room .whats-for-lunch .whats-for-lunch-3-1 em {
+      display: block;
+      margin-top: 20%;
+      color: #999;
+      line-height: 1.6; }
+.tea-room .something-sweet {
+  background: #fbe7e0; }
+  .tea-room .something-sweet .something-sweet-1 {
+    display: inline-block;
+    width: 50%;
+    padding: 5% 0 0;
+    text-align: center;
+    vertical-align: top;
+    background: #fbe7e0; }
+    .tea-room .something-sweet .something-sweet-1 em {
+      display: block;
+      padding: 5% 20%;
+      font-size: 1.3em;
+      line-height: 1.6;
+      color: #666; }
+    .tea-room .something-sweet .something-sweet-1 h3 {
+      font-size: 2.2em; }
+  .tea-room .something-sweet .something-sweet-2 {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top; }
+    .tea-room .something-sweet .something-sweet-2 img {
+      width: 100%;
+      vertical-align: bottom; }
 
 /* 
 --------------------

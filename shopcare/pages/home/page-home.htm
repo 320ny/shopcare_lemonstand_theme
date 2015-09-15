@@ -16,10 +16,18 @@ url: /
     </a>
     <img src="{{ 'images/made-in-ireland.png'|theme_resource }}" alt="Made in Ireland" class="made-in">
   </section><section class="callout-right">
-    <a href="#" class="product-otw">
-      <h3>Product <em>of<br>the</em> week</h3>
-      <p>This is some dummy text that needs to be replaced. This is some dummy text that needs to be replaced.</p>
-    </a>
+    {% set featuredCollection = 'product-of-the-week'|collection %}
+      {% if featuredCollection %}
+        {% for product in featuredCollection.products %}
+          <a href="/product/{{product.url_name}}" class="product-otw">
+          <h3>Product <em>of<br>the</em> week</h3>
+          <p>This is some dummy text that needs to be replaced. This is some dummy text that needs to be replaced.</p>
+          <strong>{{ product.name }}</strong>
+          <img src="{{ product.images.first.thumbnail(400,'auto') }}}"></a>
+        {% endfor %}
+      {% else %}
+        <p>Error</p>
+      {% endif %}
   </section>
 
   <section class="who-we-are">
@@ -44,14 +52,14 @@ url: /
   <section class="pinterest-layout">
     <div class="pinterest-layout-1">
       <div class="pinterest-layout-1-1">
-        <img src="{{ 'images/250-250.jpg'|theme_resource }}">
+        <img src="{{ 'images/caru.png'|theme_resource }}">
         <h3><em class="small">Most Favorite Categories</em>Handmade<br>Soaps</h3>
         <p>We created Spring Harvest to evoke the scents of an armful of wild herbs.</p>
       </div>
       <div class="pinterest-layout-1-2">
         <h3><em class="small">Most Favorite Categories</em>Facial<br>Serum</h3>
         <p>We created Spring Harvest to evoke the scents of an armful of wild herbs.</p>
-        <img src="{{ 'images/250-250.jpg'|theme_resource }}">
+        <img src="{{ 'images/Castile-Soap-Woodland.jpg'|theme_resource }}">
       </div>
       <div class="pinterest-layout-1-3">
         <img src="{{ 'images/burren_MG_2903@2x.jpg'|theme_resource }}">
@@ -68,10 +76,10 @@ url: /
         <img src="{{ 'images/burren_MG_3333@2x.jpg'|theme_resource }}">
       </div>
       <div class="pinterest-layout-2-3">
-        <img src="{{ 'images/250-250.jpg'|theme_resource }}">
+        <img src="{{ 'images/le-jasmin.png'|theme_resource }}">
       </div>
       <div class="pinterest-layout-2-4">
-        <img src="{{ 'images/burren_MG_1056@2x.jpg'|theme_resource }}">
+        <img src="{{ 'images/our-products-are.png'|theme_resource }}">
       </div>
     </div>
   </section><!-- end pinterest-layout -->

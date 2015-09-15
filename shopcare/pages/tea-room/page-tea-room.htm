@@ -25,16 +25,54 @@ url: /tea-room
     </div>
   </section>
 
-  <script>
-    $(function() {
-      var demo1 = $("#slippry-gallery").slippry({
-        // transition: 'fade',
-        // useCSS: true,
-        // speed: 1000,
-        // pause: 3000,
-        auto: false,
-        // preload: 'visible',
-        // autoHover: false
-      });
+  <section class="whats-for-lunch">
+    <h1>What's for lunch?</h1>
+    <img src="{{ 'images/burren_MG_3127.jpg'|theme_resource }}" class="lunch">
+    <span>All meals &#8364; 6,50 - &#8364; 14,00</span>
+    <div class="whats-for-lunch-1-1">
+      <h3><em>the</em>Fisherman</h3>
+      <p>The culinary herb bed contains Thymes, Lemon Balm, Rosemary, Sage, Artichoke and others. Amongst the cosmetic herbs there are Elecampane, Bergamot, Wild Marjoram, Burdock. Medicinally, one can see Echinacea, Golden Rod, Valerian, Lungwort and Eyebright.</p>
+
+      <h3><em>the</em>Connoisseur</h3>
+      <p>Many of the adundant plants that grow along the roadsides and in the fields of the Burren are in fact medicinal or cosmetic herbs which have many uses long since forgotten. The garden was laid out to reflect these different usages.</p>
+    </div>
+
+    <div class="whats-for-lunch-2-1">
+      <h3><em>the</em>Vegatarian</h3>
+      <p>There is a native area for those meadow herbs such as Meadow Sweet (used to sweeten apples sauces, pies and jams), Lady's Bedstraw (used as a strewing herb to lay down in houses against bad smells, also used to stuff pillows and mattresses) and Oregano (a wonderful seasoning for for stews and soups).</p>
+
+      <h3>&nbsp;<br></h3>
+      <img src="{{ 'images/burren_MG_3060.jpg'|theme_resource }}">
+    </div>
+
+    <div class="whats-for-lunch-3-1">
+      <h3>Opening Hours</h3>
+      <p>Open daily<br>April through to September</p>
+      <p>11am to 5pm<br>April, May,<br>June and September</p>
+      <p>11am to 6pm<br>July and August</p>
+      <em>Please note that the Tearooms are not officially open during the winter months, but we keep the door open and provide facilities for free tea, coffee and snacks!</em>
+    </div>
+  </section>
+
+  <section class="something-sweet">
+    <div class="something-sweet-1">
+      <h3>Something<br>Sweet?</h3>
+      <em>Freshly baked scones with butter, cream and homemade jam. Yummy victoria sponge made with fresh organic strawberries and cream. Moist carrot cake with a zesty cream cheese icing. Green and Black's gooey chocolate brownies.</em>
+    </div><div class="something-sweet-2">
+      <img src="{{ 'images/cupcakes@2x.jpg'|theme_resource }}">
+    </div>
+  </section>
+
+<script>
+  $(function() {
+    var demo1 = $("#slippry-gallery").slippry({
+      // transition: 'fade',
+      // useCSS: true,
+      // speed: 3000,
+      pause: 5000,
+      // auto: false,
+      // preload: 'visible',
+      // autoHover: false
     });
-  </script>
+  });
+</script>
