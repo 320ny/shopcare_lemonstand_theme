@@ -117,6 +117,9 @@ i {
 strong {
   @include font1-semibold;
 }
+strong.bold {
+  @include font1-bold;
+}
 input:focus {
   outline: none;
 }
@@ -134,6 +137,12 @@ input[type=submit] {
     color: #fff;
   }
 }
+.main-content {
+  padding: 0 2%;
+  @include respond-to(1088) {
+    padding: 0;
+  }
+}
 .flash {
   @include font1-bold;
   .success {
@@ -149,6 +158,9 @@ input[type=submit] {
 .herb-garden,
 .tea-room,
 .blending-room,
+.directions,
+.payment-delivery,
+.contact,
 .footer {
   margin-top: 3%;
 }
@@ -249,13 +261,6 @@ header {
       }
       
       .shop-link {
-        /*
-        &:hover {
-          margin-bottom: 235px;
-        }*/
-        /*&:hover .shop-nav {
-          display: block;
-        }*/
         .shop-nav {
           display: none;
           padding: 0;
@@ -267,24 +272,35 @@ header {
           border-top: 1px dotted #333;
           border-bottom: 1px dotted #333;
           li {
-            padding: 2%;
+            height: 200px;
+            padding: 2% 1%;
             border: none;
             border-right: 1px dotted #333;
+            vertical-align: top;
+            @include respond-to(1200) {
+              padding: 2%;
+            }
             &:hover {
-              border: none;
+              border-right: 1px dotted #333;
+              border-radius: 0;
             }
             &:last-of-type {
               border-right: none;
             }
             a {
+              display: block;
+              margin-bottom: 5%;
+              font-size: .85em;
               color: #999;
               &:hover {
-                border: #fff;
+                border: none;
                 border-radius: 0;
+                color: $green-dark;
               }
             }
             h3 {
-              margin-bottom: 7%;
+              margin-bottom: 25px;
+              font-size: 1.7em;
             }
           }
         }
@@ -319,7 +335,7 @@ HOME
       display: inline-block;
       position: absolute;
       right: 20%;
-      bottom: 40%;
+      top: 10%;
       width: 150px;
       text-align: center;
       img {
@@ -353,9 +369,9 @@ HOME
       display: inline-block;
       position: absolute;
       right: 25%;
-      bottom: 30%;
+      top: 10%;
       width: 250px;
-      padding: 4%;
+      padding: 4% 4% 0;
       border: 2px solid $green-dark;
       &:hover {
         border-color: $green-light;
@@ -1173,6 +1189,165 @@ TEA ROOM
 /* 
 --------------------
 
+DIRECTIONS
+
+--------------------
+*/
+.directions {
+  @include outer-container;
+  a {
+    color: $green-dark;
+    text-decoration: underline;
+  }
+  .locations-directions {
+    @include span-columns(12);
+    p {
+      font-size: 1em;
+    }
+    @include respond-to(1000) {
+      @include span-columns(5.5);
+    }
+  }
+  .directions-gallery {
+    @include span-columns(12);
+    img {
+      width: 100%;
+    }
+    @include respond-to(1000) {
+      @include span-columns(6.5);
+      @include omega();
+    }
+  }
+  .from-section {
+    @include span-columns(12);
+    margin-top: 3%;
+    .from-kinvarra,
+    .from-corrofin,
+    .from-ballyvaghan {
+      @include span-columns(12);
+      h4 {
+        font-size: 1.4em;
+        span {
+          font-size: .55em;
+          color: #777;
+        }
+      }
+      @include respond-to(1000) {
+        @include span-columns(4);
+      }
+    }
+  }
+  .further-afield {
+    @include span-columns(12);
+    padding: 1% 2%;
+    margin: 2% 0 5%;
+    border: 1px solid #ccc;
+  }
+}
+/* 
+--------------------
+
+PAYMENT & DELIVERY
+
+--------------------
+*/
+.payment-delivery {
+  @include outer-container;
+  a {
+    color: $green-dark;
+    text-decoration: underline;
+  }
+  .shopping-online {
+    @include span-columns(12);
+    p {
+      font-size: 1em;
+    }
+    @include respond-to(1000) {
+      @include span-columns(5.5);
+    }
+  }
+  .payment-delivery-gallery {
+    @include span-columns(12);
+    img {
+      width: 100%;
+    }
+    @include respond-to(1000) {
+      @include span-columns(6.5);
+      @include omega();
+    }
+  }
+  .payment-delivery-content {
+    @include span-columns(12);
+    margin-top: 3%;
+    margin-bottom: 5%;
+    .offers,
+    .shipping-rates,
+    .security {
+      @include span-columns(12);
+      h4 {
+        font-size: 1.4em;
+      }
+      @include respond-to(1000) {
+        @include span-columns(4);
+      }
+    }
+    .travel-times {
+      margin-top: 5%;
+    }
+  }
+}
+/* 
+--------------------
+
+CONTACT
+
+--------------------
+*/
+.contact {
+  @include outer-container;
+  a {
+    color: $green-dark;
+    text-decoration: underline;
+  }
+  .contact-information {
+    @include span-columns(12);
+    p {
+      font-size: 1em;
+    }
+    @include respond-to(1000) {
+      @include span-columns(5.5);
+    }
+  }
+  .contact-gallery {
+    @include span-columns(12);
+    img {
+      width: 100%;
+    }
+    @include respond-to(1000) {
+      @include span-columns(6.5);
+      @include omega();
+    }
+  }
+  .contact-content {
+    @include span-columns(12);
+    margin-top: 3%;
+    margin-bottom: 5%;
+    .wholesale,
+    .order-problems,
+    .directions {
+      @include span-columns(12);
+      h4 {
+        font-size: 1.4em;
+      }
+      @include respond-to(1000) {
+        @include span-columns(4);
+      }
+    }
+  }
+}
+/* 
+--------------------
+
 TERMS
 
 --------------------
@@ -1283,6 +1458,7 @@ footer {
           font-size: 2em;
         }
         input[type="text"] {
+          width: 100%;
           margin-top: 1%;
           border: none;
           border-bottom: 2px solid $green-dark;

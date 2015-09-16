@@ -101,6 +101,11 @@ strong {
   font-weight: normal;
   font-style: normal; }
 
+strong.bold {
+  font-family: 'IngridMono-Bold', courier, sans-serif;
+  font-weight: normal;
+  font-style: normal; }
+
 input:focus {
   outline: none; }
 
@@ -120,6 +125,12 @@ input[type=submit] {
     background: #425211;
     color: #fff; }
 
+.main-content {
+  padding: 0 2%; }
+  @media only screen and (min-width: 1088px) {
+    .main-content {
+      padding: 0; } }
+
 .flash {
   font-family: 'IngridMono-Bold', courier, sans-serif;
   font-weight: normal;
@@ -136,6 +147,9 @@ input[type=submit] {
 .herb-garden,
 .tea-room,
 .blending-room,
+.directions,
+.payment-delivery,
+.contact,
 .footer {
   margin-top: 3%; }
 
@@ -231,39 +245,42 @@ header {
       header nav ul li.active {
         border-radius: 50%;
         border-color: #425211; }
-      header nav ul .shop-link {
-        /*
-        &:hover {
-          margin-bottom: 235px;
-        }*/
-        /*&:hover .shop-nav {
-          display: block;
-        }*/ }
-        header nav ul .shop-link .shop-nav {
-          display: none;
-          padding: 0;
-          position: absolute;
-          top: 150px;
-          left: 0;
-          width: 100%;
-          text-align: left;
-          border-top: 1px dotted #333;
-          border-bottom: 1px dotted #333; }
-          header nav ul .shop-link .shop-nav li {
-            padding: 2%;
-            border: none;
-            border-right: 1px dotted #333; }
-            header nav ul .shop-link .shop-nav li:hover {
-              border: none; }
-            header nav ul .shop-link .shop-nav li:last-of-type {
-              border-right: none; }
-            header nav ul .shop-link .shop-nav li a {
-              color: #999; }
-              header nav ul .shop-link .shop-nav li a:hover {
-                border: #fff;
-                border-radius: 0; }
-            header nav ul .shop-link .shop-nav li h3 {
-              margin-bottom: 7%; }
+      header nav ul .shop-link .shop-nav {
+        display: none;
+        padding: 0;
+        position: absolute;
+        top: 150px;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        border-top: 1px dotted #333;
+        border-bottom: 1px dotted #333; }
+        header nav ul .shop-link .shop-nav li {
+          height: 200px;
+          padding: 2% 1%;
+          border: none;
+          border-right: 1px dotted #333;
+          vertical-align: top; }
+          @media only screen and (min-width: 1200px) {
+            header nav ul .shop-link .shop-nav li {
+              padding: 2%; } }
+          header nav ul .shop-link .shop-nav li:hover {
+            border-right: 1px dotted #333;
+            border-radius: 0; }
+          header nav ul .shop-link .shop-nav li:last-of-type {
+            border-right: none; }
+          header nav ul .shop-link .shop-nav li a {
+            display: block;
+            margin-bottom: 5%;
+            font-size: .85em;
+            color: #999; }
+            header nav ul .shop-link .shop-nav li a:hover {
+              border: none;
+              border-radius: 0;
+              color: #425211; }
+          header nav ul .shop-link .shop-nav li h3 {
+            margin-bottom: 25px;
+            font-size: 1.7em; }
   header #mini-cart sup {
     font-size: .7em; }
 
@@ -288,7 +305,7 @@ HOME
     display: inline-block;
     position: absolute;
     right: 20%;
-    bottom: 40%;
+    top: 10%;
     width: 150px;
     text-align: center; }
     .home .callout-left .about-callout img {
@@ -317,9 +334,9 @@ HOME
     display: inline-block;
     position: absolute;
     right: 25%;
-    bottom: 30%;
+    top: 10%;
     width: 250px;
-    padding: 4%;
+    padding: 4% 4% 0;
     border: 2px solid #425211; }
     .home .callout-right .product-otw:hover {
       border-color: #cdd3c5; }
@@ -1230,6 +1247,292 @@ TEA ROOM
 /* 
 --------------------
 
+DIRECTIONS
+
+--------------------
+*/
+.directions {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .directions::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .directions a {
+    color: #425211;
+    text-decoration: underline; }
+  .directions .locations-directions {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .directions .locations-directions:last-child {
+      margin-right: 0; }
+    .directions .locations-directions p {
+      font-size: 1em; }
+    @media only screen and (min-width: 1000px) {
+      .directions .locations-directions {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 44.55627%; }
+        .directions .locations-directions:last-child {
+          margin-right: 0; } }
+  .directions .directions-gallery {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .directions .directions-gallery:last-child {
+      margin-right: 0; }
+    .directions .directions-gallery img {
+      width: 100%; }
+    @media only screen and (min-width: 1000px) {
+      .directions .directions-gallery {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 53.08608%;
+        margin-right: 0; }
+        .directions .directions-gallery:last-child {
+          margin-right: 0; } }
+  .directions .from-section {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-top: 3%; }
+    .directions .from-section:last-child {
+      margin-right: 0; }
+    .directions .from-section .from-kinvarra,
+    .directions .from-section .from-corrofin,
+    .directions .from-section .from-ballyvaghan {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .directions .from-section .from-kinvarra:last-child,
+      .directions .from-section .from-corrofin:last-child,
+      .directions .from-section .from-ballyvaghan:last-child {
+        margin-right: 0; }
+      .directions .from-section .from-kinvarra h4,
+      .directions .from-section .from-corrofin h4,
+      .directions .from-section .from-ballyvaghan h4 {
+        font-size: 1.4em; }
+        .directions .from-section .from-kinvarra h4 span,
+        .directions .from-section .from-corrofin h4 span,
+        .directions .from-section .from-ballyvaghan h4 span {
+          font-size: .55em;
+          color: #777; }
+      @media only screen and (min-width: 1000px) {
+        .directions .from-section .from-kinvarra,
+        .directions .from-section .from-corrofin,
+        .directions .from-section .from-ballyvaghan {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 31.76157%; }
+          .directions .from-section .from-kinvarra:last-child,
+          .directions .from-section .from-corrofin:last-child,
+          .directions .from-section .from-ballyvaghan:last-child {
+            margin-right: 0; } }
+  .directions .further-afield {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    padding: 1% 2%;
+    margin: 2% 0 5%;
+    border: 1px solid #ccc; }
+    .directions .further-afield:last-child {
+      margin-right: 0; }
+
+/* 
+--------------------
+
+PAYMENT & DELIVERY
+
+--------------------
+*/
+.payment-delivery {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .payment-delivery::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .payment-delivery a {
+    color: #425211;
+    text-decoration: underline; }
+  .payment-delivery .shopping-online {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .payment-delivery .shopping-online:last-child {
+      margin-right: 0; }
+    .payment-delivery .shopping-online p {
+      font-size: 1em; }
+    @media only screen and (min-width: 1000px) {
+      .payment-delivery .shopping-online {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 44.55627%; }
+        .payment-delivery .shopping-online:last-child {
+          margin-right: 0; } }
+  .payment-delivery .payment-delivery-gallery {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .payment-delivery .payment-delivery-gallery:last-child {
+      margin-right: 0; }
+    .payment-delivery .payment-delivery-gallery img {
+      width: 100%; }
+    @media only screen and (min-width: 1000px) {
+      .payment-delivery .payment-delivery-gallery {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 53.08608%;
+        margin-right: 0; }
+        .payment-delivery .payment-delivery-gallery:last-child {
+          margin-right: 0; } }
+  .payment-delivery .payment-delivery-content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 5%; }
+    .payment-delivery .payment-delivery-content:last-child {
+      margin-right: 0; }
+    .payment-delivery .payment-delivery-content .offers,
+    .payment-delivery .payment-delivery-content .shipping-rates,
+    .payment-delivery .payment-delivery-content .security {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .payment-delivery .payment-delivery-content .offers:last-child,
+      .payment-delivery .payment-delivery-content .shipping-rates:last-child,
+      .payment-delivery .payment-delivery-content .security:last-child {
+        margin-right: 0; }
+      .payment-delivery .payment-delivery-content .offers h4,
+      .payment-delivery .payment-delivery-content .shipping-rates h4,
+      .payment-delivery .payment-delivery-content .security h4 {
+        font-size: 1.4em; }
+      @media only screen and (min-width: 1000px) {
+        .payment-delivery .payment-delivery-content .offers,
+        .payment-delivery .payment-delivery-content .shipping-rates,
+        .payment-delivery .payment-delivery-content .security {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 31.76157%; }
+          .payment-delivery .payment-delivery-content .offers:last-child,
+          .payment-delivery .payment-delivery-content .shipping-rates:last-child,
+          .payment-delivery .payment-delivery-content .security:last-child {
+            margin-right: 0; } }
+    .payment-delivery .payment-delivery-content .travel-times {
+      margin-top: 5%; }
+
+/* 
+--------------------
+
+CONTACT
+
+--------------------
+*/
+.contact {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .contact::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .contact a {
+    color: #425211;
+    text-decoration: underline; }
+  .contact .contact-information {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .contact .contact-information:last-child {
+      margin-right: 0; }
+    .contact .contact-information p {
+      font-size: 1em; }
+    @media only screen and (min-width: 1000px) {
+      .contact .contact-information {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 44.55627%; }
+        .contact .contact-information:last-child {
+          margin-right: 0; } }
+  .contact .contact-gallery {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .contact .contact-gallery:last-child {
+      margin-right: 0; }
+    .contact .contact-gallery img {
+      width: 100%; }
+    @media only screen and (min-width: 1000px) {
+      .contact .contact-gallery {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 53.08608%;
+        margin-right: 0; }
+        .contact .contact-gallery:last-child {
+          margin-right: 0; } }
+  .contact .contact-content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 5%; }
+    .contact .contact-content:last-child {
+      margin-right: 0; }
+    .contact .contact-content .wholesale,
+    .contact .contact-content .order-problems,
+    .contact .contact-content .directions {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .contact .contact-content .wholesale:last-child,
+      .contact .contact-content .order-problems:last-child,
+      .contact .contact-content .directions:last-child {
+        margin-right: 0; }
+      .contact .contact-content .wholesale h4,
+      .contact .contact-content .order-problems h4,
+      .contact .contact-content .directions h4 {
+        font-size: 1.4em; }
+      @media only screen and (min-width: 1000px) {
+        .contact .contact-content .wholesale,
+        .contact .contact-content .order-problems,
+        .contact .contact-content .directions {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 31.76157%; }
+          .contact .contact-content .wholesale:last-child,
+          .contact .contact-content .order-problems:last-child,
+          .contact .contact-content .directions:last-child {
+            margin-right: 0; } }
+
+/* 
+--------------------
+
 TERMS
 
 --------------------
@@ -1392,6 +1695,7 @@ footer {
           display: block;
           font-size: 2em; }
         footer .footer-wrapper .footer-content .footer-newsletter input[type="text"] {
+          width: 100%;
           margin-top: 1%;
           border: none;
           border-bottom: 2px solid #425211;
