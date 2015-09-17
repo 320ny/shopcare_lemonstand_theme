@@ -81,10 +81,16 @@ h1,h2,h3,h4,h5,h6 {
   letter-spacing: 1px;
 }
 h1 {
-  font-size: 3.5em;
+  font-size: 2.5em;
+  @include respond-to(768) {
+    font-size: 3.5em;
+  }
 }
 h3 {
-  font-size: 2em;
+  font-size: 1.5em;
+  @include respond-to(768) {
+    font-size: 2em;
+  }
   em {
     @include font2-italic;
   }
@@ -203,7 +209,8 @@ SLIPPRY SLIDER
     height: 40px;
     width: 180px;
     bottom: -44px;
-    left: 253px;
+    left: 50%;
+    margin-left: -94px;
     li {
       a:link,
       a:visited {
@@ -231,15 +238,25 @@ HEADER
 header {
   @include outer-container;
   margin-top: 3%;
+  padding: 0 2%;
+  @include respond-to(1200) {
+    padding-left: 0;
+  }
   .logo {
-    @include span-columns(3);
+    @include span-columns(5);
     img {
       width: 100%;
     }
+    @include respond-to(1000) {
+      @include span-columns(3);
+    }
   }
   nav {
-    @include span-columns(9);
+    @include span-columns(7);
     text-align: right;
+    @include respond-to(1000) {
+      @include span-columns(9);
+    }
     ul {
       margin: 0;
       li {
@@ -312,6 +329,57 @@ header {
       font-size: .7em;
     }
   }
+  .nav-bar {
+    display: none;
+    @include respond-to(1000) {
+      display: block;
+    }
+  }
+  .mobile-nav-bar {
+    display: block;
+    @include respond-to(1000) {
+      display: none;
+    }
+    .burger-nav {
+      display: inline-block;
+      width: 70%;
+      margin-bottom: 15px;
+      color: $green-dark;
+      font-size: 1.1em;
+      &:hover {
+        cursor: pointer;
+      }
+      strong {
+        @include font2;
+        vertical-align: super;
+      }
+      img {
+        display: inline-block;
+        max-width: 40px;
+        margin-left: 10px;
+      }
+    }
+    span {
+      display: inline-block;
+    }
+    .mobile-nav-item {
+      display: none;
+      margin: 2% 0 15%;
+      border: none;
+      border-radius: 0;
+      @include respond-to(500) {
+        margin-bottom: 5%;
+      }
+      &:hover {
+        border: none;
+        border-radius: 0;
+      }
+      a {
+        padding: 1% 0;
+        border-bottom: 2px solid $green-dark;
+      }
+    }
+  }
 }
 /* 
 --------------------
@@ -324,20 +392,29 @@ HOME
   .callout-left {
     position: relative;
     display: inline-block;
-    width: 65%;
-    padding: 23%;
+    width: 100%;
+    padding: 10% 5% 10% 10%;
     background: url("../images/main-image@2x.jpg") no-repeat center bottom;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    @include respond-to(1000) {
+      width: 65%;
+      padding: 23%;
+    }
     .about-callout {
       display: inline-block;
-      position: absolute;
+      position: static;
       right: 20%;
       top: 10%;
       width: 150px;
+      float: right;
       text-align: center;
+      @include respond-to(1000) {
+        position: absolute;
+        float: none;
+      }
       img {
         width: 100%;
       }
@@ -346,6 +423,10 @@ HOME
         margin-top: 7%;
         padding: 4% 10%;
         border: 2px solid $green-dark;
+        background: #fff;
+        @include respond-to(1000) {
+          background: none;
+        }
       }
     }
     .made-in {
@@ -358,21 +439,29 @@ HOME
   .callout-right {
     position: relative;
     display: inline-block;
-    width: 35%;
-    padding: 22% 0;
+    width: 100%;
+    padding: 10% 0;
     background: url("../images/white-background.jpg") no-repeat right center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    @include respond-to(1000) {
+      width: 35%;
+      padding: 22% 0;
+    }
     .product-otw {
-      display: inline-block;
-      position: absolute;
+      display: block;
+      position: static;
       right: 25%;
-      top: 10%;
+      top: 5%;
       width: 250px;
+      margin: 0 auto;
       padding: 4% 4% 0;
       border: 2px solid $green-dark;
+      @include respond-to(1000) {
+        position: absolute;
+      }
       &:hover {
         border-color: $green-light;
       }
@@ -387,16 +476,22 @@ HOME
     }
   }
   .who-we-are {
-    margin-top: -7px;
-    padding: 3.5% 0;
+    padding: 5% 0 3%;
     background: url("../images/green-map.jpg");
+    @include respond-to(1000) {
+      margin-top: -7px;
+      padding: 3.5% 0;
+    }
     .who-we-are-wrapper {
       @include outer-container;
       .who,
       .what,
       .where {
-        @include span-columns(4);
+        @include span-columns(12);
         text-align: center;
+        @include respond-to(1000) {
+          @include span-columns(4);
+        }
         h3 {
           @include font2-hairline;
           color: #fff;
@@ -427,39 +522,77 @@ HOME
     }
     p {
       padding: 0 5%;
-      margin: 5% 0 0;
+      margin: 1% 0 0;
       text-align: center;
+      @include respond-to(500) {
+        margin: 5% 0 0;
+      }
     }
     .pinterest-layout-1 {
-      @include span-columns(6);
-      .pinterest-layout-1-1 {
+      @include span-columns(12);
+      @include respond-to(500) {
         @include span-columns(6);
       }
+      .pinterest-layout-1-1 {
+        @include span-columns(12);
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          @include span-columns(6);
+          margin-bottom: 0;
+        }
+      }
       .pinterest-layout-1-2 {
-        @include span-columns(6);
-        @include omega();
-        margin-bottom: 1.5%;
+        @include span-columns(12);
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          @include span-columns(6);
+          @include omega();
+          margin-bottom: 1.5%;
+        }
       }
       .pinterest-layout-1-3 {
         @include span-columns(12);
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          margin-bottom: 0;
+        }
       }
     }
     .pinterest-layout-2 {
-      @include span-columns(6);
+      @include span-columns(12);
+      @include respond-to(500) {
+        @include span-columns(6);
+      }
       .pinterest-layout-2-1 {
         @include span-columns(12);
-        margin-bottom: 1.5%;
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          margin-bottom: 1.5%;
+        }
       }
       .pinterest-layout-2-2 {
-        @include span-columns(6);
+        @include span-columns(12);
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          @include span-columns(6);
+          margin-bottom: 0;
+        }
       }
       .pinterest-layout-2-3 {
-        @include span-columns(6);
-        @include omega();
-        margin-bottom: 1.5%;
+        @include span-columns(12);
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          @include span-columns(6);
+          @include omega();
+          margin-bottom: 1.5%;
+        }
       }
       .pinterest-layout-2-4 {
         @include span-columns(12);
+        margin-bottom: 5%;
+        @include respond-to(500) {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -475,21 +608,32 @@ LOGIN / REGISTER
   @include outer-container;
   margin-bottom: 5%;
   form {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
+    @include respond-to(768) {
+      width: 70%;
+    }
   }
   h1 {
     margin-bottom: 7%;
     text-align: center;
   }
   .login {
-    @include span-columns(6);
+    @include span-columns(12);
     padding: 1% 0 1% 0;
+    margin-bottom: 7%;
+    @include respond-to(768) {
+      @include span-columns(6);
+      margin-bottom: 0;
+    }
   }
   .register {
-    @include span-columns(6);
+    @include span-columns(12);
     padding: 1% 0 1% 3%;
-    border-left: 1px dotted #666;
+    @include respond-to(768) {
+      @include span-columns(6);
+      border-left: 1px dotted #666;
+    }
   }
   label {
     display: block;
@@ -573,16 +717,26 @@ ABOUT
     .family {
       display: block;
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 250px;
+      @include respond-to(1000) {
+        max-width: 600px;
+      }
     }
     .what-we-are-about {
-      position: absolute;
-      top: 10%;
-      right: 5%;
-      width: 325px;
+      position: static;
+      width: 100%;
       padding: 2%;
       background: $green-dark;
       opacity: .9;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+      }
+      @include respond-to(768) {
+        width: 325px;
+        float: right;
+      }
       h1 {
         color: #fff;
         span {
@@ -591,17 +745,27 @@ ABOUT
         }
       }
       p {
-        margin-top: 10%;
+        margin-top: 4%;
         font-size: .9em;
         line-height: 2;
         color: #ccc;
+        @include respond-to(768) {
+          margin-top: 10%;
+        }
       }
     }
     .handmade {
-      position: absolute;
-      left: 5%;
-      top: 15%;
+      position: static;
       width: 225px;
+      margin: 5% auto 0;
+      @include respond-to(1000) {
+        position: absolute;
+        left: 5%;
+        top: 15%;
+      }
+      @include respond-to(768) {
+        margin: 0;
+      }
       img {
         width: 100%;
       }
@@ -638,7 +802,10 @@ ABOUT
     }
     .magic-1,
     .magic-2 {
-      @include span-columns(6);
+      @include span-columns(12);
+      @include respond-to(768) {
+        @include span-columns(6);
+      }
     }
     .magic-1-1,
     .magic-1-2,
@@ -646,7 +813,6 @@ ABOUT
     .magic-2-2 {
       @include span-columns(12);
       margin-bottom: 10%;
-      //@include omega();
     }
     .magic-1-2 {
       img {
@@ -669,7 +835,6 @@ ABOUT
   }
   .whats-going-on {
     padding: 5% 0;
-    //margin-bottom: -1.5%;
     text-align: center;
     background: #6b6b6b;
     .whats-going-on-content {
@@ -687,8 +852,11 @@ ABOUT
         color: #fff;
       }
       .whats-going-on-callout {
-        @include span-columns(4);
+        @include span-columns(12);
         margin-top: 3%;
+        @include respond-to(768) {
+          @include span-columns(4);
+        }
         h3 {
           margin-top: 5%;
         }
@@ -714,36 +882,58 @@ SOAP ROOM
     position: relative;
     background: #eee;
     h1 {
-      position: absolute;
-      top: 15%;
-      left: 5%;
+      position: static;
+      padding: 2% 0 1.5%;
+      text-align: center;
       z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left;
+      }
     }
     .soap-room-gallery {
       display: block;
-      width: 700px;
+      width: 100%;
       margin: 0 auto;
       text-align: center;
-      img {
+      @include respond-to(768) {
         width: 700px;
+      }
+      img {
+        width: 100%;;
         vertical-align: bottom;
+        @include respond-to(768) {
+          width: 700px;
+        }
       }
     }
     .one-of-a-kind {
-      position: absolute;
-      top: 10%;
-      right: 5%;
-      width: 325px;
+      position: static;
+      width: 92%;
       padding: 2%;
+      margin: 5% auto 0;
       background: $green-dark;
       opacity: .9;
       text-align: left;
       z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0;
+      }
       em {
         display: block;
-        margin-bottom: 10%;
+        margin-bottom: 3%;
         color: #fff;
         font-size: 1.2em;
+        @include respond-to(1000) {
+          margin-bottom: 10%;
+        }
       }
       p {
         color: #fff;
@@ -759,21 +949,31 @@ SOAP ROOM
       text-align: center;
     }
     .soap-room-hands {
+      display: none;
       position: absolute;
       top: 0;
       right: 4%;
       width: 165px;
+      @include respond-to(1000) {
+        display: block;
+      }
     }
     .timeline {
-      @include span-columns(9);
-      @include shift(1.5);
+      @include span-columns(12);
       margin-bottom: 3%;
       text-align: center;
+      @include respond-to(768) {
+        @include span-columns(9);
+        @include shift(1.5);
+      }
     }
     .soap-room-week-day1,
     .soap-room-week-day2,
     .soap-room-week-day3 {
-      @include span-columns(4);
+      @include span-columns(12);
+      @include respond-to(768) {
+        @include span-columns(4);
+      }
       h3 {
         text-align: center;
         font-size: 1.8em;
@@ -790,14 +990,21 @@ SOAP ROOM
     margin-top: 5%;
     margin-bottom: 3%;
     .soap-bars {
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
       width: 150px;
+      @include respond-to(1000) {
+        display: block;
+      }
     }
     .cold-soap-making-content {
-      @include span-columns(8);
-      @include shift (2);
+      @include span-columns(12);
+      @include respond-to(768) {
+        @include span-columns(8);
+        @include shift(2);
+      }
       h2 {
         margin-bottom: 3%;
         text-align: center;
@@ -805,9 +1012,12 @@ SOAP ROOM
       }
       p {
         margin: 0;
-        padding: 0 10%;
+        padding: 0 5%;
         font-size: 1.2em;
         text-align: center;
+        @include respond-to(768) {
+          padding: 0 10%;
+        }
       }
     }
   }
@@ -815,10 +1025,13 @@ SOAP ROOM
     @include outer-container;
     margin-bottom: 7%;
     .soap-room-week-steps-content {
-      @include span-columns(8);
-      @include shift(2);
+      @include span-columns(12);
       border-top: 2px solid $green-dark;
       border-bottom: 2px solid $green-dark;
+      @include respond-to(768) {
+        @include span-columns(8);
+        @include shift(2);
+      }
       .step1,
       .step2,
       .step3,
@@ -877,88 +1090,6 @@ SOAP ROOM
 /* 
 --------------------
 
-HERB GARDEN
-
---------------------
-*/
-.herb-garden {
-  .herb-garden-header {
-    padding-bottom: 4%;
-    position: relative;
-    background: #eee;
-    h1 {
-      position: absolute;
-      top: 15%;
-      left: 5%;
-      z-index: 100;
-    }
-    .herb-garden-gallery {
-      display: block;
-      width: 700px;
-      margin: 0 auto;
-      text-align: center;
-      img {
-        width: 700px;
-        vertical-align: bottom;
-      }
-    }
-    .dedicated {
-      position: absolute;
-      top: 5%;
-      right: 5%;
-      width: 325px;
-      padding: 2%;
-      background: $green-dark;
-      opacity: .9;
-      text-align: left;
-      z-index: 100;
-      em {
-        display: block;
-        margin-bottom: 10%;
-        color: #fff;
-        font-size: 1.2em;
-      }
-      p {
-        color: #fff;
-        font-size: .9em;
-      }
-    }
-  }
-  .herb-garden-callouts {
-    @include outer-container;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    .herb-garden-callout1,
-    .herb-garden-callout2,
-    .herb-garden-callout3 {
-      @include span-columns(4);
-      text-align: center;
-      img {
-        width: 100%;
-      }
-      h3 {
-        margin: 5% 0 2%;
-        text-align: center;
-      }
-      p {
-        padding: 0 5%;
-        font-size: .9em;
-        text-align: left;
-      }
-    }
-    .herb-garden-callout2 {
-      img {
-        max-width: 200px;
-      }
-    }
-    .herb-garden-callout3 {
-      @include omega();
-    }
-  }
-}
-/* 
---------------------
-
 BLENDING ROOM
 
 --------------------
@@ -969,36 +1100,58 @@ BLENDING ROOM
     position: relative;
     background: #eee;
     h1 {
-      position: absolute;
-      top: 15%;
-      left: 5%;
+      position: static;
+      padding: 2% 0 1.5%;
+      text-align: center;
       z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left;
+      }
     }
     .blending-room-gallery {
       display: block;
-      width: 700px;
+      width: 100%;
       margin: 0 auto;
       text-align: center;
-      img {
+      @include respond-to(768) {
         width: 700px;
+      }
+      img {
+        width: 100%;;
         vertical-align: bottom;
+        @include respond-to(768) {
+          width: 700px;
+        }
       }
     }
-    .dedicated {
-      position: absolute;
-      top: 10%;
-      right: 5%;
-      width: 325px;
+    .organic-creams {
+      position: static;
+      width: 92%;
       padding: 2%;
+      margin: 5% auto 0;
       background: $green-dark;
       opacity: .9;
       text-align: left;
       z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0;
+      }
       em {
         display: block;
-        margin-bottom: 10%;
+        margin-bottom: 3%;
         color: #fff;
         font-size: 1.2em;
+        @include respond-to(1000) {
+          margin-bottom: 10%;
+        }
       }
       p {
         color: #fff;
@@ -1013,10 +1166,16 @@ BLENDING ROOM
     .blending-room-callout1,
     .blending-room-callout2,
     .blending-room-callout3 {
-      @include span-columns(4);
+      @include span-columns(12);
       text-align: center;
+      @include respond-to(768) {
+        @include span-columns(4);
+      }
       img {
-        width: 100%;
+        width: 80%;
+        @include respond-to(768) {
+          width: 100%;
+        }
       }
       h3 {
         margin: 5% 0 2%;
@@ -1030,10 +1189,124 @@ BLENDING ROOM
     }
     .blending-room-callout3 {
       img {
-        max-width: 200px;
+        @include respond-to(768) {
+          max-width: 200px;
+        }
       }
     }
     .blending-room-callout3 {
+      @include omega();
+    }
+  }
+}
+/* 
+--------------------
+
+HERB GARDEN
+
+--------------------
+*/
+.herb-garden {
+  .herb-garden-header {
+    padding-bottom: 4%;
+    position: relative;
+    background: #eee;
+    h1 {
+      position: static;
+      padding: 2% 0 1.5%;
+      text-align: center;
+      z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left;
+      }
+    }
+    .herb-garden-gallery {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      @include respond-to(768) {
+        width: 700px;
+      }
+      img {
+        width: 100%;;
+        vertical-align: bottom;
+        @include respond-to(768) {
+          width: 700px;
+        }
+      }
+    }
+    .dedicated {
+      position: static;
+      width: 92%;
+      padding: 2%;
+      margin: 5% auto 0;
+      background: $green-dark;
+      opacity: .9;
+      text-align: left;
+      z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0;
+      }
+      em {
+        display: block;
+        margin-bottom: 3%;
+        color: #fff;
+        font-size: 1.2em;
+        @include respond-to(1000) {
+          margin-bottom: 10%;
+        }
+      }
+      p {
+        color: #fff;
+        font-size: .9em;
+      }
+    }
+  }
+  .herb-garden-callouts {
+    @include outer-container;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    .herb-garden-callout1,
+    .herb-garden-callout2,
+    .herb-garden-callout3 {
+      @include span-columns(12);
+      @include respond-to(768) {
+        @include span-columns(4);
+      }
+      text-align: center;
+      img {
+        width: 80%;
+        @include respond-to(768) {
+          width: 100%;
+        }
+      }
+      h3 {
+        margin: 5% 0 2%;
+        text-align: center;
+      }
+      p {
+        padding: 0 5%;
+        font-size: .9em;
+        text-align: left;
+      }
+    }
+    .herb-garden-callout2 {
+      img {
+        @include respond-to(768) {
+          max-width: 200px;
+        }
+      }
+    }
+    .herb-garden-callout3 {
       @include omega();
     }
   }
@@ -1051,36 +1324,58 @@ TEA ROOM
     position: relative;
     background: #eee;
     h1 {
-      position: absolute;
-      top: 15%;
-      left: 5%;
+      position: static;
+      padding: 2% 0 1.5%;
+      text-align: center;
       z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left;
+      }
     }
     .tea-room-gallery {
       display: block;
-      width: 700px;
+      width: 100%;
       margin: 0 auto;
       text-align: center;
-      img {
+      @include respond-to(768) {
         width: 700px;
+      }
+      img {
+        width: 100%;;
         vertical-align: bottom;
+        @include respond-to(768) {
+          width: 700px;
+        }
       }
     }
     .freshly-baked {
-      position: absolute;
-      top: 10%;
-      right: 5%;
-      width: 325px;
+      position: static;
+      width: 92%;
       padding: 2%;
+      margin: 5% auto 0;
       background: $green-dark;
       opacity: .9;
       text-align: left;
       z-index: 100;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0;
+      }
       em {
         display: block;
-        margin-bottom: 10%;
+        margin-bottom: 3%;
         color: #fff;
         font-size: 1.2em;
+        @include respond-to(1000) {
+          margin-bottom: 10%;
+        }
       }
       p {
         color: #fff;
@@ -1093,10 +1388,14 @@ TEA ROOM
     position: relative;
     padding: 5% 0;
     .lunch {
+      display: none;
       position: absolute;
       top: 5%;
       left: 0;
       width: 200px;
+      @include respond-to(1000) {
+        display: block;
+      }
     }
     h1 {
       text-align: center;
@@ -1114,7 +1413,10 @@ TEA ROOM
     .whats-for-lunch-1-1,
     .whats-for-lunch-2-1,
     .whats-for-lunch-3-1 {
-      @include span-columns(4);
+      @include span-columns(12);
+      @include respond-to(768) {
+        @include span-columns(4);
+      }
       h3 {
         text-align: center;
         em {
@@ -1123,15 +1425,24 @@ TEA ROOM
       }
       p {
         padding: 0 5%;
-        margin-bottom: 10%;
+        margin-bottom: 5%;
         font-size: .9em;
         line-height: 2;
+        @include respond-to(768) {
+          margin-bottom: 10%;
+        }
       }
     }
     .whats-for-lunch-2-1 {
       padding: 0 2%;
       img {
+        display: block;
         width: 150px;
+        margin: 0 auto 3%;
+        text-align: center;
+        @include respond-to(768) {
+          margin: 0;
+        }
       }
       p {
         padding: 0;
@@ -1142,16 +1453,22 @@ TEA ROOM
       border: 2px solid #333;
       text-align: center;
       h3 {
-        margin-bottom: 20%;
+        margin-bottom: 10%;
+        @include respond-to(768) {
+          margin-bottom: 20%;
+        }
       }
       p {
         margin-bottom: 5%;
       }
       em {
         display: block;
-        margin-top: 20%;
+        margin-top: 10%;
         color: #999;
         line-height: 1.6;
+        @include respond-to(768) {
+          margin-top: 20%;
+        }
       }
     }
   }
@@ -1159,11 +1476,14 @@ TEA ROOM
     background: #fbe7e0;
     .something-sweet-1 {
       display: inline-block;
-      width: 50%;
+      width: 100%;
       padding: 5% 0 0;
       text-align: center;
       vertical-align: top;
       background: #fbe7e0;
+      @include respond-to(768) {
+        width: 50%;
+      }
       em {
         display: block;
         padding: 5% 20%;
@@ -1177,8 +1497,11 @@ TEA ROOM
     }
     .something-sweet-2 {
       display: inline-block;
-      width: 50%;
+      width: 100%;
       vertical-align: top;
+      @include respond-to(768) {
+        width: 50%;
+      }
       img {
         width: 100%;
         vertical-align: bottom;
@@ -1378,13 +1701,18 @@ footer {
       @include outer-container;
       text-align: center;
       .prefooter-links1 {
-        @include shift(1.5);
+        @include respond-to(768) {
+          @include shift(1.5);
+        }
       }
       .prefooter-links1,
       .prefooter-links2,
       .prefooter-links3 {
-        @include span-columns(3);
+        @include span-columns(12);
         margin-top: 4%;
+        @include respond-to(768) {
+          @include span-columns(3);
+        }
         img {
           width: 80px;
         }
@@ -1414,6 +1742,10 @@ footer {
   .footer-wrapper {
     padding: 2% 0;
     background: #F5F6F3;
+    text-align: center;
+    @include respond-to(768) {
+      text-align: left;
+    }
     .footer-content {
       @include outer-container;
       .footer-links-1,
@@ -1421,11 +1753,11 @@ footer {
       .footer-philosophy,
       .footer-newsletter {
         @include span-columns(12);
-        padding: 5%;
+        padding: 5% 5% 0;
         @include respond-to(768) {
           @include span-columns(3);
           padding: 1% 0 0 2%;
-          min-height: 250px;
+          min-height: 280px;
           border-left: 1px solid #E0E0E0;
         }
         strong {
@@ -1433,26 +1765,42 @@ footer {
         }
         ul {
           padding: 0;
-          margin-top: 7%;
+          margin-top: 3%;
+          @include respond-to(768) {
+            margin-top: 7%;
+          }
           li {
-            margin-bottom: 3%;
+            margin-bottom: 0;
             list-style-type: none;
+            @include respond-to(768) {
+              margin-bottom: 3%;
+            }
             a {
-              color: #999;
+              display: inline-block;
+              padding: 3% 0;
+              color: #666;
               text-decoration: none;
               font-size: .8em;
+              @include respond-to(768) {
+                padding: 0;
+              }
             }
           }
         }
         p {
-          margin-top: 7%;
+          margin-top: 3%;
+          @include respond-to(768) {
+            margin-top: 7%;
+          }
         }
       }
       .footer-newsletter {
-        @include omega();
-        padding-right: 2%;
         text-align: center;
         border-right: 1px solid #E0E0E0;
+        @include respond-to(768) {
+          @include omega();
+          padding-right: 2%;
+        }
         span {
           display: block;
           font-size: 2em;
@@ -1467,18 +1815,27 @@ footer {
         }
         label {
           display: block;
-          margin-top: 15%;
+          margin-top: 10%;
           color: #666;
           font-size: .8em;
+          @include respond-to(768) {
+            margin-top: 15%;
+          }
         }
         .btn {
-          margin: 15% auto 0;
+          margin: 10% auto 0;
+          @include respond-to(768) {
+            margin-top: 15%;
+          }
         }
       }
       .social-icons {
         @include span-columns(12);
-        margin-top: 3%;
+        margin-top: 7%;
         text-align: center;
+        @include respond-to(768) {
+          margin-top: 3%;
+        }
         a {
           display: inline-block;
           width: 30px;

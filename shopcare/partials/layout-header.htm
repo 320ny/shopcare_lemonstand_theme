@@ -58,10 +58,30 @@
       {% endif %}
       <li class="{{ active_page == 'cart' ? 'active' : null }}"><div id="mini-cart">{{ partial('shop-minicart') }}</div></li>
     </ul>
+
+    <ul class="mobile-nav-bar">
+      <span class="burger-nav"><strong>MENU</strong><img src="{{ 'images/burger.png'|theme_resource }}"></span>
+      <li class="mobile-nav-item"><a href="{{ site_url('shop') }}">Shop</a></li>
+      <li class="mobile-nav-item"><a href="{{ site_url('about') }}">About Us</a></li>
+      <li class="mobile-nav-item"><a href="{{ site_url('blog') }}">Blog</a></li>
+      <li class="mobile-nav-item"><a href="{{ site_url('login') }}">Login / Register</a></li>
+      {% if customer %}
+        <li class="mobile-nav-item"><a href="{{ site_url('orders') }}">My Orders</a></li>
+        <li class="mobile-nav-item"><a href="{{ site_url('profile') }}">My Profile</a></li>
+      {% endif %}
+      <li class="mobile-nav-item"><div id="mini-cart">{{ partial('shop-minicart') }}</div></li>
+    </ul>
+
   </nav>
   
 </header>
 
+
+<script>
+  $( ".burger-nav" ).click(function() {
+    $( ".mobile-nav-item" ).toggle();
+  });
+</script>
 
 <!--
 {% tree categories %}

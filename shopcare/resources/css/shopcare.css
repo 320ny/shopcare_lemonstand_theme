@@ -62,10 +62,16 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px; }
 
 h1 {
-  font-size: 3.5em; }
+  font-size: 2.5em; }
+  @media only screen and (min-width: 768px) {
+    h1 {
+      font-size: 3.5em; } }
 
 h3 {
-  font-size: 2em; }
+  font-size: 1.5em; }
+  @media only screen and (min-width: 768px) {
+    h3 {
+      font-size: 2em; } }
   h3 em {
     font-family: 'sangbleu_seriflight_italic', serif;
     font-weight: normal;
@@ -185,7 +191,8 @@ SLIPPRY SLIDER
   height: 40px;
   width: 180px;
   bottom: -44px;
-  left: 253px; }
+  left: 50%;
+  margin-left: -94px; }
   .sy-box .sy-controls li a:link,
   .sy-box .sy-controls li a:visited {
     opacity: 1; }
@@ -208,28 +215,48 @@ header {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%; }
+  margin-top: 3%;
+  padding: 0 2%; }
   header::after {
     clear: both;
     content: "";
     display: table; }
+  @media only screen and (min-width: 1200px) {
+    header {
+      padding-left: 0; } }
   header .logo {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 23.23176%; }
+    width: 40.29137%; }
     header .logo:last-child {
       margin-right: 0; }
     header .logo img {
       width: 100%; }
+    @media only screen and (min-width: 1000px) {
+      header .logo {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%; }
+        header .logo:last-child {
+          margin-right: 0; } }
   header nav {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 74.41059%;
+    width: 57.35098%;
     text-align: right; }
     header nav:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 1000px) {
+      header nav {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%; }
+        header nav:last-child {
+          margin-right: 0; } }
     header nav ul {
       margin: 0; }
       header nav ul li {
@@ -283,6 +310,49 @@ header {
             font-size: 1.7em; }
   header #mini-cart sup {
     font-size: .7em; }
+  header .nav-bar {
+    display: none; }
+    @media only screen and (min-width: 1000px) {
+      header .nav-bar {
+        display: block; } }
+  header .mobile-nav-bar {
+    display: block; }
+    @media only screen and (min-width: 1000px) {
+      header .mobile-nav-bar {
+        display: none; } }
+    header .mobile-nav-bar .burger-nav {
+      display: inline-block;
+      width: 70%;
+      margin-bottom: 15px;
+      color: #425211;
+      font-size: 1.1em; }
+      header .mobile-nav-bar .burger-nav:hover {
+        cursor: pointer; }
+      header .mobile-nav-bar .burger-nav strong {
+        font-family: 'sangbleu_seriflight', serif;
+        font-weight: normal;
+        font-style: normal;
+        vertical-align: super; }
+      header .mobile-nav-bar .burger-nav img {
+        display: inline-block;
+        max-width: 40px;
+        margin-left: 10px; }
+    header .mobile-nav-bar span {
+      display: inline-block; }
+    header .mobile-nav-bar .mobile-nav-item {
+      display: none;
+      margin: 2% 0 15%;
+      border: none;
+      border-radius: 0; }
+      @media only screen and (min-width: 500px) {
+        header .mobile-nav-bar .mobile-nav-item {
+          margin-bottom: 5%; } }
+      header .mobile-nav-bar .mobile-nav-item:hover {
+        border: none;
+        border-radius: 0; }
+      header .mobile-nav-bar .mobile-nav-item a {
+        padding: 1% 0;
+        border-bottom: 2px solid #425211; }
 
 /* 
 --------------------
@@ -294,27 +364,40 @@ HOME
 .home .callout-left {
   position: relative;
   display: inline-block;
-  width: 65%;
-  padding: 23%;
+  width: 100%;
+  padding: 10% 5% 10% 10%;
   background: url("../images/main-image@2x.jpg") no-repeat center bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+  @media only screen and (min-width: 1000px) {
+    .home .callout-left {
+      width: 65%;
+      padding: 23%; } }
   .home .callout-left .about-callout {
     display: inline-block;
-    position: absolute;
+    position: static;
     right: 20%;
     top: 10%;
     width: 150px;
+    float: right;
     text-align: center; }
+    @media only screen and (min-width: 1000px) {
+      .home .callout-left .about-callout {
+        position: absolute;
+        float: none; } }
     .home .callout-left .about-callout img {
       width: 100%; }
     .home .callout-left .about-callout h3 {
       display: inline-block;
       margin-top: 7%;
       padding: 4% 10%;
-      border: 2px solid #425211; }
+      border: 2px solid #425211;
+      background: #fff; }
+      @media only screen and (min-width: 1000px) {
+        .home .callout-left .about-callout h3 {
+          background: none; } }
   .home .callout-left .made-in {
     position: absolute;
     left: 10%;
@@ -323,21 +406,29 @@ HOME
 .home .callout-right {
   position: relative;
   display: inline-block;
-  width: 35%;
-  padding: 22% 0;
+  width: 100%;
+  padding: 10% 0;
   background: url("../images/white-background.jpg") no-repeat right center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+  @media only screen and (min-width: 1000px) {
+    .home .callout-right {
+      width: 35%;
+      padding: 22% 0; } }
   .home .callout-right .product-otw {
-    display: inline-block;
-    position: absolute;
+    display: block;
+    position: static;
     right: 25%;
-    top: 10%;
+    top: 5%;
     width: 250px;
+    margin: 0 auto;
     padding: 4% 4% 0;
     border: 2px solid #425211; }
+    @media only screen and (min-width: 1000px) {
+      .home .callout-right .product-otw {
+        position: absolute; } }
     .home .callout-right .product-otw:hover {
       border-color: #cdd3c5; }
     .home .callout-right .product-otw strong {
@@ -347,9 +438,12 @@ HOME
     .home .callout-right .product-otw img {
       width: 100%; }
 .home .who-we-are {
-  margin-top: -7px;
-  padding: 3.5% 0;
+  padding: 5% 0 3%;
   background: url("../images/green-map.jpg"); }
+  @media only screen and (min-width: 1000px) {
+    .home .who-we-are {
+      margin-top: -7px;
+      padding: 3.5% 0; } }
   .home .who-we-are .who-we-are-wrapper {
     max-width: 68em;
     margin-left: auto;
@@ -364,12 +458,24 @@ HOME
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 31.76157%;
+      width: 100%;
       text-align: center; }
       .home .who-we-are .who-we-are-wrapper .who:last-child,
       .home .who-we-are .who-we-are-wrapper .what:last-child,
       .home .who-we-are .who-we-are-wrapper .where:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 1000px) {
+        .home .who-we-are .who-we-are-wrapper .who,
+        .home .who-we-are .who-we-are-wrapper .what,
+        .home .who-we-are .who-we-are-wrapper .where {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 31.76157%; }
+          .home .who-we-are .who-we-are-wrapper .who:last-child,
+          .home .who-we-are .who-we-are-wrapper .what:last-child,
+          .home .who-we-are .who-we-are-wrapper .where:last-child {
+            margin-right: 0; } }
       .home .who-we-are .who-we-are-wrapper .who h3,
       .home .who-we-are .who-we-are-wrapper .what h3,
       .home .who-we-are .who-we-are-wrapper .where h3 {
@@ -404,76 +510,144 @@ HOME
       color: #999; }
   .home .pinterest-layout p {
     padding: 0 5%;
-    margin: 5% 0 0;
+    margin: 1% 0 0;
     text-align: center; }
+    @media only screen and (min-width: 500px) {
+      .home .pinterest-layout p {
+        margin: 5% 0 0; } }
   .home .pinterest-layout .pinterest-layout-1 {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%; }
+    width: 100%; }
     .home .pinterest-layout .pinterest-layout-1:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 500px) {
+      .home .pinterest-layout .pinterest-layout-1 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%; }
+        .home .pinterest-layout .pinterest-layout-1:last-child {
+          margin-right: 0; } }
     .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 48.82117%; }
+      width: 100%;
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1 {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          margin-bottom: 0; }
+          .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-1:last-child {
+            margin-right: 0; } }
     .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 48.82117%;
-      margin-right: 0;
-      margin-bottom: 1.5%; }
+      width: 100%;
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2 {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          margin-right: 0;
+          margin-bottom: 1.5%; }
+          .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-2:last-child {
+            margin-right: 0; } }
     .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%; }
+      width: 100%;
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-1 .pinterest-layout-1-3 {
+          margin-bottom: 0; } }
   .home .pinterest-layout .pinterest-layout-2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%; }
+    width: 100%; }
     .home .pinterest-layout .pinterest-layout-2:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 500px) {
+      .home .pinterest-layout .pinterest-layout-2 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%; }
+        .home .pinterest-layout .pinterest-layout-2:last-child {
+          margin-right: 0; } }
     .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1 {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      margin-bottom: 1.5%; }
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-1 {
+          margin-bottom: 1.5%; } }
     .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 48.82117%; }
+      width: 100%;
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2 {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          margin-bottom: 0; }
+          .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-2:last-child {
+            margin-right: 0; } }
     .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 48.82117%;
-      margin-right: 0;
-      margin-bottom: 1.5%; }
+      width: 100%;
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3 {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          margin-right: 0;
+          margin-bottom: 1.5%; }
+          .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-3:last-child {
+            margin-right: 0; } }
     .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%; }
+      width: 100%;
+      margin-bottom: 5%; }
       .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 500px) {
+        .home .pinterest-layout .pinterest-layout-2 .pinterest-layout-2-4 {
+          margin-bottom: 0; } }
 
 /* 
 --------------------
@@ -492,8 +666,11 @@ LOGIN / REGISTER
     content: "";
     display: table; }
   .login-register form {
-    width: 70%;
+    width: 100%;
     margin: 0 auto; }
+    @media only screen and (min-width: 768px) {
+      .login-register form {
+        width: 70%; } }
   .login-register h1 {
     margin-bottom: 7%;
     text-align: center; }
@@ -501,19 +678,37 @@ LOGIN / REGISTER
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
-    padding: 1% 0 1% 0; }
+    width: 100%;
+    padding: 1% 0 1% 0;
+    margin-bottom: 7%; }
     .login-register .login:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .login-register .login {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        margin-bottom: 0; }
+        .login-register .login:last-child {
+          margin-right: 0; } }
   .login-register .register {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
-    padding: 1% 0 1% 3%;
-    border-left: 1px dotted #666; }
+    width: 100%;
+    padding: 1% 0 1% 3%; }
     .login-register .register:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .login-register .register {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        border-left: 1px dotted #666; }
+        .login-register .register:last-child {
+          margin-right: 0; } }
   .login-register label {
     display: block;
     margin-bottom: 1%;
@@ -595,30 +790,50 @@ ABOUT
   .about .about-header .family {
     display: block;
     margin: 0 auto;
-    max-width: 600px; }
+    max-width: 250px; }
+    @media only screen and (min-width: 1000px) {
+      .about .about-header .family {
+        max-width: 600px; } }
   .about .about-header .what-we-are-about {
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 325px;
+    position: static;
+    width: 100%;
     padding: 2%;
     background: #425211;
     opacity: .9; }
+    @media only screen and (min-width: 1000px) {
+      .about .about-header .what-we-are-about {
+        position: absolute;
+        top: 10%;
+        right: 5%; } }
+    @media only screen and (min-width: 768px) {
+      .about .about-header .what-we-are-about {
+        width: 325px;
+        float: right; } }
     .about .about-header .what-we-are-about h1 {
       color: #fff; }
       .about .about-header .what-we-are-about h1 span {
         display: block;
         font-size: .5em; }
     .about .about-header .what-we-are-about p {
-      margin-top: 10%;
+      margin-top: 4%;
       font-size: .9em;
       line-height: 2;
       color: #ccc; }
+      @media only screen and (min-width: 768px) {
+        .about .about-header .what-we-are-about p {
+          margin-top: 10%; } }
   .about .about-header .handmade {
-    position: absolute;
-    left: 5%;
-    top: 15%;
-    width: 225px; }
+    position: static;
+    width: 225px;
+    margin: 5% auto 0; }
+    @media only screen and (min-width: 1000px) {
+      .about .about-header .handmade {
+        position: absolute;
+        left: 5%;
+        top: 15%; } }
+    @media only screen and (min-width: 768px) {
+      .about .about-header .handmade {
+        margin: 0; } }
     .about .about-header .handmade img {
       width: 100%; }
     .about .about-header .handmade p {
@@ -657,10 +872,20 @@ ABOUT
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%; }
+    width: 100%; }
     .about .magic .magic-1:last-child,
     .about .magic .magic-2:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .about .magic .magic-1,
+      .about .magic .magic-2 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%; }
+        .about .magic .magic-1:last-child,
+        .about .magic .magic-2:last-child {
+          margin-right: 0; } }
   .about .magic .magic-1-1,
   .about .magic .magic-1-2,
   .about .magic .magic-2-1,
@@ -711,10 +936,18 @@ ABOUT
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 31.76157%;
+      width: 100%;
       margin-top: 3%; }
       .about .whats-going-on .whats-going-on-content .whats-going-on-callout:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 768px) {
+        .about .whats-going-on .whats-going-on-content .whats-going-on-callout {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 31.76157%; }
+          .about .whats-going-on .whats-going-on-content .whats-going-on-callout:last-child {
+            margin-right: 0; } }
       .about .whats-going-on .whats-going-on-content .whats-going-on-callout h3 {
         margin-top: 5%; }
       .about .whats-going-on .whats-going-on-content .whats-going-on-callout img {
@@ -734,33 +967,55 @@ SOAP ROOM
   position: relative;
   background: #eee; }
   .soap-room .soap-room-header h1 {
-    position: absolute;
-    top: 15%;
-    left: 5%;
+    position: static;
+    padding: 2% 0 1.5%;
+    text-align: center;
     z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .soap-room .soap-room-header h1 {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left; } }
   .soap-room .soap-room-header .soap-room-gallery {
     display: block;
-    width: 700px;
+    width: 100%;
     margin: 0 auto;
     text-align: center; }
+    @media only screen and (min-width: 768px) {
+      .soap-room .soap-room-header .soap-room-gallery {
+        width: 700px; } }
     .soap-room .soap-room-header .soap-room-gallery img {
-      width: 700px;
+      width: 100%;
       vertical-align: bottom; }
+      @media only screen and (min-width: 768px) {
+        .soap-room .soap-room-header .soap-room-gallery img {
+          width: 700px; } }
   .soap-room .soap-room-header .one-of-a-kind {
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 325px;
+    position: static;
+    width: 92%;
     padding: 2%;
+    margin: 5% auto 0;
     background: #425211;
     opacity: .9;
     text-align: left;
     z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .soap-room .soap-room-header .one-of-a-kind {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0; } }
     .soap-room .soap-room-header .one-of-a-kind em {
       display: block;
-      margin-bottom: 10%;
+      margin-bottom: 3%;
       color: #fff;
       font-size: 1.2em; }
+      @media only screen and (min-width: 1000px) {
+        .soap-room .soap-room-header .one-of-a-kind em {
+          margin-bottom: 10%; } }
     .soap-room .soap-room-header .one-of-a-kind p {
       color: #fff;
       font-size: .9em; }
@@ -777,31 +1032,55 @@ SOAP ROOM
     margin: 5% 0;
     text-align: center; }
   .soap-room .soap-room-week .soap-room-hands {
+    display: none;
     position: absolute;
     top: 0;
     right: 4%;
     width: 165px; }
+    @media only screen and (min-width: 1000px) {
+      .soap-room .soap-room-week .soap-room-hands {
+        display: block; } }
   .soap-room .soap-room-week .timeline {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 74.41059%;
-    margin-left: 12.79471%;
+    width: 100%;
     margin-bottom: 3%;
     text-align: center; }
     .soap-room .soap-room-week .timeline:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .soap-room .soap-room-week .timeline {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%;
+        margin-left: 12.79471%; }
+        .soap-room .soap-room-week .timeline:last-child {
+          margin-right: 0; } }
   .soap-room .soap-room-week .soap-room-week-day1,
   .soap-room .soap-room-week .soap-room-week-day2,
   .soap-room .soap-room-week .soap-room-week-day3 {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%; }
+    width: 100%; }
     .soap-room .soap-room-week .soap-room-week-day1:last-child,
     .soap-room .soap-room-week .soap-room-week-day2:last-child,
     .soap-room .soap-room-week .soap-room-week-day3:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .soap-room .soap-room-week .soap-room-week-day1,
+      .soap-room .soap-room-week .soap-room-week-day2,
+      .soap-room .soap-room-week .soap-room-week-day3 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .soap-room .soap-room-week .soap-room-week-day1:last-child,
+        .soap-room .soap-room-week .soap-room-week-day2:last-child,
+        .soap-room .soap-room-week .soap-room-week-day3:last-child {
+          margin-right: 0; } }
     .soap-room .soap-room-week .soap-room-week-day1 h3,
     .soap-room .soap-room-week .soap-room-week-day2 h3,
     .soap-room .soap-room-week .soap-room-week-day3 h3 {
@@ -824,27 +1103,42 @@ SOAP ROOM
     content: "";
     display: table; }
   .soap-room .cold-soap-making .soap-bars {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 150px; }
+    @media only screen and (min-width: 1000px) {
+      .soap-room .cold-soap-making .soap-bars {
+        display: block; } }
   .soap-room .cold-soap-making .cold-soap-making-content {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 65.88078%;
-    margin-left: 17.05961%; }
+    width: 100%; }
     .soap-room .cold-soap-making .cold-soap-making-content:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .soap-room .cold-soap-making .cold-soap-making-content {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%;
+        margin-left: 17.05961%; }
+        .soap-room .cold-soap-making .cold-soap-making-content:last-child {
+          margin-right: 0; } }
     .soap-room .cold-soap-making .cold-soap-making-content h2 {
       margin-bottom: 3%;
       text-align: center;
       font-size: 2.4em; }
     .soap-room .cold-soap-making .cold-soap-making-content p {
       margin: 0;
-      padding: 0 10%;
+      padding: 0 5%;
       font-size: 1.2em;
       text-align: center; }
+      @media only screen and (min-width: 768px) {
+        .soap-room .cold-soap-making .cold-soap-making-content p {
+          padding: 0 10%; } }
 .soap-room .soap-room-week-steps {
   max-width: 68em;
   margin-left: auto;
@@ -858,12 +1152,20 @@ SOAP ROOM
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 65.88078%;
-    margin-left: 17.05961%;
+    width: 100%;
     border-top: 2px solid #425211;
     border-bottom: 2px solid #425211; }
     .soap-room .soap-room-week-steps .soap-room-week-steps-content:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .soap-room .soap-room-week-steps .soap-room-week-steps-content {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%;
+        margin-left: 17.05961%; }
+        .soap-room .soap-room-week-steps .soap-room-week-steps-content:last-child {
+          margin-right: 0; } }
     .soap-room .soap-room-week-steps .soap-room-week-steps-content .step1,
     .soap-room .soap-room-week-steps .soap-room-week-steps-content .step2,
     .soap-room .soap-room-week-steps .soap-room-week-steps-content .step3,
@@ -941,6 +1243,130 @@ SOAP ROOM
 /* 
 --------------------
 
+BLENDING ROOM
+
+--------------------
+*/
+.blending-room .blending-room-header {
+  padding-bottom: 4%;
+  position: relative;
+  background: #eee; }
+  .blending-room .blending-room-header h1 {
+    position: static;
+    padding: 2% 0 1.5%;
+    text-align: center;
+    z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .blending-room .blending-room-header h1 {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left; } }
+  .blending-room .blending-room-header .blending-room-gallery {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center; }
+    @media only screen and (min-width: 768px) {
+      .blending-room .blending-room-header .blending-room-gallery {
+        width: 700px; } }
+    .blending-room .blending-room-header .blending-room-gallery img {
+      width: 100%;
+      vertical-align: bottom; }
+      @media only screen and (min-width: 768px) {
+        .blending-room .blending-room-header .blending-room-gallery img {
+          width: 700px; } }
+  .blending-room .blending-room-header .organic-creams {
+    position: static;
+    width: 92%;
+    padding: 2%;
+    margin: 5% auto 0;
+    background: #425211;
+    opacity: .9;
+    text-align: left;
+    z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .blending-room .blending-room-header .organic-creams {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0; } }
+    .blending-room .blending-room-header .organic-creams em {
+      display: block;
+      margin-bottom: 3%;
+      color: #fff;
+      font-size: 1.2em; }
+      @media only screen and (min-width: 1000px) {
+        .blending-room .blending-room-header .organic-creams em {
+          margin-bottom: 10%; } }
+    .blending-room .blending-room-header .organic-creams p {
+      color: #fff;
+      font-size: .9em; }
+.blending-room .blending-room-callouts {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  .blending-room .blending-room-callouts::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .blending-room .blending-room-callouts .blending-room-callout1,
+  .blending-room .blending-room-callouts .blending-room-callout2,
+  .blending-room .blending-room-callouts .blending-room-callout3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    text-align: center; }
+    .blending-room .blending-room-callouts .blending-room-callout1:last-child,
+    .blending-room .blending-room-callouts .blending-room-callout2:last-child,
+    .blending-room .blending-room-callouts .blending-room-callout3:last-child {
+      margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .blending-room .blending-room-callouts .blending-room-callout1,
+      .blending-room .blending-room-callouts .blending-room-callout2,
+      .blending-room .blending-room-callouts .blending-room-callout3 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .blending-room .blending-room-callouts .blending-room-callout1:last-child,
+        .blending-room .blending-room-callouts .blending-room-callout2:last-child,
+        .blending-room .blending-room-callouts .blending-room-callout3:last-child {
+          margin-right: 0; } }
+    .blending-room .blending-room-callouts .blending-room-callout1 img,
+    .blending-room .blending-room-callouts .blending-room-callout2 img,
+    .blending-room .blending-room-callouts .blending-room-callout3 img {
+      width: 80%; }
+      @media only screen and (min-width: 768px) {
+        .blending-room .blending-room-callouts .blending-room-callout1 img,
+        .blending-room .blending-room-callouts .blending-room-callout2 img,
+        .blending-room .blending-room-callouts .blending-room-callout3 img {
+          width: 100%; } }
+    .blending-room .blending-room-callouts .blending-room-callout1 h3,
+    .blending-room .blending-room-callouts .blending-room-callout2 h3,
+    .blending-room .blending-room-callouts .blending-room-callout3 h3 {
+      margin: 5% 0 2%;
+      text-align: center; }
+    .blending-room .blending-room-callouts .blending-room-callout1 p,
+    .blending-room .blending-room-callouts .blending-room-callout2 p,
+    .blending-room .blending-room-callouts .blending-room-callout3 p {
+      padding: 0 5%;
+      font-size: .9em;
+      text-align: left; }
+  @media only screen and (min-width: 768px) {
+    .blending-room .blending-room-callouts .blending-room-callout3 img {
+      max-width: 200px; } }
+  .blending-room .blending-room-callouts .blending-room-callout3 {
+    margin-right: 0; }
+
+/* 
+--------------------
+
 HERB GARDEN
 
 --------------------
@@ -950,33 +1376,55 @@ HERB GARDEN
   position: relative;
   background: #eee; }
   .herb-garden .herb-garden-header h1 {
-    position: absolute;
-    top: 15%;
-    left: 5%;
+    position: static;
+    padding: 2% 0 1.5%;
+    text-align: center;
     z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .herb-garden .herb-garden-header h1 {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left; } }
   .herb-garden .herb-garden-header .herb-garden-gallery {
     display: block;
-    width: 700px;
+    width: 100%;
     margin: 0 auto;
     text-align: center; }
+    @media only screen and (min-width: 768px) {
+      .herb-garden .herb-garden-header .herb-garden-gallery {
+        width: 700px; } }
     .herb-garden .herb-garden-header .herb-garden-gallery img {
-      width: 700px;
+      width: 100%;
       vertical-align: bottom; }
+      @media only screen and (min-width: 768px) {
+        .herb-garden .herb-garden-header .herb-garden-gallery img {
+          width: 700px; } }
   .herb-garden .herb-garden-header .dedicated {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 325px;
+    position: static;
+    width: 92%;
     padding: 2%;
+    margin: 5% auto 0;
     background: #425211;
     opacity: .9;
     text-align: left;
     z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .herb-garden .herb-garden-header .dedicated {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0; } }
     .herb-garden .herb-garden-header .dedicated em {
       display: block;
-      margin-bottom: 10%;
+      margin-bottom: 3%;
       color: #fff;
       font-size: 1.2em; }
+      @media only screen and (min-width: 1000px) {
+        .herb-garden .herb-garden-header .dedicated em {
+          margin-bottom: 10%; } }
     .herb-garden .herb-garden-header .dedicated p {
       color: #fff;
       font-size: .9em; }
@@ -996,16 +1444,33 @@ HERB GARDEN
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%;
+    width: 100%;
     text-align: center; }
     .herb-garden .herb-garden-callouts .herb-garden-callout1:last-child,
     .herb-garden .herb-garden-callouts .herb-garden-callout2:last-child,
     .herb-garden .herb-garden-callouts .herb-garden-callout3:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .herb-garden .herb-garden-callouts .herb-garden-callout1,
+      .herb-garden .herb-garden-callouts .herb-garden-callout2,
+      .herb-garden .herb-garden-callouts .herb-garden-callout3 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .herb-garden .herb-garden-callouts .herb-garden-callout1:last-child,
+        .herb-garden .herb-garden-callouts .herb-garden-callout2:last-child,
+        .herb-garden .herb-garden-callouts .herb-garden-callout3:last-child {
+          margin-right: 0; } }
     .herb-garden .herb-garden-callouts .herb-garden-callout1 img,
     .herb-garden .herb-garden-callouts .herb-garden-callout2 img,
     .herb-garden .herb-garden-callouts .herb-garden-callout3 img {
-      width: 100%; }
+      width: 80%; }
+      @media only screen and (min-width: 768px) {
+        .herb-garden .herb-garden-callouts .herb-garden-callout1 img,
+        .herb-garden .herb-garden-callouts .herb-garden-callout2 img,
+        .herb-garden .herb-garden-callouts .herb-garden-callout3 img {
+          width: 100%; } }
     .herb-garden .herb-garden-callouts .herb-garden-callout1 h3,
     .herb-garden .herb-garden-callouts .herb-garden-callout2 h3,
     .herb-garden .herb-garden-callouts .herb-garden-callout3 h3 {
@@ -1017,93 +1482,10 @@ HERB GARDEN
       padding: 0 5%;
       font-size: .9em;
       text-align: left; }
-  .herb-garden .herb-garden-callouts .herb-garden-callout2 img {
-    max-width: 200px; }
+  @media only screen and (min-width: 768px) {
+    .herb-garden .herb-garden-callouts .herb-garden-callout2 img {
+      max-width: 200px; } }
   .herb-garden .herb-garden-callouts .herb-garden-callout3 {
-    margin-right: 0; }
-
-/* 
---------------------
-
-BLENDING ROOM
-
---------------------
-*/
-.blending-room .blending-room-header {
-  padding-bottom: 4%;
-  position: relative;
-  background: #eee; }
-  .blending-room .blending-room-header h1 {
-    position: absolute;
-    top: 15%;
-    left: 5%;
-    z-index: 100; }
-  .blending-room .blending-room-header .blending-room-gallery {
-    display: block;
-    width: 700px;
-    margin: 0 auto;
-    text-align: center; }
-    .blending-room .blending-room-header .blending-room-gallery img {
-      width: 700px;
-      vertical-align: bottom; }
-  .blending-room .blending-room-header .dedicated {
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 325px;
-    padding: 2%;
-    background: #425211;
-    opacity: .9;
-    text-align: left;
-    z-index: 100; }
-    .blending-room .blending-room-header .dedicated em {
-      display: block;
-      margin-bottom: 10%;
-      color: #fff;
-      font-size: 1.2em; }
-    .blending-room .blending-room-header .dedicated p {
-      color: #fff;
-      font-size: .9em; }
-.blending-room .blending-room-callouts {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  margin-bottom: 5%; }
-  .blending-room .blending-room-callouts::after {
-    clear: both;
-    content: "";
-    display: table; }
-  .blending-room .blending-room-callouts .blending-room-callout1,
-  .blending-room .blending-room-callouts .blending-room-callout2,
-  .blending-room .blending-room-callouts .blending-room-callout3 {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%;
-    text-align: center; }
-    .blending-room .blending-room-callouts .blending-room-callout1:last-child,
-    .blending-room .blending-room-callouts .blending-room-callout2:last-child,
-    .blending-room .blending-room-callouts .blending-room-callout3:last-child {
-      margin-right: 0; }
-    .blending-room .blending-room-callouts .blending-room-callout1 img,
-    .blending-room .blending-room-callouts .blending-room-callout2 img,
-    .blending-room .blending-room-callouts .blending-room-callout3 img {
-      width: 100%; }
-    .blending-room .blending-room-callouts .blending-room-callout1 h3,
-    .blending-room .blending-room-callouts .blending-room-callout2 h3,
-    .blending-room .blending-room-callouts .blending-room-callout3 h3 {
-      margin: 5% 0 2%;
-      text-align: center; }
-    .blending-room .blending-room-callouts .blending-room-callout1 p,
-    .blending-room .blending-room-callouts .blending-room-callout2 p,
-    .blending-room .blending-room-callouts .blending-room-callout3 p {
-      padding: 0 5%;
-      font-size: .9em;
-      text-align: left; }
-  .blending-room .blending-room-callouts .blending-room-callout3 img {
-    max-width: 200px; }
-  .blending-room .blending-room-callouts .blending-room-callout3 {
     margin-right: 0; }
 
 /* 
@@ -1118,33 +1500,55 @@ TEA ROOM
   position: relative;
   background: #eee; }
   .tea-room .tea-room-header h1 {
-    position: absolute;
-    top: 15%;
-    left: 5%;
+    position: static;
+    padding: 2% 0 1.5%;
+    text-align: center;
     z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .tea-room .tea-room-header h1 {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        padding: 0;
+        text-align: left; } }
   .tea-room .tea-room-header .tea-room-gallery {
     display: block;
-    width: 700px;
+    width: 100%;
     margin: 0 auto;
     text-align: center; }
+    @media only screen and (min-width: 768px) {
+      .tea-room .tea-room-header .tea-room-gallery {
+        width: 700px; } }
     .tea-room .tea-room-header .tea-room-gallery img {
-      width: 700px;
+      width: 100%;
       vertical-align: bottom; }
+      @media only screen and (min-width: 768px) {
+        .tea-room .tea-room-header .tea-room-gallery img {
+          width: 700px; } }
   .tea-room .tea-room-header .freshly-baked {
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 325px;
+    position: static;
+    width: 92%;
     padding: 2%;
+    margin: 5% auto 0;
     background: #425211;
     opacity: .9;
     text-align: left;
     z-index: 100; }
+    @media only screen and (min-width: 1000px) {
+      .tea-room .tea-room-header .freshly-baked {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        width: 325px;
+        margin: 0; } }
     .tea-room .tea-room-header .freshly-baked em {
       display: block;
-      margin-bottom: 10%;
+      margin-bottom: 3%;
       color: #fff;
       font-size: 1.2em; }
+      @media only screen and (min-width: 1000px) {
+        .tea-room .tea-room-header .freshly-baked em {
+          margin-bottom: 10%; } }
     .tea-room .tea-room-header .freshly-baked p {
       color: #fff;
       font-size: .9em; }
@@ -1159,10 +1563,14 @@ TEA ROOM
     content: "";
     display: table; }
   .tea-room .whats-for-lunch .lunch {
+    display: none;
     position: absolute;
     top: 5%;
     left: 0;
     width: 200px; }
+    @media only screen and (min-width: 1000px) {
+      .tea-room .whats-for-lunch .lunch {
+        display: block; } }
   .tea-room .whats-for-lunch h1 {
     text-align: center; }
   .tea-room .whats-for-lunch span {
@@ -1180,11 +1588,23 @@ TEA ROOM
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%; }
+    width: 100%; }
     .tea-room .whats-for-lunch .whats-for-lunch-1-1:last-child,
     .tea-room .whats-for-lunch .whats-for-lunch-2-1:last-child,
     .tea-room .whats-for-lunch .whats-for-lunch-3-1:last-child {
       margin-right: 0; }
+    @media only screen and (min-width: 768px) {
+      .tea-room .whats-for-lunch .whats-for-lunch-1-1,
+      .tea-room .whats-for-lunch .whats-for-lunch-2-1,
+      .tea-room .whats-for-lunch .whats-for-lunch-3-1 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .tea-room .whats-for-lunch .whats-for-lunch-1-1:last-child,
+        .tea-room .whats-for-lunch .whats-for-lunch-2-1:last-child,
+        .tea-room .whats-for-lunch .whats-for-lunch-3-1:last-child {
+          margin-right: 0; } }
     .tea-room .whats-for-lunch .whats-for-lunch-1-1 h3,
     .tea-room .whats-for-lunch .whats-for-lunch-2-1 h3,
     .tea-room .whats-for-lunch .whats-for-lunch-3-1 h3 {
@@ -1197,13 +1617,24 @@ TEA ROOM
     .tea-room .whats-for-lunch .whats-for-lunch-2-1 p,
     .tea-room .whats-for-lunch .whats-for-lunch-3-1 p {
       padding: 0 5%;
-      margin-bottom: 10%;
+      margin-bottom: 5%;
       font-size: .9em;
       line-height: 2; }
+      @media only screen and (min-width: 768px) {
+        .tea-room .whats-for-lunch .whats-for-lunch-1-1 p,
+        .tea-room .whats-for-lunch .whats-for-lunch-2-1 p,
+        .tea-room .whats-for-lunch .whats-for-lunch-3-1 p {
+          margin-bottom: 10%; } }
   .tea-room .whats-for-lunch .whats-for-lunch-2-1 {
     padding: 0 2%; }
     .tea-room .whats-for-lunch .whats-for-lunch-2-1 img {
-      width: 150px; }
+      display: block;
+      width: 150px;
+      margin: 0 auto 3%;
+      text-align: center; }
+      @media only screen and (min-width: 768px) {
+        .tea-room .whats-for-lunch .whats-for-lunch-2-1 img {
+          margin: 0; } }
     .tea-room .whats-for-lunch .whats-for-lunch-2-1 p {
       padding: 0; }
   .tea-room .whats-for-lunch .whats-for-lunch-3-1 {
@@ -1211,23 +1642,32 @@ TEA ROOM
     border: 2px solid #333;
     text-align: center; }
     .tea-room .whats-for-lunch .whats-for-lunch-3-1 h3 {
-      margin-bottom: 20%; }
+      margin-bottom: 10%; }
+      @media only screen and (min-width: 768px) {
+        .tea-room .whats-for-lunch .whats-for-lunch-3-1 h3 {
+          margin-bottom: 20%; } }
     .tea-room .whats-for-lunch .whats-for-lunch-3-1 p {
       margin-bottom: 5%; }
     .tea-room .whats-for-lunch .whats-for-lunch-3-1 em {
       display: block;
-      margin-top: 20%;
+      margin-top: 10%;
       color: #999;
       line-height: 1.6; }
+      @media only screen and (min-width: 768px) {
+        .tea-room .whats-for-lunch .whats-for-lunch-3-1 em {
+          margin-top: 20%; } }
 .tea-room .something-sweet {
   background: #fbe7e0; }
   .tea-room .something-sweet .something-sweet-1 {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     padding: 5% 0 0;
     text-align: center;
     vertical-align: top;
     background: #fbe7e0; }
+    @media only screen and (min-width: 768px) {
+      .tea-room .something-sweet .something-sweet-1 {
+        width: 50%; } }
     .tea-room .something-sweet .something-sweet-1 em {
       display: block;
       padding: 5% 20%;
@@ -1238,8 +1678,11 @@ TEA ROOM
       font-size: 2.2em; }
   .tea-room .something-sweet .something-sweet-2 {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     vertical-align: top; }
+    @media only screen and (min-width: 768px) {
+      .tea-room .something-sweet .something-sweet-2 {
+        width: 50%; } }
     .tea-room .something-sweet .something-sweet-2 img {
       width: 100%;
       vertical-align: bottom; }
@@ -1577,20 +2020,33 @@ footer {
         clear: both;
         content: "";
         display: table; }
-      footer .prefooter-wrapper .prefooter-content .prefooter-links1 {
-        margin-left: 12.79471%; }
+      @media only screen and (min-width: 768px) {
+        footer .prefooter-wrapper .prefooter-content .prefooter-links1 {
+          margin-left: 12.79471%; } }
       footer .prefooter-wrapper .prefooter-content .prefooter-links1,
       footer .prefooter-wrapper .prefooter-content .prefooter-links2,
       footer .prefooter-wrapper .prefooter-content .prefooter-links3 {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 23.23176%;
+        width: 100%;
         margin-top: 4%; }
         footer .prefooter-wrapper .prefooter-content .prefooter-links1:last-child,
         footer .prefooter-wrapper .prefooter-content .prefooter-links2:last-child,
         footer .prefooter-wrapper .prefooter-content .prefooter-links3:last-child {
           margin-right: 0; }
+        @media only screen and (min-width: 768px) {
+          footer .prefooter-wrapper .prefooter-content .prefooter-links1,
+          footer .prefooter-wrapper .prefooter-content .prefooter-links2,
+          footer .prefooter-wrapper .prefooter-content .prefooter-links3 {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 23.23176%; }
+            footer .prefooter-wrapper .prefooter-content .prefooter-links1:last-child,
+            footer .prefooter-wrapper .prefooter-content .prefooter-links2:last-child,
+            footer .prefooter-wrapper .prefooter-content .prefooter-links3:last-child {
+              margin-right: 0; } }
         footer .prefooter-wrapper .prefooter-content .prefooter-links1 img,
         footer .prefooter-wrapper .prefooter-content .prefooter-links2 img,
         footer .prefooter-wrapper .prefooter-content .prefooter-links3 img {
@@ -1617,7 +2073,11 @@ footer {
             width: 50px; } }
   footer .footer-wrapper {
     padding: 2% 0;
-    background: #F5F6F3; }
+    background: #F5F6F3;
+    text-align: center; }
+    @media only screen and (min-width: 768px) {
+      footer .footer-wrapper {
+        text-align: left; } }
     footer .footer-wrapper .footer-content {
       max-width: 68em;
       margin-left: auto;
@@ -1634,7 +2094,7 @@ footer {
         display: block;
         margin-right: 2.35765%;
         width: 100%;
-        padding: 5%; }
+        padding: 5% 5% 0; }
         footer .footer-wrapper .footer-content .footer-links-1:last-child,
         footer .footer-wrapper .footer-content .footer-links-2:last-child,
         footer .footer-wrapper .footer-content .footer-philosophy:last-child,
@@ -1650,7 +2110,7 @@ footer {
             margin-right: 2.35765%;
             width: 23.23176%;
             padding: 1% 0 0 2%;
-            min-height: 250px;
+            min-height: 280px;
             border-left: 1px solid #E0E0E0; }
             footer .footer-wrapper .footer-content .footer-links-1:last-child,
             footer .footer-wrapper .footer-content .footer-links-2:last-child,
@@ -1667,30 +2127,58 @@ footer {
         footer .footer-wrapper .footer-content .footer-philosophy ul,
         footer .footer-wrapper .footer-content .footer-newsletter ul {
           padding: 0;
-          margin-top: 7%; }
+          margin-top: 3%; }
+          @media only screen and (min-width: 768px) {
+            footer .footer-wrapper .footer-content .footer-links-1 ul,
+            footer .footer-wrapper .footer-content .footer-links-2 ul,
+            footer .footer-wrapper .footer-content .footer-philosophy ul,
+            footer .footer-wrapper .footer-content .footer-newsletter ul {
+              margin-top: 7%; } }
           footer .footer-wrapper .footer-content .footer-links-1 ul li,
           footer .footer-wrapper .footer-content .footer-links-2 ul li,
           footer .footer-wrapper .footer-content .footer-philosophy ul li,
           footer .footer-wrapper .footer-content .footer-newsletter ul li {
-            margin-bottom: 3%;
+            margin-bottom: 0;
             list-style-type: none; }
+            @media only screen and (min-width: 768px) {
+              footer .footer-wrapper .footer-content .footer-links-1 ul li,
+              footer .footer-wrapper .footer-content .footer-links-2 ul li,
+              footer .footer-wrapper .footer-content .footer-philosophy ul li,
+              footer .footer-wrapper .footer-content .footer-newsletter ul li {
+                margin-bottom: 3%; } }
             footer .footer-wrapper .footer-content .footer-links-1 ul li a,
             footer .footer-wrapper .footer-content .footer-links-2 ul li a,
             footer .footer-wrapper .footer-content .footer-philosophy ul li a,
             footer .footer-wrapper .footer-content .footer-newsletter ul li a {
-              color: #999;
+              display: inline-block;
+              padding: 3% 0;
+              color: #666;
               text-decoration: none;
               font-size: .8em; }
+              @media only screen and (min-width: 768px) {
+                footer .footer-wrapper .footer-content .footer-links-1 ul li a,
+                footer .footer-wrapper .footer-content .footer-links-2 ul li a,
+                footer .footer-wrapper .footer-content .footer-philosophy ul li a,
+                footer .footer-wrapper .footer-content .footer-newsletter ul li a {
+                  padding: 0; } }
         footer .footer-wrapper .footer-content .footer-links-1 p,
         footer .footer-wrapper .footer-content .footer-links-2 p,
         footer .footer-wrapper .footer-content .footer-philosophy p,
         footer .footer-wrapper .footer-content .footer-newsletter p {
-          margin-top: 7%; }
+          margin-top: 3%; }
+          @media only screen and (min-width: 768px) {
+            footer .footer-wrapper .footer-content .footer-links-1 p,
+            footer .footer-wrapper .footer-content .footer-links-2 p,
+            footer .footer-wrapper .footer-content .footer-philosophy p,
+            footer .footer-wrapper .footer-content .footer-newsletter p {
+              margin-top: 7%; } }
       footer .footer-wrapper .footer-content .footer-newsletter {
-        margin-right: 0;
-        padding-right: 2%;
         text-align: center;
         border-right: 1px solid #E0E0E0; }
+        @media only screen and (min-width: 768px) {
+          footer .footer-wrapper .footer-content .footer-newsletter {
+            margin-right: 0;
+            padding-right: 2%; } }
         footer .footer-wrapper .footer-content .footer-newsletter span {
           display: block;
           font-size: 2em; }
@@ -1703,20 +2191,29 @@ footer {
           text-align: center; }
         footer .footer-wrapper .footer-content .footer-newsletter label {
           display: block;
-          margin-top: 15%;
+          margin-top: 10%;
           color: #666;
           font-size: .8em; }
+          @media only screen and (min-width: 768px) {
+            footer .footer-wrapper .footer-content .footer-newsletter label {
+              margin-top: 15%; } }
         footer .footer-wrapper .footer-content .footer-newsletter .btn {
-          margin: 15% auto 0; }
+          margin: 10% auto 0; }
+          @media only screen and (min-width: 768px) {
+            footer .footer-wrapper .footer-content .footer-newsletter .btn {
+              margin-top: 15%; } }
       footer .footer-wrapper .footer-content .social-icons {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 100%;
-        margin-top: 3%;
+        margin-top: 7%;
         text-align: center; }
         footer .footer-wrapper .footer-content .social-icons:last-child {
           margin-right: 0; }
+        @media only screen and (min-width: 768px) {
+          footer .footer-wrapper .footer-content .social-icons {
+            margin-top: 3%; } }
         footer .footer-wrapper .footer-content .social-icons a {
           display: inline-block;
           width: 30px;
