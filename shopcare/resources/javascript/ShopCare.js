@@ -69,5 +69,42 @@
             $(el).sendRequest(action, options);
           }
   };
+  
+  ShopCare.Menu = (function() {
+      
+      var menuLink, menuList;
+      
+      function registerHover() {
+        menuLink.on('mouseover', function() {
+            menuList.show();
+            $(this).css('margin-bottom', '33%');
+        });
+        
+        $('body').click(function() {
+            menuList.hide(); 
+            menuLink.css('margin-bottom', '0px');
+        });
+        
+        menuList.click(function(e){
+            e.stopPropagation();
+        });
+      }
+      return {
+        start: function(args) {
+            menuLink = $(args.link);
+            menuList = $(args.list);
+            registerHover();
+        }    
+      }
+  }());
+  
+  // Initalization
+  $(function() {
+    ShopCare.Menu.start({
+      link: '.shop-link',
+      list: '.shop-nav'
+    });
+  });
+  
 
 })(jQuery)

@@ -5,37 +5,90 @@
   <nav>
     <ul class="nav-bar">
       {% set active_page = globals.active_page|default('home') %}
-      <li class="{{ active_page == 'shop' ? 'active' : null }}">
+      <li class="{{ active_page == 'shop' ? 'active' : null }} shop-link">
         <a href="{{ site_url('shop') }}">Shop</a>
-        <!--
         {% if categories.count %}
-          <a href="{{ site_url('shop') }}"><span> </span></a>
-          <ul>
-            {% tree categories %}
-                {% for category in tree.items %}
-                    <li><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></li>
-                {% endfor %}
-            {% endtree %}
+          <!--<a href="{{ site_url('shop') }}"><span> </span></a>-->
+          <ul class="shop-nav">
+            <li>
+              <h3>Per-<br>fumes</h3>
+              <a href="#">Perfumes</a>
+              <a href="#">Body Lotions</a>
+              <a href="#">Castille Soaps</a>
+            </li>
+            <li>
+              <h3>Face &amp;<br>Lip</h3>
+              <a href="#">Organic Day Cream</a>
+              <a href="#">Organic Night Cream</a>
+              <a href="#">Facial Serum</a>
+            </li>
+            <li>
+              <h3>Hand &amp;<br>Body</h3>
+              <a href="#">Organic Hand</a>
+              <a href="#">Organic Body Lotion</a>
+              <a href="#">Organic Castille</a>
+            </li>
+            <li>
+              <h3>Balms &amp;<br>Oils</h3>
+              <a href="#">Organic Herbal</a>
+              <a href="#">Organic Essential</a>
+            </li>
+            <li>
+              <h3>Soaps<br>&nbsp;</h3>
+              <a href="#">Handmade Soaps</a>
+            </li>
+            <li>
+              <h3>Gifts<br>&nbsp;</h3>
+              <a href="#">Candles</a>
+              <a href="#">Gift Sets</a>
+            </li>
           </ul>
         {% endif %}
-        -->
       </li>
       <li class="{{ active_page == 'about' ? 'active' : null }}"><a href="{{ site_url('about') }}">About Us</a></li>
       <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('blog') }}">Blog</a></li>
-      <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('login') }}">Login or Register</a></li>
+      {% if not customer %}
+        <li class="{{ active_page == 'login' ? 'active' : null }}"><a href="{{ site_url('login') }}">Login / Register</a></li>
+      {% endif %}
       {% if customer %}
         <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li>
         <li class="{{ active_page == 'profile' ? 'active' : null }}"><a href="{{ site_url('profile') }}">My Profile</a></li>
-        <li>Welcome, {{ customer.first_name }}!
-        <a href="{{ site_url('logout') }}">Logout</a></li>   
+        <!--<li>Welcome, {{ customer.first_name }}!
+        <a href="{{ site_url('logout') }}">Logout</a></li> -->  
       {% endif %}
-      <li><div id="mini-cart">{{ partial('shop-minicart') }}</div></li>
+      <li class="{{ active_page == 'cart' ? 'active' : null }}"><div id="mini-cart">{{ partial('shop-minicart') }}</div></li>
     </ul>
+
+    <ul class="mobile-nav-bar">
+      <span class="burger-nav"><strong>MENU</strong><img src="{{ 'images/burger.png'|theme_resource }}"></span>
+      <li class="mobile-nav-item"><a href="{{ site_url('shop') }}">Shop</a></li>
+      <li class="mobile-nav-item"><a href="{{ site_url('about') }}">About Us</a></li>
+      <li class="mobile-nav-item"><a href="{{ site_url('blog') }}">Blog</a></li>
+      <li class="mobile-nav-item"><a href="{{ site_url('login') }}">Login / Register</a></li>
+      {% if customer %}
+        <li class="mobile-nav-item"><a href="{{ site_url('orders') }}">My Orders</a></li>
+        <li class="mobile-nav-item"><a href="{{ site_url('profile') }}">My Profile</a></li>
+      {% endif %}
+      <li class="mobile-nav-item"><div id="mini-cart">{{ partial('shop-minicart') }}</div></li>
+    </ul>
+
   </nav>
   
 </header>
 
+
+<script>
+  $( ".burger-nav" ).click(function() {
+    $( ".mobile-nav-item" ).toggle();
+  });
+</script>
+
 <!--
+{% tree categories %}
+    {% for category in tree.items %}
+        <li><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endtree %}
 
 SEARCH FORM
 
