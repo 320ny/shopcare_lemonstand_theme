@@ -1,0 +1,45 @@
+{% set filter_collection = post('filter_collection')|default(null) %}
+{% set filter_price = post('filter_price')|default(null) %}
+{% set filteredProducts = [] %}
+
+{% if filter_collection %}
+
+    
+    {% set filterCollection = filter_collection|collection %}
+    
+    {% set ids = [] %}
+    {% for product in filterCollection.products %}
+        {% set ids = ids | merge([product.id]) %}
+    {% endfor %}
+    
+    {% for product in products %}
+        {% if (product.id in ids) and (product.price < filter_price) %}
+            {% set filteredProducts = filteredProducts | merge([product]) %}
+        {% endif %}
+    {% endfor %}
+    
+{% else %}
+
+    {% for product in products %}
+        {% if product.price < filter_price %}
+            {% set filteredProducts = filteredProducts | merge([product]) %}
+        {% endif %}
+    {% endfor %}
+    
+{% endif %}
+
+
+<ul>
+    {% for product in filteredProducts %}
+    
+      {{ partial('shop-product-list-item', {'product': product}) }}
+
+    {% else %}
+
+      <li class="empty">
+        <p>No products were found with these filters (price under €{{filter_price}}, {% if filter_collection %}{{filterCollection.name}} Scent Family{% endif %})</p>
+        <p><a href="{{ category.url }}">RESET ALL FILTERS</a></p>
+      </li>
+
+    {% endfor %}
+ </ul>

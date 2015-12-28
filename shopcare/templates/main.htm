@@ -2,6 +2,8 @@
 content_type: 'text/html; charset=utf-8'
 description: 'The main layout'
 ---
+{{ code_block('setup') }}
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
     <head>        
@@ -14,4 +16,16 @@ description: 'The main layout'
         </section>
         {{ partial("layout-footer") }}
     </body>
+    
+    <script>
+        $( document ).ready(function() {
+             // Initalization for every page
+            ShopCare.Menu.start({
+              link: '.shop-link',
+              list: '.shop-nav-wrapper'
+            });
+            
+            {{ code_block('js-setup') }}
+        });
+    </script>
 </html>

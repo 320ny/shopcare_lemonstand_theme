@@ -6,24 +6,13 @@ published: true
 name: Product
 url: '/product/:urlName'
 ---
-<div>
-    {{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
-      {% if product %}
-        <div id="product-page">
-          {{ partial('shop-product') }}
-        </div>
-        
-        {% set related_products = product.list_related_products().find_all() %}
-        {% if related_products.count %}
-          <div>
-            <h3>Related Items</h3>
-            <div>
-              {{ partial('shop:product_list', {'products': related_products}) }}
-            </div>
-          </div>
-        {% endif %}
-      {% else %}
-        <h2>We are sorry, the requested product was not found.</h2>
-      {% endif %}
-    {{ close_form() }}
-</div>
+
+{{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+  {% if product %}
+    <div id="product-page">
+      {{ partial('shop-product') }}
+    </div>
+  {% else %}
+    <h2>We are sorry, the requested product was not found.</h2>
+  {% endif %}
+{{ close_form() }}

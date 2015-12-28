@@ -6,40 +6,29 @@ published: true
 name: Receipt
 url: '/receipt/:paymenthash'
 ---
-<div>
-  <div>
+
+<div class="receipt-wrapper">
+  <div class="receipt">
     {% if invoice %}
-      <div>
-        <div>
-          <p>Please keep this information for your records.</p>
-          <p><strong>Order number: </strong> #{{ invoice.order.number }} </p>
-          <p><strong>Payment method: </strong> {{ payment.guessPaymentMethod().name }}</p>
-          <p><strong>Order Date: </strong> {{ invoice.order.created_at.format('M jS, Y') }}</p>
-        </div>
-      </div>
-        
-      <div>
-        {{ partial('shop-invoiceitems') }}
+      <h1>Your Receipt</h1>
+      <h3>Please keep this information for your records.</h3>
+      <div class="cart-totals">
+        <p>Order number: <i>#{{ invoice.order.number }}</i> </p>
+        <!--<p>Payment method: <i>{{ payment.guessPaymentMethod().name }}</i></p>-->
+        <p>Order Date: <i>{{ invoice.order.created_at.format('M jS, Y') }}</i></p>
+        {% if invoice.isPaid() %}
+          {{ partial('shop-invoicetotals') }}
+        {% endif %}
       </div>
       
-      {% if invoice.isPaid() %}
-        <div>
-          <div>
-            {{ partial('shop-invoicetotals') }}
-          </div>
-        </div>
+      {{ partial('shop-invoiceitems') }}
 
-        <div> 
-          <div>
-            <div>
-              <a href="{{ site_url('shop') }}">Continue Shopping</a>
-            </div>
-          </div>
-        </div>
+      {% if invoice.isPaid() %}
+        <a href="{{ site_url('/') }}" class="btn2">Continue Shopping</a>
       {% else %}
-        <p><a href="{{ site_url('review/'~order.order_hash) }}">Pay the order</a></p>
+        <p><a href="{{ site_url('review/'~order.order_hash) }}" class="btn">Pay the order</a></p>
       {% endif %}
-    
+
     {% else %}
       <p class="flash error">Invoice not found.</p>
     {% endif %}

@@ -1,5 +1,5 @@
 <header>
-
+  
   <a href="{{ site_url('/') }}" class="logo"><img src="{{ theme.logoImage.thumbnail('auto', 'auto') }}" alt=""></a>
 
   <nav>
@@ -9,44 +9,32 @@
         <a href="{{ site_url('shop') }}">Shop</a>
         {% if categories.count %}
           <!--<a href="{{ site_url('shop') }}"><span> </span></a>-->
-          <ul class="shop-nav">
-            <li>
-              <h3>Per-<br>fumes</h3>
-              <a href="#">Perfumes</a>
-              <a href="#">Body Lotions</a>
-              <a href="#">Castille Soaps</a>
-            </li>
-            <li>
-              <h3>Face &amp;<br>Lip</h3>
-              <a href="#">Organic Day Cream</a>
-              <a href="#">Organic Night Cream</a>
-              <a href="#">Facial Serum</a>
-            </li>
-            <li>
-              <h3>Hand &amp;<br>Body</h3>
-              <a href="#">Organic Hand</a>
-              <a href="#">Organic Body Lotion</a>
-              <a href="#">Organic Castille</a>
-            </li>
-            <li>
-              <h3>Balms &amp;<br>Oils</h3>
-              <a href="#">Organic Herbal</a>
-              <a href="#">Organic Essential</a>
-            </li>
-            <li>
-              <h3>Soaps<br>&nbsp;</h3>
-              <a href="#">Handmade Soaps</a>
-            </li>
-            <li>
-              <h3>Gifts<br>&nbsp;</h3>
-              <a href="#">Candles</a>
-              <a href="#">Gift Sets</a>
-            </li>
-          </ul>
+          <div class="shop-nav-wrapper">
+            <ul class="shop-nav">
+              {% for category in categories|extended_sort('api_code', true) %}
+                <li>
+                  <h3><a href="/category/{{category.url_name}}">{{category.name}}</a></h3>
+                  {% for sub in category.children|extended_sort('api_code', true) %}  
+                    <a href="/category/{{category.url_name}}/{{sub.url_name}}">{{sub.name}}</a>
+                  {% endfor %}
+                </li>
+                
+              {% endfor %}
+              <li class="scent-family-category">
+                <h3>Scent Families</h3>
+                <a href="/scent-families?family=atlantic-coast">Atlantic Coast</a>
+                <a href="/scent-families?family=grassland">Grassland</a>
+                <a href="/scent-families?family=herb-garden">Herb Garden</a>
+                <a href="/scent-families?family=irish-limestone">Irish Limestone</a>
+                <a href="/scent-families?family=lost-garden">Lost Garden</a>
+                <a href="/scent-families?family=woodland">Woodland</a>
+              </li>
+            </ul>
+          </div>
         {% endif %}
       </li>
       <li class="{{ active_page == 'about' ? 'active' : null }}"><a href="{{ site_url('about') }}">About Us</a></li>
-      <li class="{{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('blog') }}">Blog</a></li>
+      <li class="blog-pg {{ active_page == 'blog' ? 'active' : null }}"><a href="{{ site_url('blog') }}">News</a></li>
       {% if not customer %}
         <li class="{{ active_page == 'login' ? 'active' : null }}"><a href="{{ site_url('login') }}">Login / Register</a></li>
       {% endif %}
@@ -61,7 +49,22 @@
 
     <ul class="mobile-nav-bar">
       <span class="burger-nav"><strong>MENU</strong><img src="{{ 'images/burger.png'|theme_resource }}"></span>
-      <li class="mobile-nav-item"><a href="{{ site_url('shop') }}">Shop</a></li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item-shop" href="#">Shop</a>
+        {% if categories.count %}
+          <ul class="mobile-shop-nav">
+            {% for category in categories|extended_sort('api_code', true) %}
+              <li><a href="/category/{{category.url_name}}">{{category.name}}</a></li>
+            {% endfor %}
+            <li><a href="/scent-families?family=atlantic-coast">Atlantic Coast</a></li>
+            <li><a href="/scent-families?family=grassland">Grassland</a></li>
+            <li><a href="/scent-families?family=herb-garden">Herb Garden</a></li>
+            <li><a href="/scent-families?family=irish-limestone">Irish Limestone</a></li>
+            <li><a href="/scent-families?family=lost-garden">Lost Garden</a></li>
+            <li><a href="/scent-families?family=woodland">Woodland</a></li>
+          </ul>
+        {% endif %}
+      </li>
       <li class="mobile-nav-item"><a href="{{ site_url('about') }}">About Us</a></li>
       <li class="mobile-nav-item"><a href="{{ site_url('blog') }}">Blog</a></li>
       <li class="mobile-nav-item"><a href="{{ site_url('login') }}">Login / Register</a></li>
@@ -81,7 +84,12 @@
   $( ".burger-nav" ).click(function() {
     $( ".mobile-nav-item" ).toggle();
   });
+
+  $( ".mobile-nav-item-shop" ).click(function() {
+    $( ".mobile-shop-nav" ).fadeToggle();
+  });
 </script>
+
 
 <!--
 {% tree categories %}

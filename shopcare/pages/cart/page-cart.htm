@@ -1,12 +1,13 @@
 ---
 action: 'shop:cart'
-template: main
+template: checkout
 protocol: all
 published: true
 name: Cart
 url: /cart
 ---
 <div class="cart">
+  <h1>Your Basket</h1>
   {{ open_form({'class': 'custom'}) }}
     <div id="cart-content">{{ partial('shop-cart-content') }}</div>
   {{ close_form() }}

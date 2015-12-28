@@ -1,7 +1,59 @@
-Basket
-<br>
-Your Address
-<br>
-Card Details
-<br>
-Confirmation
+{% if step == 'cart' %}
+  <ul>
+    <li class="active"><a href="/cart"><span class="breadcrumbs-num">1</span>Basket</a></li>
+    <li><span class="breadcrumbs-num">2</span>Your Address</li>
+    <li><span class="breadcrumbs-num">3</span>Shipping</li>
+    <li><span class="breadcrumbs-num">4</span>Card Details</li>
+    <li><span class="breadcrumbs-num">5</span>Confirmation</li>
+  </ul>
+{% elseif step == 'billing_info' %}
+  <ul>
+    <li><a href="/cart"><span class="breadcrumbs-num">1</span>Basket</a></li>
+    <li class="active"><span class="breadcrumbs-num">2</span>Your Address</li>
+    <li><span class="breadcrumbs-num">3</span>Shipping</li>
+    <li><span class="breadcrumbs-num">4</span>Card Details</li>
+    <li><span class="breadcrumbs-num">5</span>Confirmation</li>
+  </ul>
+{% elseif step == 'shipping_method' %}
+  <ul>
+    {% if globals.paypalCheckout %}
+        <li><a href="/cart"><span class="breadcrumbs-num">1</span>Basket</a></li>
+        <li class="active"><span class="breadcrumbs-num">2</span>Shipping</li>
+        <li><span class="breadcrumbs-num">3</span>Confirmation</li>
+    {% else %}
+        <li><a href="/cart"><span class="breadcrumbs-num">1</span>Basket</a></li>
+        <li><a href="#" 
+          data-ajax-handler="shop:checkout" 
+          data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress"
+          data-ajax-extra-fields="nextStep=billing_info"
+        ><span class="breadcrumbs-num">2</span>Your Address</a></li>
+        <li class="active"><span class="breadcrumbs-num">3</span>Shipping</li>
+        <li><span class="breadcrumbs-num">4</span>Card Details</li>
+        <li><span class="breadcrumbs-num">5</span>Confirmation</li>
+    {% endif %}
+  </ul>
+{% elseif step == 'pay' %}
+  <ul>
+    <li><a href="/cart"><span class="breadcrumbs-num">1</span>Basket</a></li>
+    <li><a href="#" 
+      data-ajax-handler="shop:checkout" 
+      data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress"
+      data-ajax-extra-fields="nextStep=billing_info"
+    ><span class="breadcrumbs-num">2</span>Your Address</a></li>
+    <li><a href="#" 
+      data-ajax-handler="shop:checkout" 
+      data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress"
+      data-ajax-extra-fields="nextStep=shipping_method"
+    ><span class="breadcrumbs-num">3</span>Shipping</a></li>
+    <li class="active"><span class="breadcrumbs-num">4</span>Card Details</li>
+    <li><span class="breadcrumbs-num">5</span>Confirmation</li>
+  </ul>
+{% elseif step == 'confirmation' %}
+  <ul>
+    <li><a href="/cart"><span class="breadcrumbs-num">1</span>Basket</a></li>
+    <li><span class="breadcrumbs-num">2</span>Your Address</li>
+    <li><span class="breadcrumbs-num">3</span>Shipping</li>
+    <li><span class="breadcrumbs-num">4</span>Card Details</li>
+    <li class="active"><span class="breadcrumbs-num">5</span>Confirmation</li>
+  </ul>
+{% endif %}

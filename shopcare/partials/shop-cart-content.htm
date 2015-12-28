@@ -1,46 +1,50 @@
 {{ flash() }}
 
 {% if itemCount %}
-  <div class="row">
-    {{ partial('shop-cart-items', {'edit_cart': true}) }}
-  </div>
   
-  <div>
+  {{ partial('shop-cart-items', {'edit_cart': true}) }}
+  
+  <div class="promotion">
+    <h3>Promotional Code</h3>
+    <label for="coupon">Promotional Code*</label>
+    <input type="text" id="coupon" name="coupon" value="{{ coupon_code }}" placeholder="Please eneter you Code here" />
+    <a href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart" class="btn2">Apply</a>
+    <p>* If you have a Promotional Code please enter it in this field and click the 'Apply' button.
+      Please note that you can only apply <strong>ONE</strong> promotion to any single order.</p>
+  </div>
+           
+  <section class="cart-totals">
+    <p>Subtotal <span>{{ totals.subtotal|currency }}</span></p>
+    <p>VAT <span>{{ totals.totalTax|currency }}</span></p>
     
-    <div>
-      {% if totals.discountTotal > 0 %}
-        <p><strong>Coupon discount:</strong> <i>{{ totals.discountTotal|currency }}</i></p>
-      {% endif %}
-      <p><strong>Cart total:</strong> <i>{{ totals.subtotal|currency }}</i></p>
-      {% if totals.totalShippingQuote > 0 %}
-        <p><strong>Shipping:</strong> <i>{{ totals.totalShippingQuote|currency }}</i></p>
-      {% endif %}
-      <p><strong>Estimated total:</strong>  <i>{{ totals.total|currency }}</i></p>
-    </div>
-  </div>  
-  <div>
-    <div>
-      <div>
-        <a href="{{ site_url('shop') }}">Continue shopping</a>
+    {% if totals.totalShippingQuote > 0 %}
+      <p>Shipping <span>{{ totals.totalShippingQuote|currency }}</span></p>
+    {% endif %}
+
+    {% if totals.discountTotal > 0 %}
+      <p>Promotinal Code <span>{{ totals.discountTotal|currency }}</span></p>
+    {% endif %}
+
+    <p class="cart-total-line">Total incl. VAT <span>{{ totals.total|currency }}</span></p>
+  </section>
+
+
+  <section class="cart-buttons">
+    <a href="{{ site_url('/') }}" class="btn">Continue Shopping</a>
+    {% if customer %}
+      <a class="btn" href="{{ site_url('/checkout') }}">Checkout</a>
+    {% else %}
+      <a class="btn2 checkout-btn" href="{{ site_url('/checkout-start') }}">Check Out</a>
+    {% endif %}
+    {% if payPalExpressCheckoutButton %}
+      <div class="paypalexpress">
+        <p>OR CHECKOUT WITH<br>{{ payPalExpressCheckoutButton }}</p>
       </div>
-      <div>
-        <div>
-          <input type="text" id="coupon" name="coupon" value="{{ coupon_code }}" placeholder="Coupon code" />
-        
-          <a href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Update cart</a>
-          {% if customer %}
-            <a class="button" href="{{ site_url('/checkout') }}">Checkout</a>
-          {% else %}
-            <a class="button" href="{{ site_url('/checkout-start') }}">Checkout</a>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
+    {% endif %}
+  </section>
+
 {% else %}
-  <div>
-    <div>
-      <a href="{{ site_url('shop') }}">Your cart is empty! Continue shopping.</a>
-    </div>
-  </div>
+
+  <a href="{{ site_url('/') }}" class="empty-cart">Your basket is empty! Click here to continue shopping.</a>
+
 {% endif %}

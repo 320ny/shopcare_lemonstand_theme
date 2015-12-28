@@ -1,0 +1,17 @@
+---
+action: 'payPalExpress:checkout'
+template: checkout
+protocol: all
+published: true
+title: 'PayPal Express Checkout'
+name: 'PayPal Express Checkout'
+url: /paypal-checkout
+---
+
+{% if not items.count %}
+  <div id="checkout-page" class="empty-cart">
+    <a class="secondary button" href="{{ site_url('shop') }}">Your cart is empty! Continue shopping.</a>
+  </div>
+{% else %}
+  <div id="checkout-page">{{ partial('shop-paypal-checkout') }}</div>
+{% endif %}

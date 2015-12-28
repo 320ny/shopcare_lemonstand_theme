@@ -7,15 +7,137 @@ name: Category
 url: '/category/:urlName@/:page?'
 ---
 {% if not category %}
-  <h2>Category not found</h2>
-  <p>We are sorry, the requested category was not found.</p>
-{% else %}
-  <div class="row">
-  {{ 
-    partial('shop-product-list', {
-      'products': products,
-      'empty_text': 'There are no products in this category.'
-    }) 
-  }} 
-  </div>
-{% endif %}
+    <h2>Category not found</h2>
+    <p>We are sorry, the requested category was not found.</p>
+  {% else %} 
+    <section class="category-header">
+      <h3>{{ category.name }}</h3>
+      <div class="category-info">
+        <div class="category-info-wrapper">
+          <span class="how">How it's<br>made</span>
+          <span class="usage">Usage</span>
+          <span class="ingredients">Ingredients</span>
+          <span class="why">Why it's<br>good</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENNICK this needs to be four different sections (How it's made, Usage, Ingredients, Why it's good) -->
+    <div class="category-header-output">
+      <div class="category-header-output-wrapper">
+        <div class="header-output-close">
+          Close X
+        </div>
+        <h3><em>Learn more</em>How it's made</h3>
+        <div class="header-output-text">
+          <p>We created Spring harvest to evoke the scents of an armful of wild herbs gathered in the Spring. This is filler text which needs to be replaced. This is filler text which needs to be replaced. This is filler text which needs to be replaced.</p>
+          <p>We created Spring harvest to evoke the scents of an armful of wild herbs gathered in the Spring. This is filler text which needs to be replaced. This is filler text which needs to be replaced. This is filler text which needs to be replaced.</p>
+        </div>
+        <img src="{{ 'images/burren_MG_3035@2x.jpg'|theme_resource }}">
+      </div>
+    </div>
+
+    <div class="show-filter">
+      <span>SHOW FILTERS <img src="{{ 'images/arrow-down.png'|theme_resource }}"></span>
+    </div>
+
+    <section class="category-wrapper">
+      <section class="category-filters">
+        <div class="scent-family">
+          <h5>Scent Family</h5> 
+          <div class="scents">
+            <div class="scent-colors" data-category-filter-family data-family="lost-garden">
+              <i class="scent-lost"></i>
+              <strong>Lost<br>Garden</strong>
+            </div><div class="scent-colors" data-category-filter-family data-family="grassland">
+              <i class="scent-grass"></i>
+              <strong>Grass<br>Land</strong>
+            </div><div class="scent-colors" data-category-filter-family data-family="woodland">
+              <i class="scent-wood"></i>
+              <strong>Wood<br>Land</strong>
+            </div><div class="scent-colors" data-category-filter-family data-family="herb-garden">
+              <i class="scent-herb"></i>
+              <strong>Herb<br>Garden</strong>
+            </div><div class="scent-colors" data-category-filter-family data-family="atlantic-coast">
+              <i class="scent-atlantic"></i>
+              <strong>Atlantic<br>Coast</strong>
+            </div><div class="scent-colors" data-category-filter-family data-family="irish-limestone">
+              <i class="scent-irish"></i>
+              <strong>Irish<br>Limestone</strong>
+            </div>
+          </div>
+        </div>
+        
+     
+        
+        {{ open_form({"id": "category-filter-form"}) }}
+            <input type="hidden" name="filter_collection" value="">
+            <div class="price-filter">
+                <em>Price</em>
+                <input name="filter_price" type="range" min="7" max="50" dtep="1"><span class="range-output">&euro;<input type="text" id="priceValue"></span>
+            </div>
+        {{ close_form() }}
+
+        <!--
+        <div class="gift-filter">
+          <em>I want to buy something...</em>
+          <span class="for-myself active"><img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x"> for myself</span>
+          <span class="as-a-present"><img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x"> as a present</span>
+        </div>
+        -->
+
+        
+
+        <!--
+        <div class="show-filter">
+          <em>Show</em>
+          <span class="active"><img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x"> Bestsellers only</span>
+        </div>
+        -->
+
+      </section>
+
+      <section class="category-products">
+      
+        {{ partial('shop-category-subcategories', {'category': category}) }}
+
+        <div id="product-list">
+            {{ 
+              partial('shop-product-list', {
+                'products': products,
+                'empty_text': 'There are no products in this category.'
+              }) 
+            }} 
+        </div>
+      </section>
+    </section>
+  {% endif %}
+
+
+<script>
+
+  $( ".show-filter" ).click(function() {
+    $(".category-filters").fadeToggle();
+  });
+
+  $( ".header-output-close" ).click(function() {
+    $(".category-header-output").hide();
+  });
+
+  $( ".how" ).click(function() {
+    $(".category-header-output").fadeIn();
+  });
+
+  $( ".usage" ).click(function() {
+    $(".category-header-output").fadeIn();
+  });
+
+  $( ".ingredients" ).click(function() {
+    $(".category-header-output").fadeIn();
+  });
+
+  $( ".why" ).click(function() {
+    $(".category-header-output").fadeIn();
+  });
+
+</script>

@@ -1,0 +1,18 @@
+{% set parent_category = category.parent ? category.parent : category %}
+
+
+<div class="subcategory-filter">
+    <span {% if category.url_name == parent_category.url_name %}class="active"{% endif %}>
+        <a href="/category/{{parent_category.url_name}}" >
+            <img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x">All
+        </a>
+    </span>
+    {% for sub_category in parent_category.children|extended_sort('api_code', true) %}
+        {% set url = "/category/#{parent_category.url_name}/#{sub_category.url_name}" %}
+        <span {% if category.url_name == sub_category.url_name %}class="active"{% endif %}>
+            <a href="{{url}}" >
+                <img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x">{{sub_category.name}}
+            </a>
+        </span>
+    {% endfor %}
+</div>

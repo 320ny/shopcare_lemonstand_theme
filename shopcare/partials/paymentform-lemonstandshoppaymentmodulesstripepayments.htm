@@ -1,0 +1,44 @@
+---
+description: 'Payment form partial for Stripe Payments payment method'
+---
+<form method="post" action="" data-ajax-handler="shop:onPay">
+  <input type="hidden" value="{{ paymentMethod.id }}" name="payment_method_id">
+
+  <div class="checkout-form-wrap">
+    <label for="FIRSTNAME">Cardholder First Name</label>
+    <input autocomplete="off" name="firstName" value="" id="firstName" type="text" class="text"/>
+  </div>
+
+  <div class="checkout-form-wrap">
+    <label for="LASTNAME">Cardholder Last Name</label>
+    <input autocomplete="off" name="lastName" value="" id="LASTNAME" type="text" class="text"/>
+  </div>
+
+  <div class="checkout-form-wrap">
+    <label for="ACCT">Credit Card Number</label>
+    <input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="text"/>
+  </div>
+
+  <div class="checkout-form-wrap exp-wrap">
+    <label for="EXPDATE_MONTH">Expiration Month</label>
+    <input type="text" name="expiryMonth" placeholder="07">
+  </div>
+
+  <div class="checkout-form-wrap exp-wrap">
+    <label for="EXPDATE_YEAR">Expiration Year</label>
+    <input type="text" name="expiryYear" placeholder="15">
+  </div>
+
+  <div class="checkout-form-wrap cvv-wrap">
+    <label for="CVV2">
+      CVV
+    </label>
+    <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="text"/>
+    <span class="comment">For MasterCard, Visa, and Discover, the CVV is the last three digits in the signature area on the back of your card. For American Express, it's the four digits on the front of the card.</span>
+  </div>
+
+  <div class="checkout-form-wrap pay-wrap">
+    <input type="submit" value="PAY NOW" class="btn pay-now">
+  </div>
+
+</form>

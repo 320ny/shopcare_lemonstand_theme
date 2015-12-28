@@ -1,0 +1,31 @@
+{% set is_on_sale = product.onSale %}
+{% set page_url = '/product/' ~ product.url_name %}
+<li data-product-list-item class="{{ is_on_sale ? 'sale' : null }} product-list-item">
+<a href="{{ page_url }}"><img src="{{ product.images.first.thumbnail('auto','auto', {"imageQuality": 100, "type": "png"})|default('http://placehold.it/300x300') }}" alt="{{ product.images.first.description }}" title="{{ product.images.first.title }}"/>
+
+<div class="category-product-details" data-product-list-details>
+  <strong>{{ product.name }}</strong>
+  <br><em>{{ partial('shop-product-attributes', {'product': product}) }}</em>
+  <br><span class="product-price">
+    {% if is_on_sale %}<span class="oldprice">{{ product.fullPrice|currency }}</span>{% endif %}
+    {{ product.price|currency }}
+  </span>
+</div>
+
+{% if is_on_sale %}<span class="salesign">SALE</span>{% endif %}
+</a>
+
+{{ partial('shop-product-get-family', {'product': product}) }}
+
+<span class="quick-view {{globals.familyCollection.api_code}}" data-product-list-overlay >
+    <p>{{ product.name }}</p>
+    <p>{{ partial('shop-product-attributes', {'product': product}) }}</p>
+    <p>{% if is_on_sale %}<span class="oldprice">{{ product.fullPrice|currency }}</span>{% endif %}{{ product.price|currency }}</p>
+    {{ open_form() }}
+        <input type="hidden" name="productId" value="{{ product.id }}"/>
+        <a href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product" class="btn">Add to Bag</a>
+    {{ close_form() }}
+    <a class="btn" href="{{ page_url }}">Details</a>
+</span>
+  
+</li>

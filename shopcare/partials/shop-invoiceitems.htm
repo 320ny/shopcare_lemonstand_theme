@@ -1,25 +1,26 @@
 <table>
-  <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    {% if invoice.getDiscountTotal() > 0 %}
-      <th>Discount</th>
-      <th>Unit Price</th>
-    {% endif %}
-    <th>Total</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      {% if invoice.getDiscountTotal() > 0 %}
+        <th>Discount</th>
+        <th>Unit Price</th>
+      {% endif %}
+      <th>Total</th>
+    </tr>
+  </thead>
   {% for shipment in invoice.shipments %}
     {% for item in shipment.shipmentItems %}
     <tr>
-      <td>
-        <a href="/product/{{ item.product.url_name }}"><img src="{{ item.product.images.first.thumbnail(80, 80)|default('http://placehold.it/80x80') }}"/></a>
-        <div>
-          <h3><a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a></h3>
-          
+      <td class="cart-item-name">
+        <a href="/product/{{ item.product.url_name }}">
+          <img src="{{ item.product.images.first.thumbnail(80, 80)|default('http://placehold.it/80x80') }}"/>
+          <br>
+          {{ item.product.name }}
           {% set description = item.optionsString() %}
-          {% if description %}<p>{{ description|unescape }}</p>{% endif %}
-        </div>
+          {% if description %}{{ description|unescape }}{% endif %}</a>
       </td>
       <td><i>{{ item.quantity|number_format(0) }}</i></td>
       <td><i>{{ item.base_price|currency }}</i></td>

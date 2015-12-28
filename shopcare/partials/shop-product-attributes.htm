@@ -1,10 +1,6 @@
 {% if product.productAttributes.count %}
-  <table>
-    {% for attribute in product.productAttributes %}
-      <tr>
-        <th>{{ attribute.name }}</th>
-        <td>{{ attribute.value }}</td>
-      </tr>
-    {% endfor %}
-  </table>
+  {% for attribute in product.productAttributes %}
+    {% if attribute.name == 'product-size'%}{{attribute.value}}{% endif %}
+    {# <strong>{{ attribute.name }}</strong> {{ attribute.value }}<br> #}
+  {% endfor %}
 {% endif %}

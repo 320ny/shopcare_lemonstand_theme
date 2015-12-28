@@ -1,0 +1,50 @@
+---
+template: main
+protocol: all
+published: true
+name: 'Scent Families'
+url: /scent-families
+---
+{% set family = param('family')|collection %}
+
+<div class="family-wrapper">
+
+  {% if not family %}
+    <h2>Scent Family not found</h2>
+    <p>We are sorry, the requested scent family was not found.</p>
+  {% else %} 
+
+    <section class="category-header {{family.api_code}}">
+      <h3>{{ family.name }}
+        <p>
+          {% if family.api_code == 'lost-garden' %}A fragrant bouquet of soft florals with wild rose at its heart.{% endif %}
+          
+          {% if family.api_code == 'grassland' %}Inspired by the delicate floral scents of the Burren’s orchid-flecked summer meadows.{% endif %}
+
+          {% if family.api_code == 'woodland' %}Recalls the warm woody scents of the Burren woodland with a distinctive juniper note.{% endif %}
+
+          {% if family.api_code == 'herb-garden' %}The warm aroma of lavender blended with green notes of herbs freshly picked.{% endif %}
+
+          {% if family.api_code == 'atlantic-coast' %}A fresh citrus sea cologne inspired by the Irish Atlantic coast.{% endif %}
+
+          {% if family.api_code == 'irish-limestone' %}The unadorned beauty of the Burren landscape is reflected in this pure and unscented range.{% endif %}
+        </p>
+      </h3>
+    </section>
+    
+    <section class="category-wrapper">
+      <section class="category-products">
+      
+        <div id="product-list">
+            {{ 
+              partial('shop-product-list', {
+                'products': family.products,
+                'empty_text': 'There are no products in this category.'
+              }) 
+            }} 
+        </div>
+      </section>
+    </section>
+  {% endif %}
+
+</div>

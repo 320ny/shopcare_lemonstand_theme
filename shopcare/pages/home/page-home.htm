@@ -23,7 +23,8 @@ url: /
           <h3>Product <em>of<br>the</em> week</h3>
           <p>This is some dummy text that needs to be replaced. This is some dummy text that needs to be replaced.</p>
           <strong>{{ product.name }}</strong>
-          <img src="{{ product.images.first.thumbnail(400,'auto') }}}"></a>
+          <!--<img src="{{ 'images/product-otw-1.png'|theme_resource }}">-->
+          <img src="{{ product.images[1].thumbnail(400,'auto') }}}"></a>
         {% endfor %}
       {% else %}
         <p>Error</p>

@@ -1,0 +1,15 @@
+{% if cart %}
+  {% if order.payment_processed %}
+    <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
+  {% else %}
+    <h1>Card Details</h1>
+    <div class="cart-totals">
+      {{ partial('shop-checkout-totals') }}
+    </div>
+    <div id="payment_form" class="paypal-checkout">
+      {{ partial('shop-paymentform') }}
+    </div>
+  {% endif %}
+{% else %}
+  <p class="flash error">Order not found.</p>
+{% endif %}

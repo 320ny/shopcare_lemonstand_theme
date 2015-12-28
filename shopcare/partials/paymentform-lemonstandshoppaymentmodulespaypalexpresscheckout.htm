@@ -1,0 +1,39 @@
+---
+description: 'Payment form partial for PayPal Express Checkout payment method'
+---
+<form method="post" action="" data-ajax-handler="shop:onPay">
+    <input type="hidden" value="{{ paymentMethod.id }}" name="payment_method_id">
+    <input type="submit" value="PAY VIA PayPal" class="btn pay-now" id="confirmBtn">
+</form>
+{% if not paymentMethod.getPaymentModuleObj().hasActiveExpressCheckout() %}
+    <script>
+        window.paypalCheckoutReady = function() {
+            paypal.checkout.setup("{{ paymentMethod.getConfigSetting('merchantId') }}" , {
+                {% if paymentMethod.getConfigSetting('testMode') %}
+                environment: 'sandbox',
+                {% else %}
+                environment: 'production',
+                {% endif %}
+                click: function(event) {
+                    event.preventDefault();
+                    paypal.checkout.initXO();
+                    var form = $(event.target).closest("form")[0];
+                    var action = $.post('/ls_paypal_express_checkout/set_express_checkout_mark?payment_method_id={{ paymentMethod.id }}');
+    
+                    action.done(function (data) {
+                        paypal.checkout.startFlow(data.token);
+                    });
+    
+                    action.fail(function () { 
+                      paypal.checkout.closeFlow(); 
+                    });
+                },
+                condition: function() {
+                    return true;
+                },
+                button: 'confirmBtn'
+            });
+        }
+    </script>
+    <script async src="//www.paypalobjects.com/api/checkout.js"></script>
+{% endif %}

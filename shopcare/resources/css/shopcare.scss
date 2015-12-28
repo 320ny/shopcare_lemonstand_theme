@@ -2,7 +2,7 @@
 @import "neat/neat";
 @import "normalize.min.css";
 @import url("//hello.myfonts.net/count/2f15c2");
-/*
+/* 
 --------------------
 
 GLOBAL
@@ -130,6 +130,7 @@ input:focus {
   outline: none;
 }
 .btn,
+a.btn,
 input[type=submit] {
   @include font1-semibold;
   display: block;
@@ -138,9 +139,27 @@ input[type=submit] {
   padding: 9px 20px 7px;
   background: none;
   font-size: .8em;
+  text-decoration: none;
+  color: #333;
   &:hover {
     background: $green-dark;
     color: #fff;
+  }
+}
+.btn2,
+a.btn2 {
+  @include font1-semibold;
+  display: inline-block;
+  border: none;
+  padding: 9px 20px 7px;
+  background: $green-dark;
+  font-size: .8em;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  &:hover {
+    opacity: .8;
   }
 }
 .main-content {
@@ -158,7 +177,6 @@ input[type=submit] {
   }
 }
 .home,
-.cart,
 .about,
 .soap-room,
 .herb-garden,
@@ -182,13 +200,20 @@ input[type=submit] {
     text-decoration: underline;
   }
 }
+#loading-indicator span {
+  @include font1-bold;
+  width: 100%;
+  padding: 5px 0;
+  background-color: #d0d6ca;
+  border-radius: 0;
+}
 /*
 --------------------
 
 SLIPPRY SLIDER
 
 --------------------
-*/
+*/ 
 .sy-box {
   .sy-pager {
     li {
@@ -234,18 +259,19 @@ SLIPPRY SLIDER
 HEADER
 
 --------------------
-*/
+*/ 
 header {
   @include outer-container;
   margin-top: 3%;
   padding: 0 2%;
   @include respond-to(1200) {
-    padding-left: 0;
+    padding: 0;
   }
   .logo {
     @include span-columns(5);
     img {
       width: 100%;
+      max-width: 250px;
     }
     @include respond-to(1000) {
       @include span-columns(3);
@@ -253,34 +279,48 @@ header {
   }
   nav {
     @include span-columns(7);
+    @include omega();
     text-align: right;
     @include respond-to(1000) {
-      @include span-columns(9);
+      @include span-columns(8.5);
     }
     ul {
       margin: 0;
       li {
         display: inline-block;
-        padding: 3%;
+        padding: 3% 3% 1%;
         list-style-type: none;
-        border: 2px dashed #fff;
         &:hover {
-          border-radius: 50%;
-          border-color: $green-dark;
+          @include respond-to(1000) {
+            background: url("../images/hover-about-register.png") no-repeat center bottom;
+          }
+        }
+        &:first-of-type {
+          padding: 3%;
+          &:hover {
+            @include respond-to(1000) {
+              background: url("../images/hover-shop.png") no-repeat center top;
+            }
+          }
         }
         a {
           color: #333;
+        }
+      }
+      li.blog-pg {
+        &:hover {
+          @include respond-to(1000) {
+            background: url("../images/hover-blog.png") no-repeat center bottom;
+          }
         }
       }
       li.active {
         border-radius: 50%;
         border-color: $green-dark;
       }
-
       .shop-link {
-        .shop-nav {
+        .shop-nav-wrapper {
           display: none;
-          padding: 0;
           position: absolute;
           top: 150px;
           left: 0;
@@ -288,42 +328,61 @@ header {
           text-align: left;
           border-top: 1px dotted #333;
           border-bottom: 1px dotted #333;
-          li {
-            height: 200px;
-            padding: 2% 1%;
-            border: none;
-            border-right: 1px dotted #333;
-            vertical-align: top;
-            @include respond-to(1200) {
-              padding: 2%;
-            }
-            &:hover {
+          .shop-nav {
+            display: block;
+            padding: 0;
+            width: 68em;
+            margin: 0 auto;
+            li {
+              height: 235px;
+              width: 160px;
+              padding: 1.2% 0 0 0;
+              border: none;
               border-right: 1px dotted #333;
-              border-radius: 0;
-            }
-            &:last-of-type {
-              border-right: none;
-            }
-            a {
-              display: block;
-              margin-bottom: 5%;
-              font-size: .85em;
-              color: #999;
+              vertical-align: top;
               &:hover {
-                border: none;
+                border-right: 1px dotted #333;
                 border-radius: 0;
-                color: $green-dark;
+              }
+              &:first-of-type {
+                padding-left: 2%;
+                @include respond-to(1200) {
+                  padding-left: 0;
+                }
+              }
+              &:last-of-type {
+                padding-right: 0;
+                border-right: none;
+              }
+              a {
+                display: block;
+                margin-bottom: 5%;
+                font-size: .85em;
+                color: #999;
+                &:hover {
+                  border: none;
+                  border-radius: 0;
+                  color: $green-dark;
+                }
+              }
+              h3 {
+                margin-bottom: 25px;
+                font-size: 1.5em;
+                letter-spacing: 0;
+                color: #666;
               }
             }
-            h3 {
-              margin-bottom: 25px;
-              font-size: 1.7em;
+            .scent-family-category {
+              h3 {
+                font-size: 1.275em;
+                color: #999;
+              }
             }
           }
         }
       }
     }
-  }
+  }  
   #mini-cart {
     sup {
       font-size: .7em;
@@ -331,6 +390,7 @@ header {
   }
   .nav-bar {
     display: none;
+    padding: 0;
     @include respond-to(1000) {
       display: block;
     }
@@ -342,7 +402,7 @@ header {
     }
     .burger-nav {
       display: inline-block;
-      width: 70%;
+      width: 100%;
       margin-bottom: 15px;
       color: $green-dark;
       font-size: 1.1em;
@@ -350,7 +410,7 @@ header {
         cursor: pointer;
       }
       strong {
-        @include font2;
+        //@include font2;
         vertical-align: super;
       }
       img {
@@ -367,6 +427,7 @@ header {
       margin: 2% 0 15%;
       border: none;
       border-radius: 0;
+      font-size: .9em;
       @include respond-to(500) {
         margin-bottom: 5%;
       }
@@ -378,10 +439,41 @@ header {
         padding: 1% 0;
         border-bottom: 2px solid $green-dark;
       }
+      .mobile-shop-nav {
+        display: none;
+        margin-top: 25px;
+        padding-right: 20px;
+        padding-left: 0;
+        @include respond-to(500) {
+          //margin-top: 10%;
+        }
+        @include respond-to(768) {
+          //margin-top: 7%;
+          //padding-right: 3%;
+        }
+        li {
+          display: block;
+          margin: 2% 0 15%;
+          padding-left: 0;
+          padding-right: 0;
+          border: none;
+          border-radius: 0;
+          line-height: 1.5;
+          @include respond-to(500) {
+            margin-bottom: 5%;
+          }
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          a {
+            border-color: #ccc;
+          }
+        }
+      }
     }
   }
 }
-/*
+/* 
 --------------------
 
 HOME
@@ -441,7 +533,7 @@ HOME
     display: inline-block;
     width: 100%;
     padding: 10% 0;
-    background: url("../images/white-background.jpg") no-repeat right center;
+    background: url("../images/white-background.jpg") no-repeat right center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -457,7 +549,7 @@ HOME
       top: 5%;
       width: 250px;
       margin: 0 auto;
-      padding: 4% 4% 0;
+      padding: 4%;
       border: 2px solid $green-dark;
       @include respond-to(1000) {
         position: absolute;
@@ -468,6 +560,7 @@ HOME
       strong {
         display: block;
         margin-top: 10%;
+        margin-bottom: 2%;
         text-align: center;
       }
       img {
@@ -597,7 +690,855 @@ HOME
     }
   }
 }
-/*
+/* 
+--------------------
+
+PRODUCT PAGE
+
+--------------------
+*/
+#product-page {
+  position: relative;
+  margin-top: 1%;
+  .product-header {
+    position: relative;
+    padding: 7% 0;
+    background: url("../images/irishlimestone.jpg") no-repeat center bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #ddeae3;
+    .short-description {
+      display: block;
+      margin-left: 5%;
+      margin-bottom: 3%;
+      text-align: center;
+      @include respond-to(500) {
+        display: inline-block;
+        text-align: left;
+        float: left;
+        max-width: 290px;
+      }
+      @include respond-to(768) {
+        position: absolute;
+        top: 5%;
+        left: 7%;
+        margin-left: 0;
+        margin-bottom: 0;
+        float: none;
+      }
+      @include respond-to(1000) {
+        top: 20%;
+      }
+      h1 {
+        margin-bottom: 7%;
+        font-size: 2em;
+      }
+      .product-weight {
+        display: block;
+        margin-bottom: 5%;
+        font-size: .8em;
+        @include respond-to(500) {
+          margin-bottom: 15%;
+        }
+        strong {
+          @include font1-book;
+        }
+      }
+      .product-price {
+        display: block;
+        font-size: 1.8em;
+      }
+      .product-quantity {
+        margin: 5% 0;
+        @include respond-to(500) {
+          margin: 7% 0;
+        }
+        label {
+          font-size: .8em;
+        }
+        input[type="text"] {
+          width: 40px;
+          padding: 2px 5px 0;
+          font-size: .8em;
+        }
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 20px 10px;
+        border-color: #fff;
+        background: #fff;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+        &:hover {
+          background: $green-dark;
+          color: #fff;
+          border-color: $green-dark;
+        }
+      }
+    }
+    .product-image {
+      display: block;
+      margin: 0 auto;
+      width: 300px;
+    }
+    .description-ingredient {
+      width: 100%;
+      text-align: center;
+      margin-top: 5%;
+      @include respond-to(1000) {
+        position: absolute;
+        top: 25%;
+        right: 7%;
+        max-width: 350px;
+        margin-top: 0;
+      }
+      .description-ingredient-content {
+        .ingredient-text {
+          display: none;
+        }
+        .description-text {
+          margin-top: 1em;
+          border-top: 1px dotted #333;
+        }
+        p {
+          padding: 0 5%;
+        }
+      }
+      .description-ingredient-header {
+        text-align: center;
+        .description-header,
+        .ingredient-header {
+          display: inline-block;
+          margin: 0 5%;
+          font-size: .8em;
+          &:hover {
+            cursor: pointer;
+          }
+          .doodle-x {
+            display: none;
+            vertical-align: middle;
+          }
+        }
+        .active {
+          @include font1-semibold;
+          color: $green-dark;
+          .doodle-x {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+  .product-header.atlantic-coast {
+    background: url("../images/atlanticcoast.jpg") no-repeat center bottom;
+  }
+  .product-header.grassland {
+    background: url("../images/grasslands.jpg") no-repeat center bottom;
+  }
+  .product-header.irish-limestone {
+    background: url("../images/irishlimestone.jpg") no-repeat center bottom;
+  }
+  .product-header.lost-garden {
+    background: url("../images/lostgarden.jpg") no-repeat center bottom;
+  }
+  .product-header.herb-garden {
+    background: url("../images/herbgarden.jpg") no-repeat center bottom;
+  }
+  .product-header.woodland {
+    background: url("../images/woodlands.jpg") no-repeat center bottom;
+  }
+  .scent-family {
+    @include outer-container;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    padding: 3% 0;
+    border-bottom: 1px dotted #333;
+    .more-from {
+      @include span-columns(3);
+      @include font2;
+      padding: 3% 1% 4%;
+      font-size: 1.2em;
+      border: 2px solid $green-dark;
+      text-align: center;
+      color: #666;
+      h3 {
+        @include font2;
+        margin: 35px auto 0;
+        font-size: 6em;
+        line-height: .9;
+        color: #333;
+        span {
+          @include font1-semibold;
+          display: block;
+          font-size: .15em;
+          text-transform: uppercase;
+          line-height: 1.2;
+        }
+      }
+    }
+    ul {
+      @include span-columns(9);
+      margin-top: -15px;
+      li {
+        display: inline-block;
+        width: 32.5%;
+        margin-bottom: 3%;
+        list-style-type: none;
+        vertical-align: top;
+        text-align: center;
+        .name,
+        .price {
+          display: block;
+          text-align: left;
+          font-size: .8em;
+          strong {
+            @include font1-book;
+          }
+        }
+        .price {
+          @include font1-bold;
+          margin-top: 5%;
+        }
+      }
+      img {
+        display: inline-block;
+        width: 90px;
+        margin-bottom : 7%;
+        margin-right: 10%;
+      }
+    }
+  }
+  .also-liked {
+    @include outer-container;
+    position: relative;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    padding: 0 0 3%;
+    border-bottom: 1px dotted #333;
+    h4 {
+      width: 250px;
+      margin: 0 auto 3%;
+      padding: 2% 0;
+      text-align: center;
+      border: 2px solid $green-dark;
+      font-size: 1.2em;
+      line-height: 1.3;
+      color: #666;
+    }
+    ul {
+      @include span-columns(12);
+      margin-top: -15px;
+      li {
+        display: inline-block;
+        width: 24%;
+        margin-bottom: 3%;
+        list-style-type: none;
+        vertical-align: top;
+        text-align: center;
+        .name,
+        .price {
+          display: block;
+          text-align: left;
+          font-size: .8em;
+          strong {
+            @include font1-book;
+          }
+        }
+        .price {
+          @include font1-bold;
+          margin-top: 5%;
+        }
+      }
+      img {
+        display: inline-block;
+        width: 90px;
+        margin-bottom : 7%;
+        margin-right: 10%;
+      }
+    }
+  }
+}
+/* 
+--------------------
+
+CATEGORY PAGE
+
+--------------------
+*/
+.category-header {
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 3%;
+  padding: 15% 0 13%;
+  background: url("../images/wexford-352.jpg") no-repeat bottom left; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  @include respond-to(1000) {
+    padding: 7% 0;
+    text-align: left;
+  }
+  @include respond-to(768) {
+    padding: 12% 0;
+  }
+  h3 {
+    display: inline-block;
+    position: static;
+    top: 15%;
+    right: 10%;
+    padding: 20px 40px;
+    border: 2px solid #333;
+    @include respond-to(1000) {
+      position: absolute;
+    }
+  }
+  .category-info {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 11%;
+    font-size: .8em;
+    text-align: center;
+    @include respond-to(1000) {
+      display: block;
+    }
+    .category-info-wrapper {
+      display: none;
+      position: relative;
+      width: 200px;
+      height: 120px;
+      span {
+        @include font2-italic;
+        position: absolute;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .how {
+        top: 0;
+        left: 0;
+        padding-top: 10px;
+        border-right: 1px dotted #333;
+      }
+      .usage {
+        top: 0;
+        right: -1px;
+        padding-top: 20px;
+        border-bottom: 1px dotted #333;
+      }
+      .ingredients {
+        bottom: 1px;
+        left: -2px;
+        padding-top: 15px;
+        border-top: 1px dotted #333;
+      }
+      .why {
+        bottom: 0;
+        right: 1px;
+        padding-top: 15px;
+        border-left: 1px dotted #333;
+      }
+    }
+  }
+}
+.category-header-output {
+  @include outer-container;
+  display: none;
+  margin-bottom: 2%;
+  .category-header-output-wrapper {
+    @include span-columns(12);
+    padding: 2% 3% 3%;
+    background: #eee;
+    .header-output-close {
+      display: inline-block;
+      float: right;
+      font-size: .8em;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    h3 {
+      @include span-columns(4);
+      padding: 4% 7% 0;
+      text-align: center;
+      em {
+        @include font2-italic;
+        display: block;
+        margin-bottom: 5px;
+        font-size: .4em;
+      }
+    }
+    .header-output-text {
+      @include span-columns(4);
+      padding: 2% 2% 0;
+    }
+    img {
+      @include span-columns(4);
+      padding-top: 2%;
+    }
+  }
+}
+.show-filter {
+  @include span-columns(12);
+  @include font1-bold;
+  display: block;
+  margin-bottom: 10%;
+  text-align: center;
+  @include respond-to(1000) {
+    display: none;
+  }
+  span {
+    img {
+      vertical-align: middle;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.category-wrapper {
+  @include outer-container;
+  margin-bottom: 10%;
+  .category-filters {
+    @include span-columns(9);
+    @include shift(1.5);
+    display: none;
+    margin-bottom: 10%;
+    @include respond-to(1000) {
+      @include span-columns(3);
+      @include shift(0);
+      display: block;
+      margin-bottom: 0;
+      padding-right: 5%;
+    }
+    .scent-family {
+      h5 {
+        @include font2-italic;
+        padding-bottom: 10%;
+        font-size: .8em;
+        text-align: center;
+        border-bottom: 1px dotted #333;
+      }
+      .scents {
+        text-align: center;
+        .scent-colors {
+          display: inline-block;
+          width: 50%;
+          padding: 7% 0 5%;
+          vertical-align: top;
+          border-bottom: 1px dotted #333;
+          &:nth-of-type(odd) {
+            border-right: 1px dotted #333;
+          }
+          &:hover {
+            cursor: pointer;
+            strong {
+              @include font1-semibold;
+              color: $green-dark;
+            }
+          }
+          i {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+          }
+          strong {
+            @include font1-book;
+            display: block;
+            font-size: .7em;
+            color: #ccc;
+            text-transform: uppercase;
+          }        
+        }
+        .scent-colors.active {
+          i {
+            border: 4px solid $green-dark;
+          }
+          strong {
+            @include font1-semibold;
+            color: $green-dark;
+          }
+        }
+        .scent-lost {
+          background: #f5c8b3;
+        }
+        .scent-grass {
+          background: #c0becc;
+        }
+        .scent-wood {
+          background: #dac6ab;
+        }
+        .scent-herb {
+          background: #d5e5b8;
+        }
+        .scent-atlantic {
+          background: #bcd6c9;
+        }
+        .scent-irish {
+          background: #c5c9c8;
+        }
+      }
+    }
+    .gift-filter {
+      margin-top: 10%;
+      text-align: center;
+      @include respond-to(1000) {
+        margin-top: 30%;
+      }
+      em {
+        display: inline-block;
+        margin-bottom: 5%;
+        font-size: .8em;
+        @include respond-to(1000) {
+          margin-bottom: 15%;
+        }
+      }
+      .doodle-x {
+        display: none;
+      }
+      .for-myself,
+      .as-a-present {
+        display: block;
+        font-size: .8em;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .for-myself {
+        padding-bottom: 2%;
+        margin-bottom: 3%;
+        border-bottom: 1px dotted #333;
+        @include respond-to(1000) {
+          padding-bottom: 7%;
+          margin-bottom: 8%;
+        }
+      }
+      .active {
+        @include font1-bold;
+        color: $green-dark;
+        .doodle-x { 
+          display: inline-block;
+          width: 15px;
+          vertical-align: middle;
+        }
+      }
+    }
+    .price-filter {
+      margin-top: 10%;
+      text-align: center;
+      @include respond-to(1000) {
+        margin-top: 30%;
+      }
+      em {
+        display: block;
+        margin-bottom: 5%;
+        font-size: .8em;
+      }
+      input[type="range"] {
+        display: inline-block;
+        width: 75%;
+      }
+      .range-output {
+        display: inline-block;
+        width: 20%;
+        margin-left: 5%;
+        font-size: .8em;
+        vertical-align: top;
+        text-align: right;
+        input {
+          width: 30px;
+          border: none;
+        }
+      }
+    }
+    .show-filter {
+      margin-top: 10%;
+      text-align: center;
+      font-size: .8em;
+      @include respond-to(1000) {
+        margin-top: 30%;
+      }
+      em {
+        display: block;
+        margin-bottom: 5%;
+      }
+      span {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .doodle-x {
+        display: none;
+      }
+      .active {
+        @include font1-bold;
+        color: $green-dark;
+        .doodle-x {
+          display: inline-block;
+          width: 15px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .subcategory-filter {
+    padding-bottom: 0;
+    padding-left: 3%;
+    margin-bottom: 5%;
+    border-bottom: 1px dotted #333;
+    font-size: .8em;
+    .doodle-x {
+      display: none;
+    }
+    span {
+      display: inline-block;
+      margin-right: 5%;
+      margin-bottom: 7%;
+      &:hover {
+        cursor: pointer;
+      }
+      @include respond-to(768) {
+        margin-bottom: 3%;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    span.active {
+      .doodle-x {
+        display: inline-block;
+        width: 15px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+    span.sort-by {
+      margin-right: 0;
+      margin-bottom: 7%;
+      @include respond-to(768) {
+        float: right;
+        margin-bottom: 0;
+      }
+      img {
+        width: 7px;
+        vertical-align: middle;
+      }
+    }
+    span.active {
+      @include font1-bold;
+      color: $green-dark;
+    }
+  }
+  #product-list {
+    .empty {
+      display: block;
+      width: 100%;
+      a {
+        @include font1-bold;
+        color: $green-dark
+      }
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+  .category-products {
+    @include span-columns(12);
+    @include respond-to(1000) {
+      @include span-columns(9);
+    }
+    ul {
+      @include span-columns(12);
+      margin: 0;
+      padding: 0;
+      li {
+        @include span-columns(12);
+        display: inline-block;
+        position: relative;
+        max-height: 290px;
+        margin-bottom: 30%;
+        padding: 0 1%;
+        list-style-type: none;
+        vertical-align: top;
+        @include respond-to(400) {
+          @include span-columns(6);
+          margin-bottom: 15%;
+          &:nth-of-type(2n) {
+            @include omega();
+          }
+        }
+        @include respond-to(768) {
+          @include span-columns(4);
+          @include omega-reset(2n);
+          margin-bottom: 5%;
+          &:nth-of-type(3n) {
+            @include omega();
+          }
+        }
+        @include respond-to(1000) {
+          margin-bottom: 0;
+        }
+        strong,
+        .product-price {
+          @include font1-book;
+          display: inline-block;
+          margin-bottom: 3px;
+          padding: 2px 10px;
+          background: #fff;
+        }
+        .product-price {
+          @include font1-bold;
+          margin-top: 5%;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .category-product-details {
+          position: relative;
+          top: -50px;
+          max-width: 73%;
+          font-size: .8em;
+          em {
+            @include font1-book;
+            display: inline-block;
+            padding: 2px 10px;
+            background: #fff;
+            strong {
+              padding: 0;
+            }
+          }
+        }
+        .quick-view-description-hidden {
+          @include respond-to(768) {
+           visibility: hidden;
+          } 
+        }
+        .quick-view {
+          display: none;
+          position: absolute;
+          bottom: 10%;
+          left: 0;
+          width: 100%;
+          padding: 5%;
+          background: #c5c9c8;
+          opacity: .75;
+          p {
+            color: #000;
+          }
+          form {
+            display: inline-block;
+          }
+          .btn {
+            display: inline-block;
+            background: #fff;
+            border: none;
+            color: #333;
+            text-transform: uppercase;
+            &:hover {
+              color: #333;
+            }
+          }
+          strong {
+            padding: 0;
+            background: none;
+          }
+        }
+        .lost-garden {
+          background: #f5c8b3;
+        }
+        .grassland {
+          background: #c0becc;
+        }
+        .woodland {
+          background: #dac6ab;
+        }
+        .herb-garden {
+          background: #d5e5b8;
+        }
+        .atlantic-coast {
+          background: #bcd6c9;
+        }
+        .irish-linestone {
+          background: #c5c9c8;
+        }
+        .quick-view-enabled {   
+          @include respond-to(768) {
+           display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+.family-wrapper {
+  .category-header.grassland {
+    background: url("../images/Grassland-Background.jpg") no-repeat top right;
+    h3 {
+      background: #c0becc;
+    } 
+  }
+  .category-header.atlantic-coast {
+    background: url("../images/Atlantic-Background.jpg") no-repeat top right; 
+    h3 {
+      background: #bcd6c9;
+    } 
+  }
+  .category-header.herb-garden {
+    background: url("../images/HerbGarden-Background.jpg") no-repeat top right; 
+    h3 {
+      background: #d5e5b8;
+    } 
+  }
+  .category-header.irish-limestone {
+    background: url("../images/Limestone-Background.jpg") no-repeat top right; 
+    h3 {
+      background: #c5c9c8;
+    } 
+  }
+  .category-header.lost-garden {
+    background: url("../images/LostGarden-Background.jpg") no-repeat top right; 
+    h3 {
+      background: #f5c8b3;
+    } 
+  }
+  .category-header.woodland {
+    background: url("../images/Woodland-Background.jpg") no-repeat top right; 
+    h3 {
+      background: #dac6ab;
+    } 
+  }
+  .category-header {
+    h3 {
+      opacity: .6;
+      border: none;
+    }
+    p {
+      margin-top: 20px;
+      width: 300px;
+      padding: 5px;
+      font-size: .5em;
+      color: #000;
+    }
+  }
+  .category-wrapper {
+    .category-products {
+      @include respond-to(1000) {
+        @include shift (1.5);
+      }
+    }
+  }
+}
+/* 
 --------------------
 
 LOGIN / REGISTER
@@ -635,6 +1576,13 @@ LOGIN / REGISTER
       border-left: 1px dotted #666;
     }
   }
+  .guest-checkout {
+    div {
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
   label {
     display: block;
     margin-bottom: 1%;
@@ -649,12 +1597,18 @@ LOGIN / REGISTER
     width: 98%;
     height: 40px;
     margin-bottom: 5%;
-    border: 2px solid #eee;
+    border: 2px solid #ddd;
     padding: 10px;
   }
-  .btn {
+  .btn,
+  a.btn {
     display: inline-block;
     margin: 0;
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+    }
   }
   a {
     font-size: .8em;
@@ -665,6 +1619,23 @@ LOGIN / REGISTER
     margin-top: 5%;
     a {
       font-size: 1em;
+    }
+  }
+}
+.login-register-checkout {
+  margin-top: 3%;
+  padding: 3%;
+  background: #fff;
+  .login {
+    @include respond-to(768) {
+      padding-right: 3%;
+      border-right: 1px dotted #666;
+    }
+  }
+  .register {
+    @include respond-to(768) {
+      border: none;
+      padding: 0;
     }
   }
 }
@@ -690,15 +1661,562 @@ LOGIN / REGISTER
     width: 100%;
     max-width: 300px;
     height: 40px;
-    border: 2px solid #eee;
+    border: 2px solid #ddd;
     padding: 10px;
   }
-  input[type=submit] {
+  input[type="submit"] {
     margin-top: 0;
     font-size: 1em;
   }
 }
-/*
+/* 
+--------------------
+
+BASKET / CHECKOUT
+
+--------------------
+*/
+.checkout-wrapper {
+  padding-bottom: 10%;
+  background: url("../images/Background-XL.jpg") no-repeat top right; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  .checkout-header {
+    @include outer-container;
+    padding: 4% 0 2% 2%;
+    margin-top: 0;
+    @include respond-to(1000) {
+      padding-left: 0;
+    }
+    .logo {
+      @include span-columns(12);
+      margin-bottom: 3%;
+      text-align: center;
+      @include respond-to(768) {
+        @include span-columns(3);
+        margin-bottom: 0;
+        text-align: left;
+      }
+      img {
+        width: 100%;
+        max-width: 200px;
+        @include respond-to(768) {
+          max-width: 250px;
+        }
+      }
+    }
+    .breadcrumbs {
+      @include span-columns(12);
+      @include omega();
+      text-align: right;
+      @include respond-to(768) {
+        @include span-columns(9);
+      }
+      ul {
+        margin: 1% 0 0;
+        padding: 0;
+        text-align: center;
+        @include respond-to(768) {
+          text-align: right;
+        }
+        li {
+          display: inline-block;
+          margin: 0 2% 3%;
+          list-style-type: none;
+          font-size: .8em;
+          text-align: center;
+          vertical-align: top;
+          @include respond-to(1000) {
+            margin: 0;
+            width: 120px;
+          }
+          a {
+            text-align: center;
+          }
+        }
+        li.active .breadcrumbs-num {
+          background: $green-dark;
+          color: #fff;
+          border-color: $green-dark;
+        }
+      }
+      .breadcrumbs-num {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 15px;
+        padding-top: 11px;
+        border-radius: 50%;
+        border: 1px solid #666;
+        text-align: center;
+        font-size: 1.1em;
+      }
+    }
+  }
+  .cart {
+    @include outer-container;
+    padding: 3%;
+    background: #fff;
+    @include respond-to(768) {
+      padding: 3% 9%;
+    }
+    h1 {
+      text-align: center;
+    }
+    #cart-content {
+      margin-top: 4%;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 7%;
+      font-size: .9em;
+      border-top: 1px dotted #666;
+      tr {
+        border-bottom: 1px dotted #666;
+        td {
+          padding: 3px 0 1px;
+          vertical-align: middle;
+        }
+      }
+      .cart-item-name {
+        color: #999;
+        font-size: .9em;
+        a {
+          display: block;
+          margin-bottom: 7px;
+          color: #999;
+        }
+        button {
+          width: 27px;
+          height: 27px;
+          padding-top: 2px;
+          text-align: center;
+          border: 1px solid #999;
+          background: #fff;
+          border-radius: 50%;
+          font-size: 1.5em;
+          vertical-align: sub;
+          &:hover {
+            background: #999;
+            color: #fff;
+          }
+        }
+        .down {
+          margin-left: 20px;
+        }
+        .quantity {
+          @include font1-semibold;
+          margin: 0 12px;
+          font-size: 1.1em;
+          color: #333;
+        }
+      }
+      .cart-item-filler {
+        padding: 0;
+        @include respond-to(768) {
+          padding: 0 17%;
+        }
+      }
+      .cart-item-price {
+        text-align: right;
+        a {
+          display: inline-block;
+          width: 27px;
+          height: 27px;
+          padding-top: 6px;
+          margin-bottom: 12px;
+          text-align: center;
+          border: 1px solid #999;;
+          border-radius: 50%;
+          color: #999;
+          font-size: .9em;
+          &:hover {
+            background: #999;
+            color: #fff;
+          }
+        }
+        span {
+          @include font1-semibold;
+          display: block;
+        }
+      }
+    }
+    .promotion {
+      margin-top: 5%;
+      h3 {
+        margin-bottom: 3%;
+      }
+      label {
+        @include font1-semibold;
+        display: block;
+        margin-bottom: 5px;
+        font-size: .8em;
+      }
+      input[type="text"] {
+        width: 60%;
+        height: 40px;
+        margin: 0 1% 1% 0;
+        border: 2px solid #ddd;
+        padding: 0 5px;
+        font-size: .8em;
+        vertical-align: top;
+        @include respond-to(768) {
+          width: 80%;
+          padding: 10px;
+          margin: 0 3% 1% 0;
+        }
+      }
+      .btn2 {
+        padding: 13px 5px 10px;
+        width: 35%;
+        @include respond-to(768) {
+          width: 15%;
+        }
+      }
+      p {
+        width: 100%;
+        @include respond-to(768) {
+          width: 78%;
+        }
+      }
+    }
+    .cart-buttons {
+      .btn,
+      .btn2 {
+        display: inline-block;
+        width: 150px;
+        padding: 22px 0 20px;
+        margin: 0;
+        text-transform: uppercase;
+        text-align: center;
+        @include respond-to(768) {
+          width: 30%;
+          padding: 22px 20px 20px;
+        }
+      }
+      .checkout-btn {
+        float: right;
+      }
+      .paypalexpress {
+        display: inline-block;
+        width: 150px;
+        float: right;
+        margin-top: 15px;
+        clear: both;
+        text-align: center;
+        @include respond-to(768) {
+          width: 30%;
+        }
+        p {
+          text-align: center;
+          #paypal-express-checkout-btn {
+            display: inline-block;
+            margin-top: 15px;
+          }
+          a {
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.cart-totals,
+#checkout-totals {
+  margin: 7% 0;
+  padding: 2% 5%;
+  background: #eee;
+  clear: both;
+  p {
+    margin: 0;
+    padding: 2% 0;
+    border-top: 1px dotted #666;
+    font-size: .9em;
+    &:first-of-type {
+      border: none;
+    }
+  }
+  .cart-total-line {
+    @include font1-semibold;
+    border-top: 2px solid #333;
+    color: #333;
+  }
+  span,
+  i {
+    float: right;
+  }
+}
+#checkout-page {
+  @include outer-container;
+  padding: 3%;
+  background: #fff;
+  @include respond-to(768) {
+    padding: 3% 9% 6%;
+  }
+  h1 {
+    text-align: center;
+    padding-bottom: 5%;
+    margin-bottom: 3%;
+    border-bottom: 1px dotted #666;
+  }
+  h3 {
+    margin-bottom: 3%;
+  }
+  h3.delivery-address {
+    margin-top: 5%;
+  }
+  .checkout-form-wrap {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1%;
+    vertical-align: top;
+    @include respond-to(600) {
+      width: 48%;
+      &:nth-of-type(odd) {
+        margin-right: 2%;
+      }
+    }
+    label {
+      display: block;
+      margin-bottom: 1%;
+      font-size: .8em;
+      color: #666;
+    }
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 5%;
+      border: 2px solid #eee;
+      padding: 10px;
+      resize: none;
+      overflow: hidden;
+      font-size: .8em;
+      border-radius: 0;
+    }
+    input.error {
+      color: #333;
+    }
+    .error {
+      font-size: .8em;
+      color: red;
+    }
+    .comment {
+      display: block;
+      font-size: .7em;
+      color: #999;
+    }
+  }
+  .exp-wrap {
+    @include respond-to(600) {
+      width: 15%;
+      &:nth-of-type(odd) {
+        margin-right: 0;
+      }
+    }
+  }
+  .cvv-wrap {
+    input[type="text"] {
+      margin-bottom: 3%;
+      width: 31%;
+    }
+  }
+  .pay-wrap {
+    &:nth-of-type(odd) {
+      margin-right: 0;
+    }
+    @include respond-to(600) {
+      margin-left: 2%;
+    }
+  }
+  .checkout-copy-address {
+    display: block;
+    width: 100%;
+    margin-bottom: 3%;
+    label {
+      display: inline-block;
+      margin-left: 2%;
+      font-size: .8em;
+    }
+  }
+  .btn2,
+  .btn {
+    width: 100%;
+    margin-top: 1%;
+    padding: 22px 0 20px;
+    background: $green-dark;
+    color: #fff;
+    &:hover {
+      opacity: .8;
+    }
+    @include respond-to(768) {
+      width: 30%;
+    }
+    @include respond-to(600) {
+      float: right;
+      width: 175px;
+      margin-top: 0;
+    }
+  }
+  input
+  .checkout-btn-wrap {
+    padding-top: 6%;
+    margin-top: 3%;
+    border-top: 1px dotted #666;
+  }
+  #shipping-methods {
+    tr {
+      line-height: 2;
+      td {
+        &:nth-of-type(odd) {
+          padding-right: 10px;
+        }
+        label:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .btn2,
+    .btn {
+      display: inline-block;
+      width: 150px;
+      padding: 22px 0 20px;
+      margin: 0;
+      text-transform: uppercase;
+      text-align: center;
+      @include respond-to(768) {
+        width: 30%;
+        padding: 22px 20px 20px;
+      }
+    }
+  }
+  .pay-now {
+    float: none;
+    margin: 5% 0 0;
+    width: 100%;
+    @include respond-to(600) {
+      margin: -1px 0 0;
+      width: 50%;
+    }
+  }
+  .paypal-checkout {
+    .quantity-text,
+    .down,
+    .quantity,
+    button,
+    a,
+    span {
+      display: none;
+    }
+    .pay-now {
+      display: inline-block;
+      float: right;
+      @include respond-to(600) {
+        margin: 0;
+        width: 30%;
+      }
+    }
+  }
+}
+.empty-cart {
+  display: block;
+  text-align: center;
+}
+.receipt-wrapper {
+  @include outer-container;
+  .receipt {
+    @include span-columns(12);
+    padding: 3% 9% 6%;
+    margin-top: 3%;
+    background: #fff;
+    h1 {
+      padding-bottom: 5%;
+      margin-bottom: 3%;
+      border-bottom: 1px dotted #666;
+    }
+    h1,
+    h3 {
+      text-align: center;
+    }
+  }
+  table {
+    width: 100%;
+    margin-bottom: 7%;
+    font-size: .9em;
+    border-top: 1px dotted #666;
+    border-bottom: 1px dotted #666;
+    text-align: left;
+    font-size: .8em;
+    thead {
+      th {
+        @include font1-bold;
+        padding: 10px 0;
+        &:first-of-type {
+          text-align: center;
+        }
+      }
+    }
+    .cart-item-name {
+      padding-bottom: 10px;
+      text-align: center;
+      color: #999;
+      a {
+        color: #999;
+      }
+    }
+    .cart-item-filler {
+      padding: 0;
+      @include respond-to(768) {
+        padding: 0 17%;
+      }
+    }
+    .cart-item-price {
+      text-align: right;
+      a {
+        display: inline-block;
+        width: 27px;
+        height: 27px;
+        padding-top: 6px;
+        margin-bottom: 12px;
+        text-align: center;
+        border: 1px solid #999;;
+        border-radius: 50%;
+        color: #999;
+        font-size: .9em;
+        &:hover {
+          background: #999;
+          color: #fff;
+        }
+      }
+      span {
+        @include font1-semibold;
+        display: block;
+      }
+    }
+  }
+  .btn2 {
+    display: inline-block;
+    width: 100%;
+    padding: 22px 0 20px;
+    margin: 0;
+    float: right;
+    text-transform: uppercase;
+    text-align: center;
+    @include respond-to(768) {
+      width: 30%;
+    }
+    @include respond-to(600) {
+      float: right;
+      width: 175px;
+    }
+  }
+}
+/* 
 --------------------
 
 ABOUT
@@ -708,7 +2226,7 @@ ABOUT
 .about {
   .about-header {
     position: relative;
-    background: url("../images/Intro-Wexford-352.jpg") no-repeat bottom left;
+    background: url("../images/Intro-Wexford-352.jpg") no-repeat bottom left; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -869,7 +2387,7 @@ ABOUT
     }
   }
 }
-/*
+/* 
 --------------------
 
 SOAP ROOM
@@ -1087,7 +2605,7 @@ SOAP ROOM
     }
   }
 }
-/*
+/* 
 --------------------
 
 BLENDING ROOM
@@ -1199,7 +2717,7 @@ BLENDING ROOM
     }
   }
 }
-/*
+/* 
 --------------------
 
 HERB GARDEN
@@ -1311,7 +2829,7 @@ HERB GARDEN
     }
   }
 }
-/*
+/* 
 --------------------
 
 TEA ROOM
@@ -1509,7 +3027,7 @@ TEA ROOM
     }
   }
 }
-/*
+/* 
 --------------------
 
 DIRECTIONS
@@ -1567,7 +3085,7 @@ DIRECTIONS
     border: 1px solid #ccc;
   }
 }
-/*
+/* 
 --------------------
 
 PAYMENT & DELIVERY
@@ -1619,7 +3137,7 @@ PAYMENT & DELIVERY
     }
   }
 }
-/*
+/* 
 --------------------
 
 CONTACT
@@ -1668,7 +3186,7 @@ CONTACT
     }
   }
 }
-/*
+/* 
 --------------------
 
 TERMS
@@ -1685,7 +3203,7 @@ TERMS
     }
   }
 }
-/*
+/* 
 --------------------
 
 FOOTER
@@ -1827,6 +3345,15 @@ footer {
           @include respond-to(768) {
             margin-top: 15%;
           }
+        }
+        .ctct-form-errorMessage {
+          color: red;
+          font-size: .8em;
+        }
+        #success_message {
+          padding: 5px 0;
+          background-color: #d0d6ca;
+          font-size: .9em;
         }
       }
       .social-icons {

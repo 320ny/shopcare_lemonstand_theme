@@ -1,65 +1,139 @@
+{{ partial('shop-product-get-family', {'product': product}) }}
+
+
 {% set on_sale = product.onSale %}
 
-<div>
-  <div class="item-images">
-    <div class="big-image">
-      <img src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.name }}"/>
-    </div>
-    
-    {% if product.images.count > 1 %}
-    <ul>
-      {% for image in product.images %}
-        <li><a href="{{ image.thumbnail(746, 'auto') }}"><img src="{{ image.thumbnail(367, 367) }}"/></a></li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </div>
-</div>
-<div>
+<div class="product-header {{globals.familyCollection.api_code}}">
+
   <div class="short-description {{ on_sale ? 'sale' : null }}">
-    <h2>{{ product.name }}</h2>
-    <span>
-      <i>
-        {% if on_sale %}
-         <span class="oldprice">{{ product.fullPrice|currency }}</span>
-        {% endif %}
-        {{ product.price|currency }}
-      </i>
-    </span>
-  </div>
+    <h1>{{ product.name }}</h1>
 
-  {{ partial('shop-product-attributes') }}
-  {{ partial('shop-product-options') }}
-  {{ partial('shop-product-extras') }}
+    <span class="product-weight">{{ partial('shop-product-attributes') }}</span>
 
-  {% if product.enabled %}
-    {% if not product.isOutOfStock() %}
-      {{ flash() }}
-      <label class="title" for="customDropdown">Quantity</label>
-      
-      <div>
-        <div>
+    {% if on_sale %}
+      <div class="oldprice">{{ product.fullPrice|currency }}</div>
+    {% else %}
+      <div class="product-price">{{ product.price|currency }}</div>
+    {% endif %}
+
+    {% if product.enabled %}
+      {% if not product.isOutOfStock() %}
+        {{ flash() }}
+        <div class="product-quantity">
+          <label class="title" for="customDropdown">Quantity</label>
           <input type="text" value="{{ quantity|default("1") }}" name="quantity"/>
         </div>
-        <div>
-          <input type="hidden" name="productId" value="{{ product.id }}"/>
-          <a href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
-        </div>
-      </div>
-    {% else %}
-      <div class="not-available">
-        <p>
-          This product is temporarily unavailable.
-        </p>
-      </div>
-    {% endif %}
-  {% else %}
-    <div class="not-available"><p>This product is not available.</p></div>
-  {% endif %}
-  
-  {% if product.description %}
-    <h3>Description</h3>
-    {{ product.description|unescape }}
-  {% endif %}
 
-</div>
+        <input type="hidden" name="productId" value="{{ product.id }}"/>
+
+        <a href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product" class="btn">Add to Bag</a>
+      {% else %}
+        <div class="not-available">
+          <p>
+            This product is temporarily unavailable.
+          </p>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="not-available"><p>This product is not available.</p></div>
+    {% endif %}
+
+  </div><!-- end short-description -->
+
+  <img src="{{ product.image.thumbnail('auto', 'auto')|default('http://placehold.it/400x400') }}" alt="{{ product.name }}" class="product-image">
+
+  <div class="description-ingredient">
+    <div class="description-ingredient-header">
+      {% if product.description %}
+        <span class="description-header active"><img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x"> Description</span>
+      {% endif %}
+      {% if product.ingredients %}
+        <span class="ingredient-header"><img src="{{ 'images/doodle-x.png'|theme_resource }}" class="doodle-x"> Ingredients</span>
+      {% endif %}
+    </div>
+    <div class="description-ingredient-content">
+      {% if product.ingredients %}
+        <div class="ingredient-text">{{ product.ingredients|unescape}}</div>
+      {% endif %}
+
+      {% if product.description %}
+        <div class="description-text">{{ product.description|unescape }}</div>
+      {% endif %}
+    </div>
+  </div>  
+
+</div><!-- end product-header -->
+
+
+<!-- BENNICK should this just be an output of the current product's scent family collection -->
+{% if globals.familyCollection %}
+    <div class="scent-family">
+      <aside class="more-from">More from<br>the Scent Family <h3>{{globals.familyCollection.name|first}}<span>{{globals.familyCollection.name}}</span></h3>
+      </aside>
+      <ul>
+        {% for relatedProduct in globals.familyCollection.products %}
+          <li>
+            <a href="{{ site_url('/product') }}/{{ relatedProduct.url_name }}">
+            {% if relatedProduct.image %}
+              <br>
+              <img temprop="image" alt="{{ relatedProduct.image.title }}" src="{{ relatedProduct.image.thumbnail(300, 'auto') }}">
+            {% endif %}
+            <span class="name">{{ relatedProduct.name }}<br>/{{ partial('shop-product-attributes') }}</span>
+            <span class="price">{{ relatedProduct.fullPrice|currency }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+     
+    </div><!-- end scent-family -->
+{% endif %}
+
+{% if product.related[0] %}
+    <div class="also-liked">
+      <h4>Customers<br>also liked</h4>
+      <ul>
+        {% for relatedProduct in product.related %}
+          <li>
+            <a href="{{ site_url('/product') }}/{{ relatedProduct.url_name }}">
+            {% if relatedProduct.image %}
+              <br>
+              <img temprop="image" alt="{{ relatedProduct.image.title }}" src="{{ relatedProduct.image.thumbnail(300, 'auto') }}">
+            {% endif %}
+            <span class="name">{{ relatedProduct.name }}<br>/{{ partial('shop-product-attributes') }}</span>
+            <span class="price">{{ relatedProduct.fullPrice|currency }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div><!-- end also-liked -->
+{% endif %}
+
+<script>
+  $(".ingredient-header").click(function() {
+    $(".ingredient-text").show();
+    $(".description-text").hide();
+    $(".description-header").removeClass("active");
+    $(".ingredient-header").addClass("active");
+  });
+
+  $(".description-header").click(function() {
+    $(".description-text").show();
+    $(".ingredient-text").hide();
+    $(".description-header").addClass("active");
+    $(".ingredient-header").removeClass("active");
+  });
+</script>
+
+
+<!--
+{% if product.images.count > 1 %}
+  <ul>
+    {% for image in product.images %}
+      <li><a href="{{ image.thumbnail(746, 'auto') }}"><img src="{{ image.thumbnail(367, 367) }}"/></a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{{ partial('shop-product-options') }}
+{{ partial('shop-product-extras') }}
+-->

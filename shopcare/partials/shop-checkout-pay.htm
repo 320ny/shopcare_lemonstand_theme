@@ -1,0 +1,22 @@
+{% if cart %}
+  {% if order.payment_processed %}
+    <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
+  {% else %}
+    <h1>Card Details</h1>
+    
+    {% set paymentMethod = null %}
+    {% for method in paymentMethods %}
+        {% if method.api_code == 'stripe' %}
+            {% set paymentMethod = method %}
+        {% endif %}
+    {% endfor %}
+    <div id="payment_form">{{ partial('shop-paymentform', {'paymentMethod': paymentMethod}) }}</div>
+  {% endif %}
+  
+  <div class="cart-totals">
+    {{ partial('shop-checkout-totals') }}
+  </div>
+    
+{% else %}
+  <p class="flash error">Order not found.</p>
+{% endif %}

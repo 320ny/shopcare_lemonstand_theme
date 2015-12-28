@@ -1,0 +1,16 @@
+{% set collectionApiCodes = ['woodland', 'atlantic-coast', 'herb-garden', 'grassland', 'irish-limestone', 'lost-garden'] %}
+{% global familyCollection = null %}
+
+{% set ids = [] %}
+{% for collection in product.collections  %}
+    {% set ids = ids | merge([collection.id]) %}
+{% endfor %}
+
+{% set break = false %}
+{% for apiCode in collectionApiCodes if not break %}
+    {% set family = apiCode|collection %}
+    {% if family.id in ids %}
+        {% global familyCollection = family %}
+        {% set break = true %}
+    {% endif %}
+{% endfor %}

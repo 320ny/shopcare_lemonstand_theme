@@ -3,13 +3,32 @@ content_type: 'text/html; charset=utf-8'
 ---
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-    <head>        
-        {{ partial("layout-head") }}
-    </head>
-    <body>
-        <section>
-            {{ page() }}
-        </section>
-        {{ partial("layout-footer") }}
-    </body>
+  <head>        
+    {{ partial("layout-head") }}
+  </head>
+
+  <body>
+    <div class="checkout-wrapper">
+      <section class="checkout-header">
+        <div class="logo">
+          <img src="{{ theme.logoImage.thumbnail('auto', 'auto') }}" alt="">
+        </div>
+        <div class="breadcrumbs" id="checkout-progress">
+          {{ partial('shop-checkout-progress', {'step': step ? step : globals.step}) }}
+        </div>
+      </section><!-- end checkout-header -->
+
+      {{ page() }}
+
+    </div><!-- end checkout-wrapper -->
+
+    {{ partial("layout-footer") }}
+
+  </body>
+
+  <script>
+    $( document ).ready(function() {
+        {{ code_block('js-setup') }}
+    });
+  </script>
 </html>

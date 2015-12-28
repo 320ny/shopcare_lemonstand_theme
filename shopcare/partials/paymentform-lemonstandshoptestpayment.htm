@@ -1,0 +1,34 @@
+<p>This is a test payment method. Never use your real credit card information in this form.</p>
+
+<form method="post" action="" data-ajax-handler="shop:onPay">
+  <input type="hidden" name="payment_method_id" value="{{ paymentMethod.id}}">
+  <div class="checkout-form-wrap">
+      <label for="FIRSTNAME">Cardholder First Name</label>
+      <input autocomplete="off" name="FIRSTNAME" value="John" id="FIRSTNAME" type="text" class="text"/>
+  </div>
+  <div class="checkout-form-wrap">
+      <label for="LASTNAME">Cardholder Last Name</label>
+      <input autocomplete="off" name="LASTNAME" value="Smith" id="LASTNAME" type="text" class="text"/>
+  </div>
+  <div class="checkout-form-wrap">
+      <label for="ACCT">Credit Card Number</label>
+      <input autocomplete="off" name="ACCT" value="4111111111111111" id="ACCT" type="text" class="text"/>
+  </div>
+  <div class="checkout-form-wrap">
+      <label for="EXPDATE_MONTH">Expiration Date - Month</label>
+      <input type="text" name="EXPDATE_MONTH">
+  </div>
+  <div class="checkout-form-wrap">
+      <label for="EXPDATE_YEAR">Expiration Date - Year</label>
+      <input type="text" name="EXPDATE_YEAR">
+  </div>
+  <div class="checkout-form-wrap">
+      <label for="CVV2">
+        CVV2
+        <span class="comment">For MasterCard, Visa, and Discover, the CSC is the last three digits in the signature area on the back of your card. For American Express, it's the four digits on the front of the card.</span>
+      </label>
+      <input autocomplete="off" name="CVV2" value="123" id="CVV2" type="text" class="text"/>
+  </div>
+
+  <input type="submit" value="PAY NOW" class="btn pay-now">
+</form>
