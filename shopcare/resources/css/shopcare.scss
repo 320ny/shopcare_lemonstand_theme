@@ -163,7 +163,7 @@ a.btn2 {
   }
 }
 .main-content {
-  padding: 0 2%;
+  //padding: 0 2%;
   @include respond-to(1088) {
     padding: 0;
   }
@@ -176,15 +176,15 @@ a.btn2 {
     font-size: 1.3em;
   }
 }
-.home,
-.about,
-.soap-room,
-.herb-garden,
-.tea-room,
-.blending-room,
-.directions,
-.payment-delivery,
-.contact,
+//.home,
+//.about,
+//.soap-room,
+//.herb-garden,
+//.tea-room,
+//.blending-room,
+//.directions,
+//.payment-delivery,
+//.contact,
 .footer {
   margin-top: 3%;
 }
@@ -261,212 +261,223 @@ HEADER
 --------------------
 */ 
 header {
-  @include outer-container;
-  margin-top: 3%;
-  padding: 0 2%;
-  @include respond-to(1200) {
-    padding: 0;
-  }
-  .logo {
-    @include span-columns(5);
-    img {
-      width: 100%;
-      max-width: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  .header-content {
+    @include outer-container;
+    margin-top: 3%;
+    padding: 0 2%;
+    @include respond-to(1200) {
+      padding: 0;
     }
-    @include respond-to(1000) {
-      @include span-columns(3);
+    .logo {
+      @include span-columns(5);
+      img {
+        width: 100%;
+        max-width: 250px;
+      }
+      @include respond-to(1000) {
+        @include span-columns(3);
+      }
     }
-  }
-  nav {
-    @include span-columns(7);
-    @include omega();
-    text-align: right;
-    @include respond-to(1000) {
-      @include span-columns(8.5);
-    }
-    ul {
-      margin: 0;
-      li {
-        display: inline-block;
-        padding: 3% 3% 1%;
-        list-style-type: none;
-        &:hover {
-          @include respond-to(1000) {
-            background: url("../images/hover-about-register.png") no-repeat center bottom;
-          }
-        }
-        &:first-of-type {
-          padding: 3%;
+    nav {
+      @include span-columns(7);
+      @include omega();
+      text-align: right;
+      @include respond-to(1000) {
+        @include span-columns(8.5);
+      }
+      ul {
+        margin: 0;
+        li {
+          display: inline-block;
+          padding: 3% 3% 1%;
+          list-style-type: none;
           &:hover {
             @include respond-to(1000) {
-              background: url("../images/hover-shop.png") no-repeat center top;
+              background: url("../images/hover-about-register.png") no-repeat center bottom;
             }
           }
-        }
-        a {
-          color: #333;
-        }
-      }
-      li.blog-pg {
-        &:hover {
-          @include respond-to(1000) {
-            background: url("../images/hover-blog.png") no-repeat center bottom;
-          }
-        }
-      }
-      li.active {
-        border-radius: 50%;
-        border-color: $green-dark;
-      }
-      .shop-link {
-        .shop-nav-wrapper {
-          display: none;
-          position: absolute;
-          top: 150px;
-          left: 0;
-          width: 100%;
-          text-align: left;
-          border-top: 1px dotted #333;
-          border-bottom: 1px dotted #333;
-          .shop-nav {
-            display: block;
-            padding: 0;
-            width: 68em;
-            margin: 0 auto;
-            li {
-              height: 235px;
-              width: 160px;
-              padding: 1.2% 0 0 0;
-              border: none;
-              border-right: 1px dotted #333;
-              vertical-align: top;
-              &:hover {
-                border-right: 1px dotted #333;
-                border-radius: 0;
-              }
-              &:first-of-type {
-                padding-left: 2%;
-                @include respond-to(1200) {
-                  padding-left: 0;
-                }
-              }
-              &:last-of-type {
-                padding-right: 0;
-                border-right: none;
-              }
-              a {
-                display: block;
-                margin-bottom: 5%;
-                font-size: .85em;
-                color: #999;
-                &:hover {
-                  border: none;
-                  border-radius: 0;
-                  color: $green-dark;
-                }
-              }
-              h3 {
-                margin-bottom: 25px;
-                font-size: 1.5em;
-                letter-spacing: 0;
-                color: #666;
+          &:first-of-type {
+            padding: 3%;
+            &:hover {
+              @include respond-to(1000) {
+                background: url("../images/hover-shop.png") no-repeat center top;
               }
             }
-            .scent-family-category {
-              h3 {
-                font-size: 1.275em;
-                color: #999;
-              }
-            }
-          }
-        }
-      }
-    }
-  }  
-  #mini-cart {
-    sup {
-      font-size: .7em;
-    }
-  }
-  .nav-bar {
-    display: none;
-    padding: 0;
-    @include respond-to(1000) {
-      display: block;
-    }
-  }
-  .mobile-nav-bar {
-    display: block;
-    @include respond-to(1000) {
-      display: none;
-    }
-    .burger-nav {
-      display: inline-block;
-      width: 100%;
-      margin-bottom: 15px;
-      color: $green-dark;
-      font-size: 1.1em;
-      &:hover {
-        cursor: pointer;
-      }
-      strong {
-        //@include font2;
-        vertical-align: super;
-      }
-      img {
-        display: inline-block;
-        max-width: 40px;
-        margin-left: 10px;
-      }
-    }
-    span {
-      display: inline-block;
-    }
-    .mobile-nav-item {
-      display: none;
-      margin: 2% 0 15%;
-      border: none;
-      border-radius: 0;
-      font-size: .9em;
-      @include respond-to(500) {
-        margin-bottom: 5%;
-      }
-      &:hover {
-        border: none;
-        border-radius: 0;
-      }
-      a {
-        padding: 1% 0;
-        border-bottom: 2px solid $green-dark;
-      }
-      .mobile-shop-nav {
-        display: none;
-        margin-top: 25px;
-        padding-right: 20px;
-        padding-left: 0;
-        @include respond-to(500) {
-          //margin-top: 10%;
-        }
-        @include respond-to(768) {
-          //margin-top: 7%;
-          //padding-right: 3%;
-        }
-        li {
-          display: block;
-          margin: 2% 0 15%;
-          padding-left: 0;
-          padding-right: 0;
-          border: none;
-          border-radius: 0;
-          line-height: 1.5;
-          @include respond-to(500) {
-            margin-bottom: 5%;
-          }
-          &:last-of-type {
-            margin-bottom: 0;
           }
           a {
-            border-color: #ccc;
+            color: #333;
+          }
+        }
+        li.blog-pg {
+          &:hover {
+            @include respond-to(1000) {
+              background: url("../images/hover-blog.png") no-repeat center bottom;
+            }
+          }
+        }
+        li.active {
+          border-radius: 50%;
+          border-color: $green-dark;
+        }
+        .shop-link {
+          .shop-nav-wrapper {
+            display: none;
+            position: absolute;
+            top: 150px;
+            left: 0;
+            width: 100%;
+            text-align: left;
+            background: #fff;
+            border-top: 1px dotted #333;
+            border-bottom: 1px dotted #333;
+            .shop-nav {
+              display: block;
+              padding: 0;
+              width: 68em;
+              margin: 0 auto;
+              li {
+                height: 235px;
+                width: 160px;
+                padding: 1.2% 0 0 0;
+                border: none;
+                border-right: 1px dotted #333;
+                vertical-align: top;
+                &:hover {
+                  border-right: 1px dotted #333;
+                  border-radius: 0;
+                  background: none;
+                }
+                &:first-of-type {
+                  padding-left: 2%;
+                  @include respond-to(1200) {
+                    padding-left: 0;
+                  }
+                }
+                &:last-of-type {
+                  padding-right: 0;
+                  border-right: none;
+                }
+                a {
+                  display: block;
+                  margin-bottom: 5%;
+                  font-size: .85em;
+                  color: #999;
+                  &:hover {
+                    border: none;
+                    border-radius: 0;
+                    color: $green-dark;
+                  }
+                }
+                h3 {
+                  margin-bottom: 25px;
+                  font-size: 1.5em;
+                  letter-spacing: 0;
+                  color: #666;
+                }
+              }
+              .scent-family-category {
+                h3 {
+                  font-size: 1.275em;
+                  color: #999;
+                }
+              }
+            }
+          }
+        }
+      }
+    }  
+    #mini-cart {
+      sup {
+        font-size: .7em;
+      }
+    }
+    .nav-bar {
+      display: none;
+      padding: 0;
+      @include respond-to(1000) {
+        display: block;
+      }
+    }
+    .mobile-nav-bar {
+      display: block;
+      padding: 0;
+      @include respond-to(1000) {
+        display: none;
+      }
+      .burger-nav {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 15px;
+        color: $green-dark;
+        font-size: 1.1em;
+        &:hover {
+          cursor: pointer;
+        }
+        strong {
+          //@include font2;
+          vertical-align: super;
+        }
+        img {
+          display: inline-block;
+          max-width: 40px;
+          margin-left: 10px;
+        }
+      }
+      span {
+        display: inline-block;
+      }
+      .mobile-nav-item {
+        display: none;
+        margin: 2% 0 15%;
+        border: none;
+        border-radius: 0;
+        font-size: .9em;
+        @include respond-to(500) {
+          margin-bottom: 5%;
+        }
+        &:hover {
+          border: none;
+          border-radius: 0;
+        }
+        a {
+          padding: 2%;
+          background: #fff;
+          border-bottom: 2px solid $green-dark;
+        }
+        .mobile-shop-nav {
+          display: none;
+          margin-top: 25px;
+          padding-right: 20px;
+          padding-left: 0;
+          @include respond-to(500) {
+            //margin-top: 10%;
+          }
+          @include respond-to(768) {
+            //margin-top: 7%;
+            //padding-right: 3%;
+          }
+          li {
+            display: block;
+            margin: 2% 0 15%;
+            padding-left: 0;
+            padding-right: 0;
+            border: none;
+            border-radius: 0;
+            line-height: 1.5;
+            @include respond-to(500) {
+              margin-bottom: 5%;
+            }
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+            a {
+              border-color: #ccc;
+            }
           }
         }
       }
@@ -493,19 +504,22 @@ HOME
     background-size: cover;
     @include respond-to(1000) {
       width: 65%;
-      padding: 23%;
+      padding: 26% 0;
     }
     .about-callout {
       display: inline-block;
       position: static;
       right: 20%;
-      top: 10%;
-      width: 150px;
+      top: 23%;
+      width: 120px;
       float: right;
+      margin-top: 10%;
       text-align: center;
       @include respond-to(1000) {
         position: absolute;
         float: none;
+        width: 150px;
+        margin-top: 0;
       }
       img {
         width: 100%;
@@ -514,8 +528,8 @@ HOME
         display: inline-block;
         margin-top: 7%;
         padding: 4% 10%;
-        border: 2px solid $green-dark;
-        background: #fff;
+        border: 2px solid #333;
+        //background: #fff;
         @include respond-to(1000) {
           background: none;
         }
@@ -526,6 +540,9 @@ HOME
       left: 10%;
       bottom: 20%;
       width: 120px;
+      @include respond-to(1000) {
+        width: 150px;
+      }
     }
   }
   .callout-right {
@@ -533,6 +550,7 @@ HOME
     display: inline-block;
     width: 100%;
     padding: 10% 0;
+    vertical-align: top;
     background: url("../images/white-background.jpg") no-repeat right center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -540,19 +558,22 @@ HOME
     background-size: cover;
     @include respond-to(1000) {
       width: 35%;
-      padding: 22% 0;
+      padding: 26% 0;
     }
     .product-otw {
       display: block;
       position: static;
       right: 25%;
-      top: 5%;
+      top: 25%;
       width: 250px;
       margin: 0 auto;
       padding: 4%;
       border: 2px solid $green-dark;
       @include respond-to(1000) {
         position: absolute;
+      }
+      @include respond-to(1200) {
+        top: 35%;
       }
       &:hover {
         border-color: $green-light;
@@ -970,7 +991,6 @@ CATEGORY PAGE
 */
 .category-header {
   position: relative;
-  margin-top: 1%;
   margin-bottom: 3%;
   padding: 15% 0 13%;
   background: url("../images/wexford-352.jpg") no-repeat bottom left; 
@@ -980,16 +1000,13 @@ CATEGORY PAGE
   background-size: cover;
   text-align: center;
   @include respond-to(1000) {
-    padding: 7% 0;
+    padding: 15% 0;
     text-align: left;
-  }
-  @include respond-to(768) {
-    padding: 12% 0;
   }
   h3 {
     display: inline-block;
     position: static;
-    top: 15%;
+    top: 40%;
     right: 10%;
     padding: 20px 40px;
     border: 2px solid #333;
@@ -1548,6 +1565,7 @@ LOGIN / REGISTER
 .login-register {
   @include outer-container;
   margin-bottom: 5%;
+  margin-top: 12%;
   form {
     width: 100%;
     margin: 0 auto;
@@ -2226,12 +2244,19 @@ ABOUT
 .about {
   .about-header {
     position: relative;
+    padding-top: 20%;
     background: url("../images/Intro-Wexford-352.jpg") no-repeat bottom left; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     text-align: center;
+    @include respond-to(1000) {
+      padding-top: 10%;
+    }
+    @include respond-to(768) {
+      padding-top: 15%;
+    }
     .family {
       display: block;
       margin: 0 auto;
@@ -2248,7 +2273,7 @@ ABOUT
       opacity: .9;
       @include respond-to(1000) {
         position: absolute;
-        top: 10%;
+        top: 25%;
         right: 5%;
       }
       @include respond-to(768) {
@@ -2279,7 +2304,7 @@ ABOUT
       @include respond-to(1000) {
         position: absolute;
         left: 5%;
-        top: 15%;
+        top: 30%;
       }
       @include respond-to(768) {
         margin: 0;
@@ -2396,18 +2421,21 @@ SOAP ROOM
 */
 .soap-room {
   .soap-room-header {
+    padding-top: 12%;
     padding-bottom: 4%;
     position: relative;
     background: #eee;
     h1 {
       position: static;
       padding: 2% 0 1.5%;
+      margin-top: 3%;
       text-align: center;
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 15%;
+        top: 30%;
         left: 5%;
+        margin-top: 0;
         padding: 0;
         text-align: left;
       }
@@ -2439,7 +2467,7 @@ SOAP ROOM
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 10%;
+        top: 25%;
         right: 5%;
         width: 325px;
         margin: 0;
@@ -2615,18 +2643,21 @@ BLENDING ROOM
 .blending-room {
   .blending-room-header {
     padding-bottom: 4%;
+    padding-top: 12%;
     position: relative;
     background: #eee;
     h1 {
       position: static;
       padding: 2% 0 1.5%;
+      margin-top: 3%;
       text-align: center;
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 15%;
+        top: 30%;
         left: 5%;
         padding: 0;
+        margin-top: 0;
         text-align: left;
       }
     }
@@ -2657,7 +2688,7 @@ BLENDING ROOM
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 10%;
+        top: 25%;
         right: 5%;
         width: 325px;
         margin: 0;
@@ -2727,18 +2758,21 @@ HERB GARDEN
 .herb-garden {
   .herb-garden-header {
     padding-bottom: 4%;
+    padding-top: 12%;
     position: relative;
     background: #eee;
     h1 {
       position: static;
       padding: 2% 0 1.5%;
+      margin-top: 3%;
       text-align: center;
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 15%;
+        top: 30%;
         left: 5%;
         padding: 0;
+        margin-top: 0;
         text-align: left;
       }
     }
@@ -2769,7 +2803,7 @@ HERB GARDEN
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 10%;
+        top: 30%;
         right: 5%;
         width: 325px;
         margin: 0;
@@ -2839,18 +2873,21 @@ TEA ROOM
 .tea-room {
   .tea-room-header {
     padding-bottom: 4%;
+    padding-top: 12%;
     position: relative;
     background: #eee;
     h1 {
       position: static;
       padding: 2% 0 1.5%;
+      margin-top: 3%;
       text-align: center;
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 15%;
+        top: 30%;
         left: 5%;
         padding: 0;
+        margin-top: 3%;
         text-align: left;
       }
     }
@@ -2881,7 +2918,7 @@ TEA ROOM
       z-index: 100;
       @include respond-to(1000) {
         position: absolute;
-        top: 10%;
+        top: 25%;
         right: 5%;
         width: 325px;
         margin: 0;
@@ -3036,12 +3073,23 @@ DIRECTIONS
 */
 .directions {
   @include outer-container;
+  padding-top: 20%;
+  @include respond-to(768) {
+    padding-top: 15%;
+  }
+  @include respond-to(1000) {
+    padding-top: 12%;
+  }
   a {
     color: $green-dark;
     text-decoration: underline;
   }
   .locations-directions {
     @include span-columns(12);
+    padding: 0 2%;
+    @include respond-to(1000) {
+      padding: 0;
+    }
     p {
       font-size: 1em;
     }
@@ -3062,6 +3110,10 @@ DIRECTIONS
   .from-section {
     @include span-columns(12);
     margin-top: 3%;
+    padding: 0 2%;
+    @include respond-to(1000) {
+      padding: 0;
+    }
     .from-kinvarra,
     .from-corrofin,
     .from-ballyvaghan {
@@ -3094,12 +3146,23 @@ PAYMENT & DELIVERY
 */
 .payment-delivery {
   @include outer-container;
+  padding-top: 20%;
+  @include respond-to(768) {
+    padding-top: 15%;
+  }
+  @include respond-to(1000) {
+    padding-top: 12%;
+  }
   a {
     color: $green-dark;
     text-decoration: underline;
   }
   .shopping-online {
     @include span-columns(12);
+    padding: 0 2%;
+    @include respond-to(1000) {
+      padding: 0;
+    }
     p {
       font-size: 1em;
     }
@@ -3116,11 +3179,21 @@ PAYMENT & DELIVERY
       @include span-columns(6.5);
       @include omega();
     }
+    p {
+      padding: 0 2%;
+      @include respond-to(1000) {
+        padding: 0;
+      }
+    }
   }
   .payment-delivery-content {
     @include span-columns(12);
     margin-top: 3%;
     margin-bottom: 5%;
+    padding: 0 2%;
+    @include respond-to(1000) {
+      padding: 0;
+    }
     .offers,
     .shipping-rates,
     .security {
@@ -3146,17 +3219,23 @@ CONTACT
 */
 .contact {
   @include outer-container;
+  padding-top: 15%;
+  @include respond-to(1000) {
+    padding-top: 12%;
+  }
   a {
     color: $green-dark;
     text-decoration: underline;
   }
   .contact-information {
     @include span-columns(12);
+    padding: 0 2%;
     p {
       font-size: 1em;
     }
     @include respond-to(1000) {
       @include span-columns(5.5);
+      padding: 0;
     }
   }
   .contact-gallery {
@@ -3173,10 +3252,15 @@ CONTACT
     @include span-columns(12);
     margin-top: 3%;
     margin-bottom: 5%;
+    padding: 0 2%;
+    @include respond-to(1000) {
+      padding: 0;
+    }
     .wholesale,
     .order-problems,
     .directions {
       @include span-columns(12);
+      margin-top: 0;
       h4 {
         font-size: 1.4em;
       }
@@ -3202,6 +3286,17 @@ TERMS
       font-size: 1em;
     }
   }
+}
+/* 
+--------------------
+
+BLOG
+
+--------------------
+*/
+.blog {
+  padding: 20% 0;
+  text-align: center;
 }
 /* 
 --------------------
@@ -3330,6 +3425,7 @@ footer {
           border-bottom: 2px solid $green-dark;
           background: none;
           text-align: center;
+          border-radius: 0;
         }
         label {
           display: block;
