@@ -14,6 +14,12 @@
   If you are a user of this theme it is recommended that you create your own css file
   do not edit shopcare.scss directly.
 
+UPDATED
+```bash
+sass --watch resources/css/shopcare.scss:resources/css/shopcare.css
+```
+
+OLD
   ```bash
   sass --watch shopcare/resources/css/shopcare.scss:shopcare/resources/css/shopcare.css
   ```
