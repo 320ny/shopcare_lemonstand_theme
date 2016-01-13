@@ -96,7 +96,6 @@
           <li>
             <a href="{{ site_url('/product') }}/{{ relatedProduct.url_name }}">
             {% if relatedProduct.image %}
-              <br>
               <img temprop="image" alt="{{ relatedProduct.image.title }}" src="{{ relatedProduct.image.thumbnail(300, 'auto') }}">
             {% endif %}
             <span class="name">{{ relatedProduct.name }}<br>/{{ partial('shop-product-attributes') }}</span>

@@ -970,16 +970,21 @@ PRODUCT PAGE
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      margin-top: -15px; }
+      margin-top: -15px;
+      padding: 0;
+      background: #eee;
+      text-align: center; }
       #product-page .also-liked ul:last-child {
         margin-right: 0; }
       #product-page .also-liked ul li {
         display: inline-block;
-        width: 24%;
-        margin-bottom: 3%;
+        width: 21%;
+        margin: 2% 1%;
+        padding: 1%;
         list-style-type: none;
         vertical-align: top;
-        text-align: center; }
+        text-align: center;
+        background: #fff; }
         #product-page .also-liked ul li .name,
         #product-page .also-liked ul li .price {
           display: block;
@@ -990,6 +995,8 @@ PRODUCT PAGE
             font-family: 'IngridMono-Book', courier, sans-serif;
             font-weight: normal;
             font-style: normal; }
+        #product-page .also-liked ul li .name {
+          margin-top: 2em; }
         #product-page .also-liked ul li .price {
           font-family: 'IngridMono-Bold', courier, sans-serif;
           font-weight: normal;
@@ -997,9 +1004,7 @@ PRODUCT PAGE
           margin-top: 5%; }
       #product-page .also-liked ul img {
         display: inline-block;
-        width: 90px;
-        margin-bottom: 7%;
-        margin-right: 10%; }
+        width: 100%; }
 
 /* 
 --------------------
@@ -1483,12 +1488,12 @@ CATEGORY PAGE
         .category-wrapper .category-products ul li .quick-view {
           display: none;
           position: absolute;
-          bottom: 10%;
+          bottom: 0;
           left: 0;
           width: 100%;
           padding: 5%;
           background: #c5c9c8;
-          opacity: .75; }
+          opacity: 1; }
           .category-wrapper .category-products ul li .quick-view p {
             color: #000; }
           .category-wrapper .category-products ul li .quick-view form {

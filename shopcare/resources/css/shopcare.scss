@@ -952,13 +952,18 @@ PRODUCT PAGE
     ul {
       @include span-columns(12);
       margin-top: -15px;
+      padding: 0;
+      background: #eee;
+      text-align: center;
       li {
         display: inline-block;
-        width: 24%;
-        margin-bottom: 3%;
+        width: 21%;
+        margin: 2% 1%;
+        padding: 1%;
         list-style-type: none;
         vertical-align: top;
         text-align: center;
+        background: #fff;
         .name,
         .price {
           display: block;
@@ -968,6 +973,9 @@ PRODUCT PAGE
             @include font1-book;
           }
         }
+        .name {
+          margin-top: 2em;
+        }
         .price {
           @include font1-bold;
           margin-top: 5%;
@@ -975,9 +983,7 @@ PRODUCT PAGE
       }
       img {
         display: inline-block;
-        width: 90px;
-        margin-bottom : 7%;
-        margin-right: 10%;
+        width: 100%;
       }
     }
   }
@@ -1443,12 +1449,12 @@ CATEGORY PAGE
         .quick-view {
           display: none;
           position: absolute;
-          bottom: 10%;
+          bottom: 0;
           left: 0;
           width: 100%;
           padding: 5%;
           background: #c5c9c8;
-          opacity: .75;
+          opacity: 1;
           p {
             color: #000;
           }
