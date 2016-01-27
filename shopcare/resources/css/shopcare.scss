@@ -1416,13 +1416,14 @@ CATEGORY PAGE
         .product-price {
           @include font1-book;
           display: inline-block;
-          margin-bottom: 3px;
-          padding: 2px 10px;
+          padding: .5em .5em .5em 0;
           background: #fff;
+          line-height: 1.6;
         }
         .product-price {
+          display: block;
           @include font1-bold;
-          margin-top: 5%;
+          //margin-top: 5%;
         }
         img {
           width: 100%;
@@ -1430,17 +1431,23 @@ CATEGORY PAGE
         }
         .category-product-details {
           position: relative;
-          top: -50px;
-          max-width: 73%;
+          top: -75px;
+          padding: 5%;
+          //max-width: 73%;
           font-size: .8em;
           em {
             @include font1-book;
             display: inline-block;
-            padding: 2px 10px;
+            padding: .5em .5em .5em 0;
             background: #fff;
+            line-height: 1.6;
             strong {
               padding: 0;
             }
+          }
+          strong {
+            display: block;
+            margin-bottom: 0;
           }
         }
         .quick-view-description-hidden {
@@ -1451,14 +1458,23 @@ CATEGORY PAGE
         .quick-view {
           display: none;
           position: absolute;
-          bottom: 0;
+          bottom: -5px;
           left: 0;
           width: 100%;
           padding: 5%;
           background: #c5c9c8;
           opacity: 1;
+          z-index: 10;
           p {
+            display: inline-block;
+            margin: 0;
+            padding: .5em .5em .5em 0;
             color: #000;
+            &:last-of-type {
+              display: block;
+              //margin-top: 9px;
+              font-family: 'IngridMono-Bold', courier, sans-serif;
+            }
           }
           form {
             display: inline-block;

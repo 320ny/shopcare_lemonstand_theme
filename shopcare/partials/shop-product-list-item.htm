@@ -1,12 +1,12 @@
 {% set is_on_sale = product.onSale %}
 {% set page_url = '/product/' ~ product.url_name %}
 <li data-product-list-item class="{{ is_on_sale ? 'sale' : null }} product-list-item">
-<a href="{{ page_url }}"><img src="{{ product.images.first.thumbnail('auto','auto', {"imageQuality": 100, "type": "png"})|default('http://placehold.it/300x300') }}" alt="{{ product.images.first.description }}" title="{{ product.images.first.title }}"/>
+<a href="{{ page_url }}"><img src="{{ product.images.first.thumbnail('auto','auto', {"imageQuality": 100, "type": "png"})|default('http://placehold.it/200x300') }}" alt="{{ product.images.first.description }}" title="{{ product.images.first.title }}"/>
 
 <div class="category-product-details" data-product-list-details>
   <strong>{{ product.name }}</strong>
-  <br><em>{{ partial('shop-product-attributes', {'product': product}) }}</em>
-  <br><span class="product-price">
+  <em>{{ partial('shop-product-attributes', {'product': product}) }}</em>
+  <span class="product-price">
     {% if is_on_sale %}<span class="oldprice">{{ product.fullPrice|currency }}</span>{% endif %}
     {{ product.price|currency }}
   </span>
