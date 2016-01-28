@@ -720,11 +720,15 @@ PRODUCT PAGE
 */
 #product-page {
   position: relative;
-  margin-top: 1%;
+  //margin-top: 1%;
   .product-header {
     position: relative;
-    padding: 7% 0;
-    background: url("../images/irishlimestone.jpg") no-repeat center bottom;
+    //padding-top: 15%;
+    height: 750px;
+    background-image: url("../images/irishlimestone.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -750,7 +754,7 @@ PRODUCT PAGE
         float: none;
       }
       @include respond-to(1000) {
-        top: 20%;
+        top: 31%;
       }
       h1 {
         margin-bottom: 7%;
@@ -803,6 +807,7 @@ PRODUCT PAGE
     .product-image {
       display: block;
       margin: 0 auto;
+      padding-top: 200px;
       width: 300px;
     }
     .description-ingredient {
@@ -811,7 +816,7 @@ PRODUCT PAGE
       margin-top: 5%;
       @include respond-to(1000) {
         position: absolute;
-        top: 25%;
+        top: 35%;
         right: 7%;
         max-width: 350px;
         margin-top: 0;
@@ -854,22 +859,22 @@ PRODUCT PAGE
     }
   }
   .product-header.atlantic-coast {
-    background: url("../images/atlanticcoast.jpg") no-repeat center bottom;
+    background-image: url("../images/atlanticcoast.jpg");
   }
   .product-header.grassland {
-    background: url("../images/grasslands.jpg") no-repeat center bottom;
+    background-image: url("../images/grasslands.jpg");
   }
   .product-header.irish-limestone {
-    background: url("../images/irishlimestone.jpg") no-repeat center bottom;
+    background-image: url("../images/irishlimestone.jpg");
   }
   .product-header.lost-garden {
-    background: url("../images/lostgarden.jpg") no-repeat center bottom;
+    background-image: url("../images/lostgarden.jpg");
   }
   .product-header.herb-garden {
-    background: url("../images/herbgarden.jpg") no-repeat center bottom;
+    background-image: url("../images/herbgarden.jpg");
   }
   .product-header.woodland {
-    background: url("../images/woodlands.jpg") no-repeat center bottom;
+    background-image: url("../images/woodlands.jpg");
   }
   .scent-family {
     @include outer-container;

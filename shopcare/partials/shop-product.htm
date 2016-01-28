@@ -40,7 +40,7 @@
 
   </div><!-- end short-description -->
 
-  <img src="{{ product.images.second.thumbnail('auto','auto', {"imageQuality": 100, "type": "png"})|default('http://placehold.it/300x450') }}" alt="{{ product.name }}" class="product-image">
+  <img src="{{ product.images[1].thumbnail('auto','auto', {"imageQuality": 100, "type": "png"})|default('http://placehold.it/300x450') }}" alt="{{ product.name }}" class="product-image">
 
   <div class="description-ingredient">
     <div class="description-ingredient-header">
