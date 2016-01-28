@@ -1477,7 +1477,7 @@ CATEGORY PAGE
         .category-wrapper .category-products ul li .quick-view {
           display: none;
           position: absolute;
-          bottom: -5px;
+          top: 150px;
           left: 0;
           width: 100%;
           padding: 5%;
