@@ -23,7 +23,7 @@
     <p>{% if is_on_sale %}<span class="oldprice">{{ product.fullPrice|currency }}</span>{% endif %}{{ product.price|currency }}</p>
     {{ open_form() }}
         <input type="hidden" name="productId" value="{{ product.id }}"/>
-        <a href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product" class="btn">Add to Bag</a>
+        <a href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product" class="btn add-to-bag">Add to Bag</a>
     {{ close_form() }}
     <a class="btn" href="{{ page_url }}">Details</a>
 </span>

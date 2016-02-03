@@ -829,7 +829,9 @@ PRODUCT PAGE
           max-width: 350px;
           margin-top: 0; } }
       #product-page .product-header .description-ingredient .description-ingredient-content .ingredient-text {
-        display: none; }
+        display: none;
+        margin-top: 1em;
+        border-top: 1px dotted #333; }
       #product-page .product-header .description-ingredient .description-ingredient-content .description-text {
         margin-top: 1em;
         border-top: 1px dotted #333; }
@@ -1189,7 +1191,7 @@ CATEGORY PAGE
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 18.96686%;
+        width: 14.70196%;
         margin-left: 0%;
         display: block;
         margin-bottom: 0; }
@@ -1353,7 +1355,7 @@ CATEGORY PAGE
         cursor: pointer; }
       @media only screen and (min-width: 768px) {
         .category-wrapper .subcategory-filter span {
-          margin-bottom: 2.2%; }
+          margin-bottom: 14px; }
           .category-wrapper .subcategory-filter span:last-of-type {
             margin-bottom: 0; } }
     .category-wrapper .subcategory-filter span.active .doodle-x {
@@ -1398,7 +1400,8 @@ CATEGORY PAGE
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 78.67549%; }
+        width: 78.67549%;
+        margin-left: 4.2649%; }
         .category-wrapper .category-products:last-child {
           margin-right: 0; } }
     .category-wrapper .category-products ul {
@@ -1415,7 +1418,7 @@ CATEGORY PAGE
         width: 200px;
         display: inline-block;
         position: relative;
-        margin-bottom: 1em;
+        margin: 0 30px 100px;
         list-style-type: none;
         vertical-align: top;
         text-align: left;
@@ -1457,8 +1460,8 @@ CATEGORY PAGE
           width: 100%;
           height: 100%; }
         .category-wrapper .category-products ul li .category-product-details {
-          position: relative;
-          top: -75px;
+          position: absolute;
+          bottom: -50px;
           padding: 5%;
           font-size: .8em; }
           .category-wrapper .category-products ul li .category-product-details em {
@@ -1480,7 +1483,7 @@ CATEGORY PAGE
         .category-wrapper .category-products ul li .quick-view {
           display: none;
           position: absolute;
-          top: 150px;
+          top: 165px;
           left: 0;
           width: 100%;
           padding: 5%;
@@ -1499,12 +1502,16 @@ CATEGORY PAGE
             display: inline-block; }
           .category-wrapper .category-products ul li .quick-view .btn {
             display: inline-block;
+            padding: 9px 11px 7px;
+            font-size: .7em;
             background: #fff;
             border: none;
             color: #333;
             text-transform: uppercase; }
             .category-wrapper .category-products ul li .quick-view .btn:hover {
               color: #333; }
+          .category-wrapper .category-products ul li .quick-view .add-to-bag {
+            margin-right: 12px; }
           .category-wrapper .category-products ul li .quick-view strong {
             padding: 0;
             background: none; }
