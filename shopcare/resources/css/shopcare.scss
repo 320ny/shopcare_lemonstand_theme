@@ -1393,10 +1393,11 @@ CATEGORY PAGE
       padding: 0;
       text-align: center;
       li {
-        width: 200px;
         display: inline-block;
+        width: 240px;
         position: relative;
-        margin: 0 30px 100px;
+        padding: 0 20px;
+        margin: 0 19px 100px;
         list-style-type: none;
         vertical-align: top;
         text-align: left;
@@ -1440,7 +1441,8 @@ CATEGORY PAGE
         .category-product-details {
           position: absolute;
           bottom: -50px;
-          padding: 5%;
+          left: 15px;
+          padding: 10px;
           //max-width: 73%;
           font-size: .8em;
           em {
@@ -1467,21 +1469,25 @@ CATEGORY PAGE
           display: none;
           position: absolute;
           top: 165px;
-          left: 0;
-          width: 100%;
-          padding: 5%;
+          //top: 200px;
+          left: -5px;
+          width: 260px;
+          padding: 15px 30px;
           background: #c5c9c8;
           opacity: 1;
           z-index: 10;
           p {
-            display: inline-block;
+            //display: block;
             margin: 0;
-            padding: .5em .5em .5em 0;
+            padding: .5em 0;
             color: #000;
             &:last-of-type {
               display: block;
               //margin-top: 9px;
               font-family: 'IngridMono-Bold', courier, sans-serif;
+            }
+            &:nth-of-type(2) {
+              padding-top: .51em;
             }
           }
           form {
@@ -1489,7 +1495,9 @@ CATEGORY PAGE
           }
           .btn {
             display: inline-block;
-            padding: 9px 11px 7px;
+            float: right;
+            padding: 9px 14px 7px;
+            margin-top: 15px;
             font-size: .7em;
             background: #fff;
             border: none;
@@ -1500,7 +1508,9 @@ CATEGORY PAGE
             }
           }
           .add-to-bag {
-            margin-right: 12px;
+            // margin-right: 12px;
+            // margin-top: 15px;
+            float: left;
           }
           strong {
             padding: 0;
