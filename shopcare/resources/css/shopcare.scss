@@ -724,7 +724,7 @@ PRODUCT PAGE
   .product-header {
     position: relative;
     //padding-top: 15%;
-    height: 750px;
+    height: 100%;
     background-image: url("../images/irishlimestone.jpg");
     background-position: center center;
     background-repeat: no-repeat;
@@ -734,23 +734,33 @@ PRODUCT PAGE
     -o-background-size: cover;
     background-size: cover;
     background-color: #ddeae3;
+    @include respond-to(1000) {
+      height: 750px;
+    }
     .short-description {
       display: block;
-      margin-left: 5%;
-      margin-bottom: 3%;
+      //margin-left: 5%;
+      //margin-bottom: 3%;
+      padding-top: 125px;
+      margin: 0 auto;
       text-align: center;
-      @include respond-to(500) {
+      width: 100%;
+      @include respond-to(600) {
         display: inline-block;
         text-align: left;
         float: left;
         max-width: 290px;
+        margin-left: 7%;
+        //padding-top: 0;
       }
       @include respond-to(768) {
         position: absolute;
-        top: 5%;
+        top: 25%;
         left: 7%;
+        padding-top: 0;
         margin-left: 0;
-        margin-bottom: 0;
+        //margin-right: 10%;
+        //margin-bottom: 0;
         float: none;
       }
       @include respond-to(1000) {
@@ -764,7 +774,7 @@ PRODUCT PAGE
         display: block;
         margin-bottom: 5%;
         font-size: .8em;
-        @include respond-to(500) {
+        @include respond-to(600) {
           margin-bottom: 15%;
         }
         strong {
@@ -777,7 +787,7 @@ PRODUCT PAGE
       }
       .product-quantity {
         margin: 5% 0;
-        @include respond-to(500) {
+        @include respond-to(600) {
           margin: 7% 0;
         }
         label {
@@ -807,8 +817,14 @@ PRODUCT PAGE
     .product-image {
       display: block;
       margin: 0 auto;
-      padding-top: 200px;
-      width: 300px;
+      padding: 20% 0 20px;
+      width: 100%;
+      @include respond-to(400) {
+        width: 300px;
+      }
+      @include respond-to(1000) {
+        padding-top: 200px;
+      }
     }
     .description-ingredient {
       width: 100%;
@@ -817,7 +833,7 @@ PRODUCT PAGE
       @include respond-to(1000) {
         position: absolute;
         top: 35%;
-        right: 7%;
+        right: 3%;
         max-width: 350px;
         margin-top: 0;
       }
@@ -885,13 +901,16 @@ PRODUCT PAGE
     padding: 3% 0;
     border-bottom: 1px dotted #333;
     .more-from {
-      @include span-columns(3);
+      @include span-columns(12);
       @include font2;
       padding: 3% 1% 4%;
       font-size: 1.2em;
       border: 2px solid $green-dark;
       text-align: center;
       color: #666;
+      @include respond-to(768){
+        @include span-columns(3);
+      }
       h3 {
         @include font2;
         margin: 35px auto 0;
@@ -908,22 +927,32 @@ PRODUCT PAGE
       }
     }
     ul {
-      @include span-columns(9);
-      margin-top: -15px;
+      @include span-columns(12);
+      padding: 0;
+      @include respond-to(768){
+        @include span-columns(9);
+        margin-top: -15px;
+      }
       li {
         display: inline-block;
-        width: 32.5%;
+        width: 100%;
         margin-bottom: 3%;
         list-style-type: none;
         vertical-align: top;
         text-align: center;
+        @include respond-to (600) {
+          width: 32%;
+        }
         .name,
         .price {
           display: block;
-          text-align: left;
+          text-align: center;
           font-size: .8em;
           strong {
             @include font1-book;
+          }
+          @include respond-to(600) {
+            text-align: left;
           }
         }
         .price {
@@ -932,10 +961,13 @@ PRODUCT PAGE
         }
       }
       img {
-        display: inline-block;
+        display: block;
         width: 90px;
-        margin-bottom : 7%;
-        margin-right: 10%;
+        margin: 0 auto 7%;
+        @include respond-to (600) {
+          display: inline-block;
+          margin-right: 10%;
+        }
       }
     }
   }
@@ -958,26 +990,37 @@ PRODUCT PAGE
     }
     ul {
       @include span-columns(12);
-      margin-top: -15px;
+      //margin-top: -15px;
       padding: 0;
       background: #eee;
       text-align: center;
+      @include respond-to(768) {
+        margin-top: -15px;
+      }
       li {
-        display: inline-block;
-        width: 21%;
-        margin: 2% 1%;
+        display: block;
+        width: 50%;
+        margin: 2% auto;
         padding: 1%;
         list-style-type: none;
         vertical-align: top;
         text-align: center;
         background: #fff;
+        @include respond-to(600) {
+          display: inline-block;
+          width: 21%;
+        }
         .name,
         .price {
           display: block;
-          text-align: left;
+          margin: 2% 1%;
+          text-align: center;
           font-size: .8em;
           strong {
             @include font1-book;
+          }
+          @include respond-to(600) {
+            text-align: left;
           }
         }
         .name {
@@ -1021,10 +1064,12 @@ CATEGORY PAGE
     position: static;
     top: 40%;
     right: 10%;
+    margin-top: 20px;
     padding: 20px 40px;
     border: 2px solid #333;
     @include respond-to(1000) {
       position: absolute;
+      margin-top: 0;
     }
   }
   .category-info {
@@ -1326,6 +1371,10 @@ CATEGORY PAGE
     margin-bottom: 5%;
     border-bottom: 1px dotted #333;
     font-size: .8em;
+    text-align: center;
+    @include respond-to(1000) {
+      text-align: left;
+    }
     .doodle-x {
       display: none;
     }
