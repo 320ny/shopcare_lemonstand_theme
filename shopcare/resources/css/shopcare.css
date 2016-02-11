@@ -1469,6 +1469,9 @@ CATEGORY PAGE
       text-align: center; }
       .category-wrapper .category-products ul:last-child {
         margin-right: 0; }
+      @media only screen and (min-width: 1000px) {
+        .category-wrapper .category-products ul {
+          text-align: left; } }
       .category-wrapper .category-products ul li {
         display: inline-block;
         width: 240px;

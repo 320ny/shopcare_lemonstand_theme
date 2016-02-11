@@ -1441,6 +1441,9 @@ CATEGORY PAGE
       margin: 0;
       padding: 0;
       text-align: center;
+      @include respond-to(1000) {
+        text-align: left;
+      }
       li {
         display: inline-block;
         width: 240px;
